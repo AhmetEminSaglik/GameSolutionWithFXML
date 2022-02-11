@@ -1,0 +1,27 @@
+#btnSettings,#btnPlayGame,#btnExit{
+
+-fx-font-size:35;
+-fx-font-weight: bold;
+-fx-font-family: "Courier New";
+-fx-pref-width:450;
+-fx-border-color:red;
+-fx-border-width:5px;
+-fx-background-radius:10;
+-fx-border-radius:10;
+-fx-text-fill:red;
+-fx-cursor: hand;
+-fx-background-color: Transparent;
+
+}
+
+
+#btnSettings:hover,#btnPlayGame:hover,#btnExit:hover{
+
+-fx-border-color: transparent;
+-fx-text-fill:rgb(10, 20, 30);
+-fx-background-color: red;
+-fx-focusable:false;
+
+}
+
+
