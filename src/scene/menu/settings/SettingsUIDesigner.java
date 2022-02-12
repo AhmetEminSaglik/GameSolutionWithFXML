@@ -5,7 +5,6 @@ import javafx.scene.Scene;
 
 public class SettingsUIDesigner {
     public Scene getScene() {
-        Scene scene = new Scene(new SceneBuilder().getRoot("/scene/menu/settings/Settings.fxml"));
-        return scene;
+        return new SceneBuilder().buildScene("/scene/menu/settings/Settings.fxml", "/resource/menu.css");
     }
 }

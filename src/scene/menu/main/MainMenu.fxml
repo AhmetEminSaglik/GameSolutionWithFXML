@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="anchorPane" prefHeight="579.0" prefWidth="839.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scene.menu.main.MainMenuController">
+   <children>
+      <VBox fx:id="menuVBox" alignment="TOP_CENTER" layoutX="239.0" prefHeight="582.0" prefWidth="229.0" spacing="70.0" style="-fx-background-color: rgb(10, 20, 30);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="btnPlayGame" mnemonicParsing="false" onAction="#openPlayGameMenu" prefHeight="50.0" prefWidth="226.0" text="Play Game" />
+            <Button fx:id="btnSettings" mnemonicParsing="false" onAction="#openSettings" prefHeight="50.0" prefWidth="226.0" text="Settings" />
+            <Button fx:id="btnHowToPlay" mnemonicParsing="false" onAction="#openHowToPlay" prefHeight="50.0" prefWidth="226.0" text="How To Play" />
+            <Button fx:id="btnExit" mnemonicParsing="false" onAction="#exitFromApplication" prefHeight="50.0" prefWidth="226.0" text="Exit" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

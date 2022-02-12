@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="scene.menu.playgame.PlayGameMenuController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane fx:id="anchorPane" prefHeight="579.0" prefWidth="839.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scene.menu.playgame.PlayGameMenuController">
+   <children>
+      <VBox fx:id="menuVBox" alignment="TOP_CENTER" layoutX="239.0" prefHeight="582.0" prefWidth="229.0" spacing="70.0" style="-fx-background-color: rgb(10, 20, 30);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="btnPersonWantToPlay" mnemonicParsing="false" onAction="#playGameByPerson" prefHeight="50.0" prefWidth="226.0" text="I Want To Play" />
+            <Button fx:id="btnRobotWillPlay" mnemonicParsing="false" onAction="#playGameByRobot" prefHeight="50.0" prefWidth="226.0" text="I Want To See Solution" />
+            <Button fx:id="btnPersonvsRobot" mnemonicParsing="false" onAction="#playBothPersonAndRobot" prefHeight="50.0" prefWidth="226.0" text="Me VS Robot ???" />
+            <Button fx:id="btnGoBack" mnemonicParsing="false" onAction="#goBackMenu" prefHeight="50.0" prefWidth="226.0" text="Go Back" />
+         </children>
+      </VBox>
+   </children>
 </AnchorPane>

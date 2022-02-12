@@ -3,7 +3,7 @@ package main;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import scene.menu.mainmenu.MainMenuSceneUIDesigner;
+import scene.menu.main.MainMenuSceneUIDesigner;
 
 public class Main extends Application {
 

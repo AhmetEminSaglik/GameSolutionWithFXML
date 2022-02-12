@@ -1,11 +1,11 @@
-package scene.menu.mainmenu;
+package scene.menu.main;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
+import scene.SwitchNewScene;
+import scene.menu.playgame.PlayGameMenuSceneUIDesigner;
 import scene.menu.settings.SettingsUIDesigner;
 
 import java.net.URL;
@@ -16,42 +16,39 @@ public class MainMenuController implements Initializable {
     @FXML
     private AnchorPane anchorPane;
 
+//    @FXML
+//    private VBox menuVBox;
+//    @FXML
+//    private Button btnPlayGame;
+//
+//    @FXML
+//    private Button btnSettings;
+//
+//    @FXML
+//    private Button btnExit;
 
-    @FXML
-    private Button btnPlayGame;
-
-    @FXML
-    private Button btnSettings;
-
-    @FXML
-    private Button btnExit;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//btnPlayGame.
     }
 
 
-
-
     @FXML
-    void playGame(ActionEvent event) {
+    void openPlayGameMenu(ActionEvent event) {
+        new SwitchNewScene().switchScene(anchorPane, new PlayGameMenuSceneUIDesigner().getScene());
     }
 
     @FXML
     void openSettings(ActionEvent event) {
-        Stage stage = (Stage) anchorPane.getScene().getWindow();
-        stage.setScene(new SettingsUIDesigner().getScene());
+        new SwitchNewScene().switchScene(anchorPane, new SettingsUIDesigner().getScene());
     }
 
+    @FXML
+    void openHowToPlay(ActionEvent event) {
+
+    }
 
     @FXML
     void exitFromApplication(ActionEvent event) {
         System.exit(0);
     }
-
-    void desingButtons() {
-
-
-    }
-
 }

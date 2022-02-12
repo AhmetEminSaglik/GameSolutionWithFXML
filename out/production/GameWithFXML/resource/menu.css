@@ -1,9 +1,10 @@
-#btnSettings,#btnPlayGame,#btnExit{
+#btnSettings,#btnPlayGame,#btnExit,#btnHowToPlay,
+#btnPersonWantToPlay,#btnRobotWillPlay,#btnPersonvsRobot,#btnGoBack{
 
 -fx-font-size:35;
 -fx-font-weight: bold;
 -fx-font-family: "Courier New";
--fx-pref-width:450;
+-fx-pref-width:650;
 -fx-border-color:red;
 -fx-border-width:5px;
 -fx-background-radius:10;
@@ -15,13 +16,19 @@
 }
 
 
-#btnSettings:hover,#btnPlayGame:hover,#btnExit:hover{
+#btnSettings:hover,#btnPlayGame:hover,#btnExit:hover,#btnHowToPlay:hover,
+#btnPersonWantToPlay:hover,#btnRobotWillPlay:hover,#btnPersonvsRobot:hover,#btnGoBack:hover{
 
 -fx-border-color: transparent;
 -fx-text-fill:rgb(10, 20, 30);
 -fx-background-color: red;
 -fx-focusable:false;
 
+
+}
+
+#menuVBox{
+-fx-padding:200 0 0 0;
 }
 
 

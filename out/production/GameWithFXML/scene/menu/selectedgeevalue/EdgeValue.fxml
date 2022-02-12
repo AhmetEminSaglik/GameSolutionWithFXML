@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="anchorPane" prefHeight="579.0" prefWidth="839.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scene.menu.main.MainMenuController">
+   <children>
+      <VBox fx:id="menuFirstDeepVBox" alignment="TOP_CENTER" layoutX="239.0" prefHeight="582.0" prefWidth="229.0" spacing="70.0" style="-fx-background-color: rgb(10, 20, 30);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="451.0">
+                     <children>
+                        <RadioButton mnemonicParsing="false" style="-fx-background-color: green; -fx-text-fill: white;" text="Square Edge 5 x 5" />
+                        <RadioButton mnemonicParsing="false" style="-fx-background-color: green; -fx-text-fill: white;" text="Square Edge 6 x 6" />
+                        <RadioButton mnemonicParsing="false" style="-fx-background-color: green; -fx-text-fill: white;" text="Square Edge 7 x 7" />
+                        <RadioButton mnemonicParsing="false" style="-fx-background-color: green; -fx-text-fill: white;" text="Square Edge 8 x 8" />
+                        <RadioButton mnemonicParsing="false" style="-fx-background-color: green; -fx-text-fill: white;" text="Square Edge 9x 9" />
+                        <RadioButton mnemonicParsing="false" style="-fx-background-color: green; -fx-text-fill: white;" text="Square Edge 10 x 10" />
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
