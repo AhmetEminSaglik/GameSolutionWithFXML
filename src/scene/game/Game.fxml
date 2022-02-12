@@ -2,19 +2,18 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Text?>
-
 
 <AnchorPane fx:id="anchorPane" prefHeight="579.0" prefWidth="839.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scene.game.GameController">
    <children>
       <BorderPane layoutX="262.0" layoutY="80.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <right>
-            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="25.0" BorderPane.alignment="CENTER">
+            <VBox alignment="TOP_CENTER" minWidth="450.0" prefHeight="479.0" prefWidth="337.0" spacing="25.0" BorderPane.alignment="CENTER">
                <children>
                   <Button fx:id="btnMainMenu" mnemonicParsing="false" onAction="#goMainMenu" text="MAIN MENU">
                      <cursor>
@@ -31,21 +30,30 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Text fx:id="txtTotalStep" strokeType="OUTSIDE" strokeWidth="0.0" text="TOTAL STEP" />
-                  <Text fx:id="txtCurrentStep" strokeType="OUTSIDE" strokeWidth="0.0" text="CURRENT STEP" />
-                  <Text fx:id="txtScore" strokeType="OUTSIDE" strokeWidth="0.0" text="SCORE" />
+                  <Separator fx:id="seperator1" prefWidth="200.0" />
+                  <Label fx:id="lblTotalStep" text="TOTAL STEP  " />
+                  <Label fx:id="lblTotalStepValue" text="123_4333_333_33" />
+                  <Separator fx:id="seperator2" prefWidth="200.0" style=": rgb(124, 208, 54); : 1 1 0 1; : rgb(124, 208, 54);" />
+                  <Label fx:id="lblCurrentStep" text="CURRENT STEP" />
+                  <Label fx:id="lblCurrentStepValue" text="100" />
+                  <Separator fx:id="seperator3" prefWidth="200.0" />
+                  <Label fx:id="lblScore" text="SCORE:" />
+                  <Label fx:id="lblScoreValue" text="100_222_333" />
                </children>
             </VBox>
          </right>
          <top>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <HBox alignment="CENTER" prefHeight="100.0" BorderPane.alignment="CENTER">
                <children>
-                  <TextField fx:id="txtTimeField" />
+                  <Label fx:id="lblTimeField" text="Elapsed Time : 00 : 00 : 00" />
                </children>
             </HBox>
          </top>
          <center>
-            <AnchorPane fx:id="anchorPaneForButtons" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+            <AnchorPane fx:id="anchorPaneForButtons" prefHeight="390.0" prefWidth="580.0" snapToPixel="false" style=": ;" BorderPane.alignment="CENTER_RIGHT">
+               <children>
+                  <VBox fx:id="vBoxToCenterButtons" alignment="CENTER" layoutX="110.0" layoutY="23.0" prefHeight="217.0" prefWidth="243.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children></AnchorPane>
          </center>
       </BorderPane>
    </children>

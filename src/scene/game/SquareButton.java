@@ -1,6 +1,7 @@
 package scene.game;
 
 
+import javafx.scene.Cursor;
 import javafx.scene.control.Button;
 
 public class SquareButton extends Button {
@@ -9,7 +10,11 @@ public class SquareButton extends Button {
     public SquareButton(int x, int y) {
         this.x = x;
         this.y = y;
-  
+        setId("SquareBtn");
+        setPrefSize(40, 40);
+        setCursor(Cursor.HAND);
+//        setText(x+"-"+y);
+//        setStyle();
     }
 
     public int getX() {

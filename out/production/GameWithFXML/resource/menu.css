@@ -61,3 +61,63 @@
 -fx-background-color: rgb(10, 20, 30);
 }
 
+#SquareBtn{
+-fx-background-color:red;
+-fx-pref-width:60;
+-fx-pref-height:60;
+-fx-min-width:60;
+-fx-min-height:60;
+-fx-max-width:60;
+-fx-max-height:60;
+
+/*-fx-padding: 5px;
+-fx-border-insets: 5px;
+-fx-background-insets: 5px;*/
+
+}
+
+#SquareBtn:hover{
+-fx-background-color:cyan;
+}
+#lblTimeField{
+-fx-text-fill:cyan;
+-fx-font-weight: bold;
+-fx-font-size: 33;
+-fx-font-family: "Courier New";
+}
+
+#btnMainMenu,#btnStepBack,#btnReset{
+-fx-font-size:27;
+-fx-font-weight: bold;
+-fx-font-family: "Courier New";
+-fx-pref-width:3700;
+-fx-border-color:rgb(124, 208, 54);
+-fx-border-width:5px;
+-fx-background-radius:10;
+-fx-border-radius:10;
+-fx-text-fill:rgb(124, 208, 54);;
+-fx-cursor: hand;
+-fx-background-color: Transparent;
+}
+#btnMainMenu:hover,#btnStepBack:hover,#btnReset:hover{
+-fx-border-color:red;
+-fx-text-fill:white;
+-fx-background-color:black;
+}
+
+#lblTotalStep,#lblTotalStepValue,#lblCurrentStep,#lblCurrentStepValue,#lblScore,#lblScoreValue{
+-fx-text-fill:cyan;
+-fx-font-weight: bold;
+-fx-font-size: 27;
+-fx-font-family: "Courier New";
+}
+#seperator1,#seperator2,#seperator3{
+-fx-border-height:100;
+-fx-border-widtht:30;
+-fx-border-color:rgb(124, 208, 54);
+-fx-background-color:rgb(124, 208, 54);
+ }
+
+#vBoxToCenterButtons{
+-fx-background-color:black;
+}
