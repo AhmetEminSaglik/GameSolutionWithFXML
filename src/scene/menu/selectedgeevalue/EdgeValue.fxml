@@ -1,27 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="579.0" prefWidth="839.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scene.menu.main.MainMenuController">
+<AnchorPane fx:id="anchorPane" prefHeight="579.0" prefWidth="839.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scene.menu.selectedgeevalue.EdgeValueController">
    <children>
-      <VBox fx:id="menuFirstDeepVBox" alignment="TOP_CENTER" layoutX="239.0" prefHeight="582.0" prefWidth="229.0" spacing="70.0" style="-fx-background-color: rgb(10, 20, 30);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox fx:id="menuFirstDeepVBox" alignment="CENTER" fillWidth="false" layoutX="239.0" prefHeight="600.0" prefWidth="600.0" spacing="70.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+            <VBox alignment="CENTER_LEFT" spacing="30.0">
                <children>
-                  <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="451.0">
-                     <children>
-                        <RadioButton mnemonicParsing="false" style="-fx-background-color: green; -fx-text-fill: white;" text="Square Edge 5 x 5" />
-                        <RadioButton mnemonicParsing="false" style="-fx-background-color: green; -fx-text-fill: white;" text="Square Edge 6 x 6" />
-                        <RadioButton mnemonicParsing="false" style="-fx-background-color: green; -fx-text-fill: white;" text="Square Edge 7 x 7" />
-                        <RadioButton mnemonicParsing="false" style="-fx-background-color: green; -fx-text-fill: white;" text="Square Edge 8 x 8" />
-                        <RadioButton mnemonicParsing="false" style="-fx-background-color: green; -fx-text-fill: white;" text="Square Edge 9x 9" />
-                        <RadioButton mnemonicParsing="false" style="-fx-background-color: green; -fx-text-fill: white;" text="Square Edge 10 x 10" />
-                     </children>
-                  </VBox>
+                  <RadioButton fx:id="radioBtnSquareEdge5x5" mnemonicParsing="false" onAction="#getSelectedRadioBtnItem" style=": ;" text="Square Edge 5 x 5">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="edgeValueGroup" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="radioBtnSquareEdge6x6" mnemonicParsing="false" onAction="#getSelectedRadioBtnItem" text="Square Edge 6 x 6" toggleGroup="$edgeValueGroup" />
+                  <RadioButton fx:id="radioBtnSquareEdge7x7" mnemonicParsing="false" onAction="#getSelectedRadioBtnItem" text="Square Edge 7 x 7" toggleGroup="$edgeValueGroup" />
+                  <RadioButton fx:id="radioBtnSquareEdge8x8" mnemonicParsing="false" onAction="#getSelectedRadioBtnItem" text="Square Edge 8 x 8" toggleGroup="$edgeValueGroup" />
+                  <RadioButton fx:id="radioBtnSquareEdge9x9" mnemonicParsing="false" onAction="#getSelectedRadioBtnItem" text="Square Edge 9 x 9" toggleGroup="$edgeValueGroup" />
+                  <RadioButton fx:id="radioBtnSquareEdge10x10" mnemonicParsing="false" onAction="#getSelectedRadioBtnItem" text="Square Edge 10 x 10" toggleGroup="$edgeValueGroup" />
                </children>
+               <padding>
+                  <Insets top="30.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
             </VBox>
+            <Button fx:id="btnStart" mnemonicParsing="false" onAction="#startGame" text="Start" />
+            <Button fx:id="btnGoBack" mnemonicParsing="false" onAction="#goBack" text="Go Back" />
          </children>
       </VBox>
    </children>

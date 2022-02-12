@@ -1,5 +1,5 @@
 #btnSettings,#btnPlayGame,#btnExit,#btnHowToPlay,
-#btnPersonWantToPlay,#btnRobotWillPlay,#btnPersonvsRobot,#btnGoBack{
+#btnPersonWantToPlay,#btnRobotWillPlay,#btnPersonvsRobot,#btnGoBack,#btnStart{
 
 -fx-font-size:35;
 -fx-font-weight: bold;
@@ -17,7 +17,8 @@
 
 
 #btnSettings:hover,#btnPlayGame:hover,#btnExit:hover,#btnHowToPlay:hover,
-#btnPersonWantToPlay:hover,#btnRobotWillPlay:hover,#btnPersonvsRobot:hover,#btnGoBack:hover{
+#btnPersonWantToPlay:hover,#btnRobotWillPlay:hover,#btnPersonvsRobot:hover,#btnGoBack:hover,
+#btnStart:hover{
 
 -fx-border-color: transparent;
 -fx-text-fill:rgb(10, 20, 30);
@@ -31,4 +32,32 @@
 -fx-padding:200 0 0 0;
 }
 
+#radioBtnSquareEdge5x5,
+#radioBtnSquareEdge6x6,
+#radioBtnSquareEdge7x7,
+#radioBtnSquareEdge8x8,
+#radioBtnSquareEdge9x9,
+#radioBtnSquareEdge10x10{
+-fx-pref-width:400px;
+-fx-font-size:30;
+-fx-font-family: "Courier New";
+-fx-cursor: hand;
+-fx-text-fill: cyan;
+}
+
+#radioBtnSquareEdge5x5:hover,
+#radioBtnSquareEdge6x6:hover,
+#radioBtnSquareEdge7x7:hover,
+#radioBtnSquareEdge8x8:hover,
+#radioBtnSquareEdge9x9:hover,
+#radioBtnSquareEdge10x10:hover{
+-fx-text-size:25;
+-fx-text-fill:rgb(10, 20, 30);
+-fx-font-weight: bold;
+-fx-background-color:cyan;
+-fx-background-radius:50px;
+}
+#anchorPane{
+-fx-background-color: rgb(10, 20, 30);
+}
 

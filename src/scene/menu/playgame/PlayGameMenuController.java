@@ -8,7 +8,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import scene.SwitchNewScene;
 import scene.menu.main.MainMenuSceneUIDesigner;
-import scene.menu.selectedgeevalue.EdgeValueUIDesigner;
+import scene.menu.selectedgeevalue.EdgeValueSceneUIDesigner;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -35,7 +35,7 @@ public class PlayGameMenuController implements Initializable {
 
     @FXML
     void playGameByPerson(ActionEvent event) {
-        new SwitchNewScene().switchScene(anchorPane,new EdgeValueUIDesigner().getScene());
+        new SwitchNewScene().switchScene(anchorPane,new EdgeValueSceneUIDesigner().getScene());
     }
 
     @FXML
