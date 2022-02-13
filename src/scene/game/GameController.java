@@ -11,26 +11,38 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import preparegamebyselectingmenu.PrepareGameBySelectingMenu;
 import scene.SwitchNewScene;
+import scene.basescenecontroller.BaseSceneController;
 import scene.menu.main.MainMenuSceneUIDesigner;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class GameController implements Initializable {
+public class GameController extends BaseSceneController {
     @FXML
     public AnchorPane anchorPaneForButtons;
     private int edgeValue;
     @FXML
     private VBox vBoxToCenterButtons;
+    private PrepareGameBySelectingMenu prepareGameBySelectingMenu;
+
+
+    public GameController(PrepareGameBySelectingMenu prepareGameBySelectingMenu) {
+        super(prepareGameBySelectingMenu);
+        this.prepareGameBySelectingMenu = prepareGameBySelectingMenu;
+        this.edgeValue=prepareGameBySelectingMenu.getEdgeValue();
+
+    }
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("initilaize aderken anchor pane : " + anchorPaneForButtons);
-        System.out.println("baslatilirken gelen edge" + edgeValue);
+//        System.out.println("initilaize aderken anchor pane : " + anchorPaneForButtons);
+//        System.out.println("baslatilirken gelen edge" + edgeValue);
         Platform.runLater(() -> {
             addSquaresToAnchorPane();
+            prepareGameBySelectingMenu.startGame();
             /*System.out.println("platform calisiyor");
             System.out.println(anchorPaneForButtons.getChildren());
             VBox vBox=(VBox) anchorPaneForButtons.getChildren().get(0);
@@ -45,7 +57,7 @@ public class GameController implements Initializable {
 
     @FXML
     void goMainMenu(ActionEvent event) {
-        new SwitchNewScene().switchScene(anchorPaneForButtons, new MainMenuSceneUIDesigner().getScene());
+        new SwitchNewScene().switchScene(anchorPaneForButtons, new MainMenuSceneUIDesigner().getCreatedScene());
 
     }
 

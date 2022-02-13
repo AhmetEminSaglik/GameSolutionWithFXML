@@ -1,5 +1,6 @@
 package scene.menu.selectedgeevalue;
 
+import algorithm.game.gamerepo.IDetermineEdgeValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -8,15 +9,26 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import preparegamebyselectingmenu.PrepareGameBySelectingMenu;
 import scene.SwitchNewScene;
+import scene.basescenecontroller.BaseSceneController;
+import scene.game.GameController;
 import scene.game.GameSceneUIDesigner;
+import scene.menu.playgame.PlayGameMenuController;
 import scene.menu.playgame.PlayGameMenuSceneUIDesigner;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class EdgeValueController implements Initializable {
+public class EdgeValueController extends BaseSceneController implements IDetermineEdgeValue {
+
     int UNSELECTED_VALUE = -1;
+    private PrepareGameBySelectingMenu prepareGameBySelectingMenu;
+
+    public EdgeValueController(PrepareGameBySelectingMenu prepareGameBySelectingMenu) {
+        super(prepareGameBySelectingMenu);
+        this.prepareGameBySelectingMenu = prepareGameBySelectingMenu;
+    }
 
     @FXML
     private AnchorPane anchorPane;
@@ -43,6 +55,7 @@ public class EdgeValueController implements Initializable {
     @FXML
     private RadioButton radioBtnSquareEdge10x10;
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
     }
@@ -67,15 +80,16 @@ public class EdgeValueController implements Initializable {
         } else if (radioBtnSquareEdge10x10.equals(edgeValueGroup.getSelectedToggle())) {
             squareEdgeValue = 10;
         }
-
+//        prepareGameBySelectingMenu.setEdgeValue(squareEdgeValue);
 
     }
 
     @FXML
     void startGame(ActionEvent event) {
-        if (squareEdgeValue != UNSELECTED_VALUE)
-            new SwitchNewScene().switchScene(anchorPane, new GameSceneUIDesigner().getScene(squareEdgeValue));
-        else {
+        if (squareEdgeValue != UNSELECTED_VALUE) {
+            prepareGameBySelectingMenu.buildGameModel(this);
+            new SwitchNewScene().switchScene(anchorPane, new GameSceneUIDesigner(new GameController(prepareGameBySelectingMenu)).getCreatedScene());
+        } else {
             //TODO hata message bastirilacak
             System.out.println("HATA MESAJI BASTIRILACAK");
         }
@@ -83,6 +97,11 @@ public class EdgeValueController implements Initializable {
 
     @FXML
     void goBack(ActionEvent event) {
-        new SwitchNewScene().switchScene(anchorPane, new PlayGameMenuSceneUIDesigner().getScene());
+        new SwitchNewScene().switchScene(anchorPane, new PlayGameMenuSceneUIDesigner(new PlayGameMenuController(prepareGameBySelectingMenu)).getCreatedScene());
+    }
+
+    @Override
+    public int determineEdgeValue() {
+        return squareEdgeValue;
     }
 }

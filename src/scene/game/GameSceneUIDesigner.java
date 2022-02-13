@@ -5,19 +5,27 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import scene.basescenecontroller.BaseSceneController;
+import scene.basescenecontroller.BaseSceneLoader;
 import scene.scenebuilder.SceneBuilder;
 
 import java.io.IOException;
 import java.util.List;
 
-public class GameSceneUIDesigner {
+public class GameSceneUIDesigner extends BaseSceneLoader {
 
     String fxmlPath = "/scene/game/Game.fxml", cssPath = "/resource/menu.css";
 
-    public Scene getScene(int edgeValue) {
+    public GameSceneUIDesigner(BaseSceneController baseSceneController) {
+        super(baseSceneController);
+        scene=loadFxmlFile(fxmlPath);
+        addCss(scene,cssPath);
+    }
+
+  /*  public Scene getScene(int edgeValue) {
 //        Scene scene = new SceneBuilder().buildScene("/scene/game/Game.fxml", "/resource/menu.css");
         try {
-            System.out.println("gonderilecek edge : "+edgeValue);
+            System.out.println("gonderilecek edge : " + edgeValue);
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));
             Parent root = fxmlLoader.load();
             GameController gameController = fxmlLoader.getController();
@@ -29,7 +37,9 @@ public class GameSceneUIDesigner {
             e.printStackTrace();
         }
         return null;
-    }
+    }*/
+
+
 /*
     void createSquares(int edgeValue) {
         VBox vBox = new VBox(edgeValue);

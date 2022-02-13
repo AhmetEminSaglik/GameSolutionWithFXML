@@ -1,10 +1,19 @@
 package scene.menu.playgame;
 
-import javafx.scene.Scene;
-import scene.scenebuilder.SceneBuilder;
+import scene.basescenecontroller.BaseSceneController;
+import scene.basescenecontroller.BaseSceneLoader;
 
-public class PlayGameMenuSceneUIDesigner {
-    public Scene getScene() {
-        return new SceneBuilder().buildScene("/scene/menu/playgame/PlayGameMenu.fxml", "/resource/menu.css");
+public class PlayGameMenuSceneUIDesigner extends BaseSceneLoader {
+
+    final String fxmlPath = "/scene/menu/playgame/PlayGameMenu.fxml", cssPath = "/resource/menu.css";
+
+    public PlayGameMenuSceneUIDesigner(BaseSceneController baseSceneController) {
+        super(baseSceneController);
+        scene = loadFxmlFile(fxmlPath);
+        addCss(scene, cssPath);
     }
+
+//    public Scene getScene() {
+//        return new SceneBuilder().buildScene("/scene/menu/playgame/PlayGameMenu.fxml", "/resource/menu.css");
+//    }
 }
