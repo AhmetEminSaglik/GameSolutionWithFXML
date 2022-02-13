@@ -9,15 +9,15 @@ import java.io.IOException;
 public class SceneBuilder {
     private Parent getRoot(String scenePath) {
         try {
-            System.out.println("gelen path : "+scenePath);
+//            System.out.println("gelen path : "+scenePath);
             FXMLLoader fxmlLoader = new FXMLLoader();
             Parent root = fxmlLoader.load(getClass().getResource(scenePath));
-            System.out.println("root : "+root);
+//            System.out.println("root : "+root);
             return root;
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("root : "+null);
+//        System.out.println("root : "+null);
         return null;
     }
 

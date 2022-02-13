@@ -95,7 +95,7 @@
 -fx-border-width:5px;
 -fx-background-radius:10;
 -fx-border-radius:10;
--fx-text-fill:rgb(124, 208, 54);;
+-fx-text-fill:rgb(124, 208, 54);
 -fx-cursor: hand;
 -fx-background-color: Transparent;
 }
@@ -111,11 +111,11 @@
 -fx-font-size: 27;
 -fx-font-family: "Courier New";
 }
-#seperator1,#seperator2,#seperator3{
+#seperator1,#seperator2,#seperator3,#seperator4{
 -fx-border-height:100;
 -fx-border-widtht:30;
--fx-border-color:rgb(124, 208, 54);
--fx-background-color:rgb(124, 208, 54);
+-fx-border-color:white;
+-fx-background-color:white;
  }
 
 #vBoxToCenterButtons{

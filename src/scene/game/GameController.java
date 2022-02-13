@@ -86,7 +86,7 @@ public class GameController implements Initializable {
             vBoxToCenterButtons.getChildren().add(hBox);
         }
 //        vBox.setAlignment(Pos.CENTER);
-        System.out.println(vBoxToCenterButtons.getAlignment());
+//        System.out.println(vBoxToCenterButtons.getAlignment());
 //        return vBoxToCenterButtons;
 //        return vBoxToCenterButtons;
     }
@@ -104,7 +104,7 @@ public class GameController implements Initializable {
         //6-->490
         // 5 --> 535
 
-        System.out.println("gelen Vbox : " + vBoxToCenterButtons.getAlignment().toString());
+//        System.out.println("gelen Vbox : " + vBoxToCenterButtons.getAlignment().toString());
 //        anchorPaneForButtons.getChildren().add(vBox);
     }
 

@@ -10,4 +10,5 @@ public class SettingsController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         System.out.println("Baslatildi");
     }
+
 }

@@ -32,13 +32,14 @@
                   </Button>
                   <Separator fx:id="seperator1" prefWidth="200.0" />
                   <Label fx:id="lblTotalStep" text="TOTAL STEP  " />
-                  <Label fx:id="lblTotalStepValue" text="123_4333_333_33" />
+                  <Label fx:id="lblTotalStepValue" text="0" />
                   <Separator fx:id="seperator2" prefWidth="200.0" style=": rgb(124, 208, 54); : 1 1 0 1; : rgb(124, 208, 54);" />
                   <Label fx:id="lblCurrentStep" text="CURRENT STEP" />
-                  <Label fx:id="lblCurrentStepValue" text="100" />
+                  <Label fx:id="lblCurrentStepValue" text="0" />
                   <Separator fx:id="seperator3" prefWidth="200.0" />
                   <Label fx:id="lblScore" text="SCORE:" />
-                  <Label fx:id="lblScoreValue" text="100_222_333" />
+                  <Label fx:id="lblScoreValue" text="0" />
+                  <Separator fx:id="seperator4" prefWidth="200.0" />
                </children>
             </VBox>
          </right>

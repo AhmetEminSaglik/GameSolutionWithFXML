@@ -50,9 +50,9 @@ public class EdgeValueController implements Initializable {
 
     @FXML
     void getSelectedRadioBtnItem(ActionEvent event) {
-        System.out.println("Secilen toggle " + edgeValueGroup.getSelectedToggle());
-        System.out.println(edgeValueGroup.getSelectedToggle() == radioBtnSquareEdge5x5);
-        System.out.println(edgeValueGroup.getSelectedToggle());
+//        System.out.println("Secilen toggle " + edgeValueGroup.getSelectedToggle());
+//        System.out.println(edgeValueGroup.getSelectedToggle() == radioBtnSquareEdge5x5);
+//        System.out.println(edgeValueGroup.getSelectedToggle());
 
         if (radioBtnSquareEdge5x5.equals(edgeValueGroup.getSelectedToggle())) {
             squareEdgeValue = 5;
