@@ -1,16 +1,18 @@
 package algorithm.game.play.input.person;
 
 import algorithm.errormessage.ErrorMessage;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class SafeScannerInput {
+public class SafeScannerInput implements InputWayOfPersonInput {
 
     private Scanner scanner = new Scanner(System.in);
     private int input;
 
     private String inputMismatchMessage = "Please enter number between  0 and 10 (except these numbers)";
 
+    @Override
     public int getInput() {
 
         try {

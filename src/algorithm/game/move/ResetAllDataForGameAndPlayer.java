@@ -2,6 +2,7 @@ package algorithm.game.move;
 
 import algorithm.game.Game;
 import algorithm.game.gamerepo.BuildGame;
+import algorithm.game.gamerepo.IDetermineEdgeValue;
 import algorithm.game.gamerepo.player.Player;
 
 public class ResetAllDataForGameAndPlayer {
@@ -10,7 +11,12 @@ public class ResetAllDataForGameAndPlayer {
 
     public ResetAllDataForGameAndPlayer(Game game) throws InterruptedException {
         squareEdge = game.getModel().getGameSquares().length;
-        buildGame = new BuildGame(squareEdge);
+        buildGame = new BuildGame(new IDetermineEdgeValue() {
+            @Override
+            public int determineEdgeValue() {
+                return squareEdge;
+            }
+        });
     }
 
 

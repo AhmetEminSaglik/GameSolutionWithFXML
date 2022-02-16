@@ -15,20 +15,23 @@ public class BuildGame /*implements IDetermineEdgeValue*/ {
 
     public BuildGame(IDetermineEdgeValue IDetermineEdgeValue) {
         this.IDetermineEdgeValue = IDetermineEdgeValue;
-        buildGame(determineEdgeValue());
+        edgeValue = determineEdgeValue();
+//        System.out.println("buradaki deger : "+edgeValue);
+        buildGame(edgeValue);
 //        IDetermineEdgeValue.determineEdgeValue();
 
     }
 
-    public BuildGame(int edgeValue) {
-        buildGame(edgeValue);
-    }
+//    public BuildGame(int edgeValue) {
+//        buildGame(edgeValue);
+//    }
 
     private void buildGame(int edgeValue) {
         try {
             this.edgeValue = edgeValue;
             new SquareValidationGame(edgeValue, edgeValue);
-            this.edgeValue = edgeValue;
+//            this.edgeValue = edgeValue;
+//            System.out.println("simdiki edge value : "+edgeValue);
             game = new Game();
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -37,7 +40,7 @@ public class BuildGame /*implements IDetermineEdgeValue*/ {
         }
     }
 
-    public Game createGame()  {
+    public Game createGame() {
 
         game.setModel(new Model());
 

@@ -1,5 +1,6 @@
 package algorithm.game.play;
 
+import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.Game;
 import algorithm.game.gamerepo.player.Player;
 import algorithm.game.gamerepo.player.robot.Robot;
@@ -7,6 +8,8 @@ import algorithm.game.location.DirectionLocation;
 import algorithm.game.move.Move;
 import algorithm.print.EasylyReadNumber;
 import algorithm.printarray.StringFormat;
+
+import java.util.Scanner;
 
 public class PlayGame {
 
@@ -21,6 +24,7 @@ public class PlayGame {
     public PlayGame(Game game) {
         this.game = game;
         player = game.getPlayer();
+        System.out.println("gelen game : " + game.toString());
 //        printable = new FileWriteProcess(game.getPlayer().getName());
     }
 
@@ -29,40 +33,51 @@ public class PlayGame {
         comparisonOfSolutions.compareSolution();
     }
 
+//    public void movePlayer(int x, int y) {
+//    }
+
     public void playGame() {
 
         prepareGame = new PrepareGame(game);
         Move moveForwardOrBack;
 
-        printGamelastStuation(game);
 //        appendFileSolutionName();
 //        startLocationX = game.getPlayer().getLocation().getX();
 //        startLocationY = game.getPlayer().getLocation().getY();
+//        game.getPlayer().getLocation().setX(new Scanner(System.in).nextInt());
+//        game.getPlayer().getLocation().setY(new Scanner(System.in).nextInt());
+//        game.getPlayer().getLocation().setX(1);
+//        game.getPlayer().getLocation().setY(1);
+        printGamelastStuation(game);
 
-        while (!player.getGameRule().isGameOver(game)) {
+//        while (!player.getGameRule().isGameOver(game)) {
 
-            game.increaseRoundCounter();
-            int choose = player.getInput(game);
-            moveForwardOrBack = getMoveBackOrForward(choose);
-            moveForwardOrBack.move(
-                    new DirectionLocation().
-                            getLocationValueAccordingToEnteredValue(game, choose));
+        game.increaseRoundCounter();
+        int choose = player.getInput(game);
+        moveForwardOrBack = getMoveBackOrForward(choose);
+        moveForwardOrBack.move(
+                new DirectionLocation().
+                        getLocationValueAccordingToEnteredValue(game, choose));
 
-            calculatePlayerTotalWinScore();
+        calculatePlayerTotalWinScore();
 
 //            System.out.println(game.getPlayer().getLocation().getX());
 //            System.out.println(game.getPlayer().getLocation().getY());
 
 //            if (game.getModel().getGameSquares()[0][0] != 1)
 //                break;
-            if (player.isPrintableStepSituation() == true) {
-                printGamelastStuation(game);
-            }
-
+        if (player.isPrintableStepSituation() == true) {
+            printGamelastStuation(game);
         }
 
-        System.out.println("Total Number Solved " + getEasyReadyNumber(player.getScore().getTotalGameFinishedScore()));
-        saveGameResultToScore();
+        if (player.getGameRule().isGameOver(game)) {
+            ShowPanel.show(getClass(), "Game Over");
+            System.out.println("Total Number Solved " + getEasyReadyNumber(player.getScore().getTotalGameFinishedScore()));
+            saveGameResultToScore();
+        }
+//        }
+
+
     }
 
 

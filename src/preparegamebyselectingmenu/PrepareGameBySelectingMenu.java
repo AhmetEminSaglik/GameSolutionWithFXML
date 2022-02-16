@@ -1,37 +1,55 @@
 package preparegamebyselectingmenu;
 
-import algorithm.Main.ISelectPlayer;
+
 import algorithm.game.Game;
 import algorithm.game.gamerepo.BuildGame;
 import algorithm.game.gamerepo.IDetermineEdgeValue;
 import algorithm.game.gamerepo.player.Player;
 import algorithm.game.play.PlayGame;
+import algorithm.game.play.input.PlayerPlayingStyle;
+import algorithm.game.play.input.person.PersonPlayingStyle;
 
 public class PrepareGameBySelectingMenu {
 
     private BuildGame buildGameModel;
     private Player player;
     private Game game;
+    PersonPlayingStyle personPlayingStyle;
     private int edgeValue;
+    //    PlayGameWithGameController playGameFXML;
+    private PlayerPlayingStyle playerPlayingStyle;
 
     public void startGame() {
 //        buildGameModel();
+        prepareAllStuffs();
+//        playGameFXML = new PlayGameWithGameController(this);
+    }
+
+    void prepareAllStuffs() {
         createGame();
         createVisitedArea();
-        System.out.println(toString());
+        player.setStep(0);
+        game.setPlayer(player);
+        player.setGame(game);
+//        player.getIPlayerInput()
+
     }
 
     public void buildGameModel(IDetermineEdgeValue iDetermineEdgeValue) {
+//        System.out.println("gelen deger : "+iDetermineEdgeValue.determineEdgeValue());
+        edgeValue = iDetermineEdgeValue.determineEdgeValue();
         buildGameModel = new BuildGame(iDetermineEdgeValue);
 
     }
 
     public void createGame() {
         game = buildGameModel.createGame();
+
     }
 
-    public void selectPlayer(ISelectPlayer iSelectPlayer) {
-        player = iSelectPlayer.selectPlayer(game);
+    public void selectPlayer(Player player/*ISelectPlayer iSelectPlayer*/) {
+//        player = iSelectPlayer.selectPlayer(game);
+        this.player = player;
 
     }
 
@@ -73,8 +91,23 @@ public class PrepareGameBySelectingMenu {
         return edgeValue;
     }
 
-    public void setEdgeValue(int edgeValue) {
-        this.edgeValue = edgeValue;
+//    public PersonPlayingStyle getPersonPlayingStyle() {
+//        return personPlayingStyle;
+//    }
+
+//    public void setPersonPlayingStyle(PersonPlayingStyle personPlayingStyle) {
+//        this.personPlayingStyle = personPlayingStyle;
+//    }
+    //    public void setEdgeValue(int edgeValue) {
+//        this.edgeValue = edgeValue;
+//    }
+
+    public PlayerPlayingStyle getPlayerPlayingStyle() {
+        return playerPlayingStyle;
+    }
+
+    public void setPlayerPlayingStyle(PlayerPlayingStyle playerPlayingStyle) {
+        this.playerPlayingStyle = playerPlayingStyle;
     }
 
     @Override

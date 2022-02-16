@@ -7,39 +7,44 @@ import algorithm.errormessage.ErrorMessage;
 import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.Game;
 import algorithm.game.location.Location;
-import algorithm.game.play.input.BaseControlInput;
+//import algorithm.game.play.input.BaseControlInput;
 import algorithm.validation.Validation;
 
 
-public class PersonInput extends BaseControlInput {
+public class PersonInput /*extends BaseControlInput*/ implements IPlayerInput {
 
     //    CheckSquare checkSquare = new CheckSquare();
 //    Compass compass = new KeyboardCompass();
     CheckSquare checkSquare = new CheckSquare();
-    private SafeScannerInput scannerInput = new SafeScannerInput();
+    private InputWayOfPersonInput inputWayOfPersonInput;
 
-    public PersonInput(Game game) {
-        super(game);
+    public PersonInput(InputWayOfPersonInput inputWayOfPersonInput) {
+        this.inputWayOfPersonInput = inputWayOfPersonInput;
     }
+
+    //    public PersonInput(Game game) {
+////        super(game);
+//    }
 
 
     @Override
-    public int getInput() {
-        while (true) {
+    public int getInput(Game game) {
+//        while (true) { // sonsuz donguye girme riskinden dolayi kaldirdim
 //            System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-            int choose = scannerInput.getInput();
-            if (isMoveableDirectionInput(choose)) {
-                return choose;
-            } else {
+        int choose = inputWayOfPersonInput.getInput();
+        if (isMoveableDirectionInput(game, choose)) {
+            return choose;
+        } else {
 
-                ErrorMessage.appearClassicError(getClass(),"You can not  go that direction, please choose another direction\n" +
-                        "chose : "+choose+"\n" +
-                        "checkSquare.getCompass().getNorth() " +checkSquare.getCompass().getNorth());
-            }
+            ErrorMessage.appearClassicError(getClass(), "You can not  go that direction, please choose another direction\n" +
+                    "chose : " + choose + "\n" +
+                    "checkSquare.getCompass().getNorth() " + checkSquare.getCompass().getNorth());
         }
+//        }
+        return -1;
     }
 
-    @Override
+    //    @Override
     public boolean isInputSuitableToMoveForward(Game game, int choose) {
         return checkInputForForward(game, choose);
     }
@@ -52,7 +57,7 @@ public class PersonInput extends BaseControlInput {
 
         checkSquare.setCompass(compass);
 
-        if (validation.isInputValidForArray(game,game.getPlayer().getLocation(), choose)
+        if (validation.isInputValidForArray(game, game.getPlayer().getLocation(), choose)
                 && checkSquare.isSquareFreeFromVisitedArea(game, getLocationToCheck(game), choose)) {
             return true;
         }
@@ -63,7 +68,7 @@ public class PersonInput extends BaseControlInput {
         return checkSquare.getPlayerLocation(game);
     }
 
-    @Override
+    //    @Override
     public boolean isInputSuitableToMoveBack(Game game, int choose) {
         return checkInputForBack(game, choose);
     }
@@ -75,10 +80,18 @@ public class PersonInput extends BaseControlInput {
         return false;
     }
 
-    public boolean isMoveableDirectionInput(int choose) {
+    public boolean isMoveableDirectionInput(Game game, int choose) {
         if (isInputSuitableToMoveForward(game, choose) || isInputSuitableToMoveBack(game, choose)) {
             return true;
         }
         return false;
+    }
+
+    public InputWayOfPersonInput getInputWayOfPersonInput() {
+        return inputWayOfPersonInput;
+    }
+
+    public void setInputWayOfPersonInput(InputWayOfPersonInput inputWayOfPersonInput) {
+        this.inputWayOfPersonInput = inputWayOfPersonInput;
     }
 }

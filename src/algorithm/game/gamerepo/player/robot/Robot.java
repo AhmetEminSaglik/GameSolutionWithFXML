@@ -50,10 +50,10 @@ public class Robot extends Player {
         return new DirectionCompass();
     }
 
-    @Override
-    public int getInput(Game game) {
-        return new RobotInput(solution, game).getInput();//getRobotMemory()
-    }
+//    @Override
+//    public int getInput(Game game) {
+//        return new RobotInput(solution, game).getInput();//getRobotMemory()
+//    }
 
     public BaseSolution getSolution() {
         return solution;

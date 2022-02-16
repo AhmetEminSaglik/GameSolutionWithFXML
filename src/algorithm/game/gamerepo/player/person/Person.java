@@ -9,11 +9,11 @@ import algorithm.game.gamerepo.player.Player;
 import algorithm.game.move.fundamental.MoveBack;
 import algorithm.game.move.fundamental.MoveForward;
 import algorithm.game.play.PlayerMove;
+import algorithm.game.play.input.person.IPlayerInput;
 import algorithm.game.play.input.person.PersonInput;
 import algorithm.game.rule.BaseGameRule;
 
 public class Person extends Player {
-
 
     public Person() {
 //        super(game);
@@ -37,10 +37,10 @@ public class Person extends Player {
         return new KeyboardCompass();
     }
 
-    @Override
-    public int getInput(Game game) {
-        return new PersonInput(game).getInput();
-    }
+//    @Override
+//    public int getInput(Game game) {
+//        return new PersonInput(game).getInput();
+//    }
 
     @Override
     public BaseGameRule getGameRule() {

@@ -55,4 +55,13 @@ public class Game {
         this.player = player;
     }
 
+    @Override
+    public String toString() {
+        return "Game{" +
+                "roundCounter=" + roundCounter +
+                ", model=" + model +
+                ", player=" + player +
+                ", overLongRoundCounter=" + overLongRoundCounter +
+                '}';
+    }
 }

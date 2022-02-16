@@ -1,20 +1,29 @@
 package scene.game;
 
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Cursor;
 import javafx.scene.control.Button;
 
 public class SquareButton extends Button {
     private int x, y;
+    public  static final String NORMAL_SQUARE_BTN_ID = "SquareBtn";
 
     public SquareButton(int x, int y) {
         this.x = x;
         this.y = y;
-        setId("SquareBtn");
+        setId(NORMAL_SQUARE_BTN_ID);
         setPrefSize(40, 40);
         setCursor(Cursor.HAND);
 //        setText(x+"-"+y);
 //        setStyle();
+  /*      setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                System.out.println(" Tiklanilan button  kordinatlari : "+getX()+"-"+getY());
+            }
+        });*/
     }
 
     public int getX() {

@@ -1,35 +1,35 @@
-#btnSettings,#btnPlayGame,#btnExit,#btnHowToPlay,
-#btnPersonWantToPlay,#btnRobotWillPlay,#btnPersonvsRobot,#btnGoBack,#btnStart{
+#btnSettings, #btnPlayGame, #btnExit, #btnHowToPlay,
+#btnPersonWantToPlay, #btnRobotWillPlay, #btnPersonvsRobot, #btnGoBack, #btnStart {
 
--fx-font-size:35;
--fx-font-weight: bold;
--fx-font-family: "Courier New";
--fx-pref-width:650;
--fx-border-color:red;
--fx-border-width:5px;
--fx-background-radius:10;
--fx-border-radius:10;
--fx-text-fill:red;
--fx-cursor: hand;
--fx-background-color: Transparent;
-
-}
-
-
-#btnSettings:hover,#btnPlayGame:hover,#btnExit:hover,#btnHowToPlay:hover,
-#btnPersonWantToPlay:hover,#btnRobotWillPlay:hover,#btnPersonvsRobot:hover,#btnGoBack:hover,
-#btnStart:hover{
-
--fx-border-color: transparent;
--fx-text-fill:rgb(10, 20, 30);
--fx-background-color: red;
--fx-focusable:false;
-
+    -fx-font-size: 35;
+    -fx-font-weight: bold;
+    -fx-font-family: "Courier New";
+    -fx-pref-width: 650;
+    -fx-border-color: red;
+    -fx-border-width: 5px;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-text-fill: red;
+    -fx-cursor: hand;
+    -fx-background-color: Transparent;
 
 }
 
-#menuVBox{
--fx-padding:200 0 0 0;
+
+#btnSettings:hover, #btnPlayGame:hover, #btnExit:hover, #btnHowToPlay:hover,
+#btnPersonWantToPlay:hover, #btnRobotWillPlay:hover, #btnPersonvsRobot:hover, #btnGoBack:hover,
+#btnStart:hover {
+
+    -fx-border-color: transparent;
+    -fx-text-fill: rgb(10, 20, 30);
+    -fx-background-color: red;
+    -fx-focusable: false;
+
+
+}
+
+#menuVBox {
+    -fx-padding: 200 0 0 0;
 }
 
 #radioBtnSquareEdge5x5,
@@ -37,12 +37,12 @@
 #radioBtnSquareEdge7x7,
 #radioBtnSquareEdge8x8,
 #radioBtnSquareEdge9x9,
-#radioBtnSquareEdge10x10{
--fx-pref-width:400px;
--fx-font-size:30;
--fx-font-family: "Courier New";
--fx-cursor: hand;
--fx-text-fill: cyan;
+#radioBtnSquareEdge10x10 {
+    -fx-pref-width: 400px;
+    -fx-font-size: 30;
+    -fx-font-family: "Courier New";
+    -fx-cursor: hand;
+    -fx-text-fill: cyan;
 }
 
 #radioBtnSquareEdge5x5:hover,
@@ -50,74 +50,116 @@
 #radioBtnSquareEdge7x7:hover,
 #radioBtnSquareEdge8x8:hover,
 #radioBtnSquareEdge9x9:hover,
-#radioBtnSquareEdge10x10:hover{
--fx-text-size:25;
--fx-text-fill:rgb(10, 20, 30);
--fx-font-weight: bold;
--fx-background-color:cyan;
--fx-background-radius:50px;
-}
-#anchorPane{
--fx-background-color: rgb(10, 20, 30);
+#radioBtnSquareEdge10x10:hover {
+    -fx-text-size: 25;
+    -fx-text-fill: rgb(10, 20, 30);
+    -fx-font-weight: bold;
+    -fx-background-color: cyan;
+    -fx-background-radius: 50px;
 }
 
-#SquareBtn{
--fx-background-color:red;
--fx-pref-width:60;
--fx-pref-height:60;
--fx-min-width:60;
--fx-min-height:60;
--fx-max-width:60;
--fx-max-height:60;
-
-/*-fx-padding: 5px;
--fx-border-insets: 5px;
--fx-background-insets: 5px;*/
-
+#anchorPane {
+    -fx-background-color: rgb(10, 20, 30);
 }
 
-#SquareBtn:hover{
--fx-background-color:cyan;
-}
-#lblTimeField{
--fx-text-fill:cyan;
--fx-font-weight: bold;
--fx-font-size: 33;
--fx-font-family: "Courier New";
+#SquareBtn {
+    -fx-background-color: red;
+    -fx-pref-width: 65;
+    -fx-pref-height: 65;
+    -fx-min-width: 65;
+    -fx-min-height: 65;
+    -fx-max-width: 65;
+    -fx-max-height: 65;
+
+    /*-fx-padding: 5px;
+    -fx-border-insets: 5px;
+    -fx-background-insets: 5px;*/
+
 }
 
-#btnMainMenu,#btnStepBack,#btnReset{
--fx-font-size:27;
--fx-font-weight: bold;
--fx-font-family: "Courier New";
--fx-pref-width:3700;
--fx-border-color:rgb(124, 208, 54);
--fx-border-width:5px;
--fx-background-radius:10;
--fx-border-radius:10;
--fx-text-fill:rgb(124, 208, 54);
--fx-cursor: hand;
--fx-background-color: Transparent;
-}
-#btnMainMenu:hover,#btnStepBack:hover,#btnReset:hover{
--fx-border-color:red;
--fx-text-fill:white;
--fx-background-color:black;
+#SquareBtn:hover {
+    -fx-background-color: cyan;
 }
 
-#lblTotalStep,#lblTotalStepValue,#lblCurrentStep,#lblCurrentStepValue,#lblScore,#lblScoreValue{
--fx-text-fill:cyan;
--fx-font-weight: bold;
--fx-font-size: 27;
--fx-font-family: "Courier New";
+#lblTimeField {
+    -fx-text-fill: cyan;
+    -fx-font-weight: bold;
+    -fx-font-size: 33;
+    -fx-font-family: "Courier New";
 }
-#seperator1,#seperator2,#seperator3,#seperator4{
--fx-border-height:100;
--fx-border-widtht:30;
--fx-border-color:white;
--fx-background-color:white;
- }
 
-#vBoxToCenterButtons{
--fx-background-color:black;
+#btnMainMenu, #btnStepBack, #btnReset {
+    -fx-font-size: 27;
+    -fx-font-weight: bold;
+    -fx-font-family: "Courier New";
+    -fx-pref-width: 3700;
+    -fx-border-color: rgb(124, 208, 54);
+    -fx-border-width: 5px;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-text-fill: rgb(124, 208, 54);
+    -fx-cursor: hand;
+    -fx-background-color: Transparent;
 }
+
+#btnMainMenu:hover, #btnStepBack:hover, #btnReset:hover {
+    -fx-border-color: red;
+    -fx-text-fill: white;
+    -fx-background-color: black;
+}
+
+#lblTotalStep, #lblTotalStepValue, #lblCurrentStep, #lblCurrentStepValue, #lblScore, #lblScoreValue {
+    -fx-text-fill: cyan;
+    -fx-font-weight: bold;
+    -fx-font-size: 27;
+    -fx-font-family: "Courier New";
+}
+
+#seperator1, #seperator2, #seperator3, #seperator4 {
+    -fx-border-height: 100;
+    -fx-border-widtht: 30;
+    -fx-border-color: white;
+    -fx-background-color: white;
+}
+
+#vBoxToCenterButtons {
+    -fx-background-color: black;
+}
+
+#visitedSquareBtn {
+    -fx-background-color: rgb(124, 208, 54);
+    -fx-font-size: 25;
+    -fx-font-weight: bold;
+    -fx-font-family: "Courier New";
+    -fx-pref-width: 65;
+    -fx-pref-height: 65;
+    -fx-min-width: 65;
+    -fx-min-height: 65;
+    -fx-max-width: 65;
+    -fx-max-height: 65;
+}
+
+#currentBtn {
+    -fx-background-color: white;
+    -fx-font-size: 25;
+    -fx-font-weight: bold;
+    -fx-font-family: "Courier New";
+    -fx-pref-width: 65;
+    -fx-pref-height: 65;
+    -fx-min-width: 65;
+    -fx-min-height: 65;
+    -fx-max-width: 65;
+    -fx-max-height: 65;
+}
+
+#hintBtn {
+    -fx-background-color: rgb(79, 80, 78);
+    -fx-font-weight: bold;
+    -fx-pref-width: 65;
+    -fx-pref-height: 65;
+    -fx-min-width: 65;
+    -fx-min-height: 65;
+    -fx-max-width: 65;
+    -fx-max-height: 65;
+}
+

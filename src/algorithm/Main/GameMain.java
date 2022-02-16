@@ -10,6 +10,10 @@ import algorithm.game.gamerepo.player.robot.solution.BaseSolution;
 import algorithm.game.gamerepo.player.robot.solution.first.FirstSolution_Combination;
 import algorithm.game.gamerepo.player.robot.solution.second.SecondSolution_CalculateForwardAvailableWays;
 import algorithm.game.play.PlayGame;
+import algorithm.game.play.input.person.ButtonClickInputForFXML;
+import algorithm.game.play.input.person.PersonInput;
+import algorithm.game.play.input.person.SafeScannerInput;
+import algorithm.game.play.input.robot.RobotInput;
 
 import java.util.Scanner;
 
@@ -74,6 +78,7 @@ public class GameMain implements ISelectPlayer {
         if (input.equals("1")) {
             Person person = new Person();
             person.setGame(game);
+            person.setIPlayerInput(new PersonInput(new ButtonClickInputForFXML(person)));
             System.out.println("game : " + game.toString());
             return person;
 //            return new Person(/*game*/);
@@ -82,6 +87,7 @@ public class GameMain implements ISelectPlayer {
             robot.setGame(game);
             baseSolution = new SecondSolution_CalculateForwardAvailableWays(game);
             robot.setSolution(baseSolution);
+            robot.setIPlayerInput(new RobotInput(robot.getSolution()));
             return robot;
 
 //            return new Robot(game, baseSolution);

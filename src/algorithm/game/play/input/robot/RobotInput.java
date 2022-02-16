@@ -3,23 +3,24 @@ package algorithm.game.play.input.robot;
 import algorithm.errormessage.ErrorMessage;
 import algorithm.game.Game;
 import algorithm.game.gamerepo.player.robot.solution.BaseSolution;
-import algorithm.game.play.input.BaseControlInput;
+//import algorithm.game.play.input.BaseControlInput;
+import algorithm.game.play.input.person.IPlayerInput;
 
-public class RobotInput extends BaseControlInput {
+public class RobotInput /*extends BaseControlInput*/ implements IPlayerInput {
 
     BaseSolution solution;
 
-    public RobotInput(BaseSolution solution, Game game) {
-        super(game);
+    public RobotInput(BaseSolution solution/*, Game game*/) {
+//        super(game);
         this.solution = solution;
     }
 
     @Override
-    public int getInput() {
+    public int getInput(Game game) {
         return solution.getLocationInput(game);
     }
 
-    @Override
+/*    @Override
     public boolean isInputSuitableToMoveForward(Game game, int choose) {
         ErrorMessage.appearFatalError(getClass(), "BURAYA GELDIIII /  burasi kullanilmiyor");
         return false;
@@ -28,6 +29,6 @@ public class RobotInput extends BaseControlInput {
     @Override
     public boolean isInputSuitableToMoveBack(Game game, int choose) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    }*/
 
 }

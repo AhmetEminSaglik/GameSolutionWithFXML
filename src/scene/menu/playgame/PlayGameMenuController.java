@@ -6,6 +6,10 @@ import algorithm.game.Game;
 import algorithm.game.gamerepo.player.Player;
 import algorithm.game.gamerepo.player.person.Person;
 import algorithm.game.gamerepo.player.robot.Robot;
+import algorithm.game.play.input.person.ButtonClickInputForFXML;
+import algorithm.game.play.input.person.PersonInput;
+import algorithm.game.play.input.person.PersonPlayingStyle;
+import algorithm.game.play.input.person.SafeScannerInput;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -21,10 +25,11 @@ import scene.menu.selectedgeevalue.EdgeValueSceneUIDesigner;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class PlayGameMenuController extends BaseSceneController implements ISelectPlayer/*, ISelectPlayer */ {
+public class PlayGameMenuController extends BaseSceneController /*implements ISelectPlayer*//*, ISelectPlayer */ {
 
     private PrepareGameBySelectingMenu prepareGameBySelectingMenu;
     private Player player;
+
 
     public PlayGameMenuController(PrepareGameBySelectingMenu prepareGameBySelectingMenu) {
         super(prepareGameBySelectingMenu);
@@ -54,19 +59,26 @@ public class PlayGameMenuController extends BaseSceneController implements ISele
     @FXML
     void playGameByPerson(ActionEvent event) {
         player = new Person();
-        prepareGameBySelectingMenu.selectPlayer(this);
+        prepareGameBySelectingMenu.selectPlayer(player);
+        prepareGameBySelectingMenu.setPlayerPlayingStyle(new PersonPlayingStyle(player));
+
+//        prepareGameBySelectingMenu.setPersonPlayingStyle(new PersonPlayingStyle(player));
+
+
+        player.setIPlayerInput(new PersonInput(new ButtonClickInputForFXML((Person) player)));
+
         new SwitchNewScene().switchScene(anchorPane, new EdgeValueSceneUIDesigner(new EdgeValueController(prepareGameBySelectingMenu)).getCreatedScene());
     }
 
     @FXML
     void playGameByRobot(ActionEvent event) {
         player = new Robot();
-        ShowPanel.show(getClass(),"DAHA BIR SEY EKLENMEDI");
+        ShowPanel.show(getClass(), "DAHA BIR SEY EKLENMEDI");
     }
 
     @FXML
     void playBothPersonAndRobot(ActionEvent event) {
-        ShowPanel.show(getClass(),"DAHA BIR SEY EKLENMEDI");
+        ShowPanel.show(getClass(), "DAHA BIR SEY EKLENMEDI");
     }
 
     @FXML
@@ -74,10 +86,10 @@ public class PlayGameMenuController extends BaseSceneController implements ISele
         new SwitchNewScene().switchScene(anchorPane, new MainMenuSceneUIDesigner().getCreatedScene());
     }
 
-    @Override
-    public Player selectPlayer(Game game) {
-        return player;
-    }
+//    @Override
+//    public Player selectPlayer(Game game) {
+//        return player;
+//    }
 
  /*   @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

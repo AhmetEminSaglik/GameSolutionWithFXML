@@ -8,11 +8,13 @@ import algorithm.game.location.DirectionLocation;
 import algorithm.game.location.Location;
 import algorithm.game.location.LocationsList;
 import algorithm.game.play.PlayerMove;
+import algorithm.game.play.input.person.IPlayerInput;
 import algorithm.game.rule.BaseGameRule;
 import algorithm.print.FileWriteProcess;
 import algorithm.print.PrintAble;
 
 public abstract class Player implements UpdateableVistedDirection, PrintableEveryStepToSee {
+    protected IPlayerInput iPlayerInput;
     protected PlayerMove playerMove;
     protected String name;
     protected PrintAble printableFileScore;
@@ -113,8 +115,10 @@ public abstract class Player implements UpdateableVistedDirection, PrintableEver
         return "Player{" + "location=" + location.toString() + ", step=" + step + ", compass=" + getCompass() + '}';
     }
 
-    public abstract int getInput(Game game);
-
+    public final int getInput(Game game) {
+//        System.out.println("Input Alindi");
+        return iPlayerInput.getInput(game);
+    }
     public abstract Compass getCompass();
 
     @Override
@@ -164,5 +168,13 @@ public abstract class Player implements UpdateableVistedDirection, PrintableEver
 
     public PrintAble getPrintableFileScore() {
         return printableFileScore;
+    }
+
+    public IPlayerInput getIPlayerInput() {
+        return iPlayerInput;
+    }
+
+    public void setIPlayerInput(IPlayerInput iPlayerInput) {
+        this.iPlayerInput = iPlayerInput;
     }
 }
