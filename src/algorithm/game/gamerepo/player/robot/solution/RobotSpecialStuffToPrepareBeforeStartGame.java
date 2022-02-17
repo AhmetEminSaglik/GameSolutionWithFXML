@@ -16,5 +16,7 @@ public class RobotSpecialStuffToPrepareBeforeStartGame extends PlayerSpecialStuf
         Robot robot = (Robot) prepareGameBySelectingMenu.getPlayer();
         robot.buildRobotMove();
 
+
+
     }
 }

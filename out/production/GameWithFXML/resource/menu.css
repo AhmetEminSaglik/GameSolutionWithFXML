@@ -136,9 +136,10 @@
 }
 
 #visitedSquareBtn {
-    -fx-background-color: rgb(124, 208, 54);
+    -fx-background-color: black;/* rgb(124, 208, 54);*/
     -fx-font-size: 25;
     -fx-font-weight: bold;
+    -fx-text-fill: white;
     -fx-font-family: "Courier New";
     -fx-pref-width: 65;
     -fx-pref-height: 65;

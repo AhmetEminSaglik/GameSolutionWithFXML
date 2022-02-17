@@ -10,7 +10,7 @@ public abstract class PlayerSpecialStuffToPrepareBeforeStartGame {
     }
 
     public void prepare() {
-        prepareGameBySelectingMenu.startGame();
+        prepareGameBySelectingMenu.prepareGame();
     }
 
 }

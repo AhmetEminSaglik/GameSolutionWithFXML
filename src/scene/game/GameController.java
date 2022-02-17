@@ -1,5 +1,6 @@
 package scene.game;
 
+import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.location.DirectionLocation;
 import algorithm.game.location.LocationsList;
 import algorithm.game.play.input.PlayerPlayingStyle;
@@ -29,6 +30,7 @@ public class GameController extends BaseSceneController {
     private int edgeValue;
     @FXML
     private VBox vBoxToCenterButtons;
+    public SquareButton squareButtonArray[][];
     private PrepareGameBySelectingMenu prepareGameBySelectingMenu;
 
     @FXML
@@ -53,7 +55,18 @@ public class GameController extends BaseSceneController {
 //            new Thread(new Runnable() {
 //                @Override
 //                public void run() {
-//                    prepareGameBySelectingMenu.startGame();
+//            System.out.println(" player : "+prepareGameBySelectingMenu.getPlayer().getClass().getName());
+
+            prepareGameBySelectingMenu.getPlayerPlayingStyle().setGameController(this);
+            prepareGameBySelectingMenu.prepareGame();
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+
+                    prepareGameBySelectingMenu.getPlayerPlayingStyle().startGame();
+                }
+            }).start();
+
 //                }
 //            }).start();
 
@@ -81,6 +94,7 @@ public class GameController extends BaseSceneController {
 
         vBoxToCenterButtons.setSpacing(space);
 
+        squareButtonArray = new SquareButton[edgeValue][edgeValue];
         for (int y = edgeValue - 1; y >= 0; y--) {
             HBox hBox = new HBox(space);
             hBox.setAlignment(Pos.CENTER);
@@ -88,6 +102,7 @@ public class GameController extends BaseSceneController {
                 SquareButton squareButton = new SquareButton(x, y);
                 squareButton.setOnAction(getValueOfButton(squareButton));
                 hBox.getChildren().add(squareButton);
+                squareButtonArray[x][y] = squareButton;
             }
             vBoxToCenterButtons.getChildren().add(hBox);
         }
@@ -95,7 +110,7 @@ public class GameController extends BaseSceneController {
 
 
     EventHandler getValueOfButton(SquareButton button) {
-        prepareGameBySelectingMenu.getPlayerPlayingStyle().setGameController(this);
+//        prepareGameBySelectingMenu.getPlayerPlayingStyle().setGameController(this);
         return new EventHandler<>() {
             @Override
             public void handle(Event event) {
@@ -118,7 +133,7 @@ public class GameController extends BaseSceneController {
         vBoxToCenterButtons.getChildren().removeAll(vBoxToCenterButtons.getChildren());
         addSquaresToAnchorPane();
         prepareGameBySelectingMenu.getGame().resetRoundCounter();
-        prepareGameBySelectingMenu.startGame();
+        prepareGameBySelectingMenu.prepareGame();
         prepareGameBySelectingMenu.getPlayer().setStep(0);
         updateCurrentValue();
         updateStepValue();
@@ -142,9 +157,16 @@ public class GameController extends BaseSceneController {
         lblScoreValue.setText(prepareGameBySelectingMenu.getPlayer().getScore().getTotalGameFinishedScore() + "");
     }
 
-    public void paintHintButton() {
-        vBoxToCenterButtons.getChildren();
+    public void paintNormalBtn() {
+        squareButtonArray
+                [prepareGameBySelectingMenu.getPlayer().getLocation().getX()]
+                [prepareGameBySelectingMenu.getPlayer().getLocation().getY()]
+                .setId(PlayerPlayingStyle.NORMAL_SQUARE_BTN_ID);
+    }
 
+    public void paintHintButton() {
+//        vBoxToCenterButtons.getChildren();
+/*
         for (int i = vBoxToCenterButtons.getChildren().size() - 1; i >= 0; i--) {
             HBox hBox = (HBox) vBoxToCenterButtons.getChildren().get(i);
             for (int j = 0; j < hBox.getChildren().size(); j++) {
@@ -156,10 +178,41 @@ public class GameController extends BaseSceneController {
 
                 }
             }
+        }*/
+        List<DirectionLocation> list = new LocationsList().getListOfLocationsAccordingToPlayerCompass(prepareGameBySelectingMenu.getPlayer().getCompass());
+        list.remove(list.size() - 1);
+        for (int i = 0; i < list.size(); i++) {
+            int x = prepareGameBySelectingMenu.getPlayer().getLocation().getX() + list.get(i).getX();
+            int y = prepareGameBySelectingMenu.getPlayer().getLocation().getY() + list.get(i).getY();
+            if (x >= 0 && x < edgeValue && y >= 0 && y < edgeValue) {
+                determineHintBtn(x, y);
+//                ShowPanel.show(getClass(),"Buraya geldi");
+            }
         }
     }
 
-    boolean isOneOfTheHintButton(SquareButton squareButton) {
+    public void paintCurrentButton() {
+//        paintButton(PlayerPlayingStyle.CURRENT_BTN_ID);
+        squareButtonArray
+                [prepareGameBySelectingMenu.getPlayer().getLocation().getX()]
+                [prepareGameBySelectingMenu.getPlayer().getLocation().getY()]
+                .setId(PlayerPlayingStyle.CURRENT_BTN_ID);
+    }
+  /*  public void paintButton(String btnId) {
+        squareButtonArray
+                [prepareGameBySelectingMenu.getPlayer().getLocation().getX()]
+                [prepareGameBySelectingMenu.getPlayer().getLocation().getY()]
+                .setId(btnId);
+    }
+*/
+
+    void determineHintBtn(int x, int y) {
+        if (!squareButtonArray[x][y].getId().equals(PlayerPlayingStyle.VISITED_BEFORE_BTN_ID))
+            squareButtonArray[x][y].setId(PlayerPlayingStyle.HINT_BTN_ID);
+
+    }
+
+   /* boolean isOneOfTheHintButton(SquareButton squareButton) {
         List<DirectionLocation> list = new LocationsList().getListOfLocationsAccordingToPlayerCompass(prepareGameBySelectingMenu.getPlayer().getCompass());
         list.remove(list.size() - 1);// remove last location
         for (int i = 0; i < list.size(); i++) {
@@ -171,7 +224,7 @@ public class GameController extends BaseSceneController {
             }
         }
         return false;
-    }
+    }*/
 
     public void updateOldHintButtons() {
         vBoxToCenterButtons.getChildren();

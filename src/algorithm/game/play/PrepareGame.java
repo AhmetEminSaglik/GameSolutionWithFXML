@@ -1,9 +1,6 @@
 package algorithm.game.play;
 
-import algorithm.compass.Compass;
-import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.Game;
-import algorithm.game.location.SwitchDirection;
 
 public class PrepareGame {
 
@@ -13,10 +10,7 @@ public class PrepareGame {
     SelectFirstSqaureToStart selectFirstSqaureToStart;
 
     public PrepareGame(Game game) {
-
         fillNullReferans(game);
-//        prepareToPlay();
-
     }
 
     void fillNullReferans(Game game) {
@@ -26,9 +20,9 @@ public class PrepareGame {
 //        compass = game.getPlayer().getCompass();
     }
 
-    void prepareToPlay() {
+    public void prepareToPlay(int x, int y) {
 //        switchDirection = new SwitchDirection(compass);
-        selectFirstSqaureToStart.selectSquareStart(0, 0);
+        selectFirstSqaureToStart.selectSquareStart(x, y);
 //        selectFirstSqaureToStart.selectSquareStart(game.getPlayer().getInput(game),game.getPlayer().getInput(game));
 //        ShowPanel.show(getClass(),"Burada nereden baslancagi hesaplaniyor. Bu kadar yeter simdilik");
         selectFirstSqaureToStart.locateThePlayer();

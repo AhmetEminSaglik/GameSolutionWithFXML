@@ -8,23 +8,22 @@ import algorithm.game.gamerepo.player.Player;
 import algorithm.game.gamerepo.player.PlayerSpecialStuffToPrepareBeforeStartGame;
 import algorithm.game.play.PlayGame;
 import algorithm.game.play.input.PlayerPlayingStyle;
-import algorithm.game.play.input.person.PersonPlayingStyle;
 
 public class PrepareGameBySelectingMenu {
 
     private BuildGame buildGameModel;
     private Player player;
     private Game game;
-    PersonPlayingStyle personPlayingStyle;
     private int edgeValue;
     //    PlayGameWithGameController playGameFXML;
     private PlayerPlayingStyle playerPlayingStyle;
     private PlayerSpecialStuffToPrepareBeforeStartGame playerSpecialStuffToPrepareBeforeStartGame;
 
-    public void startGame() {
+    public void prepareGame() {
 //        buildGameModel();
         prepareAllStuffs();
 //        playGameFXML = new PlayGameWithGameController(this);
+//        getPlayerPlayingStyle().prepareGame();
     }
 
     void prepareAllStuffs() {
@@ -94,16 +93,6 @@ public class PrepareGameBySelectingMenu {
         return edgeValue;
     }
 
-//    public PersonPlayingStyle getPersonPlayingStyle() {
-//        return personPlayingStyle;
-//    }
-
-//    public void setPersonPlayingStyle(PersonPlayingStyle personPlayingStyle) {
-//        this.personPlayingStyle = personPlayingStyle;
-//    }
-    //    public void setEdgeValue(int edgeValue) {
-//        this.edgeValue = edgeValue;
-//    }
 
     public PlayerPlayingStyle getPlayerPlayingStyle() {
         return playerPlayingStyle;

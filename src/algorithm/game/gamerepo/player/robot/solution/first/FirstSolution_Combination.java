@@ -40,5 +40,8 @@ public class FirstSolution_Combination extends BaseSolution {
     public void buildRobotMove() {
         setMoveForward(new MoveForward(getGame()));
         setMoveBack(new MoveBack(getGame()));
+        System.out.println("buraya girip move forward ve move back dolduruldu");
+        System.out.println("move forward : "+getMoveForward());
+        System.out.println("move back : "+getMoveBack());
     }
 }

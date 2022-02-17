@@ -14,6 +14,11 @@ import scene.game.SquareButton;
 
 public class PersonPlayingStyle extends PlayerPlayingStyle {
 
+    @Override
+    public void startGame() {
+        System.out.println("person burada bir sey yapmayacaktir");
+    }
+
     public PersonPlayingStyle(Player player) {
         super(player);
     }
@@ -45,7 +50,9 @@ public class PersonPlayingStyle extends PlayerPlayingStyle {
                     Move moveForwardOrBack = getMoveBackOrForward(choose);
 
                     if (moveForwardOrBack != null) {
-                        moveForwardOrBack.move(new DirectionLocation().getLocationValueAccordingToEnteredValue(player.getGame(), choose));
+                        moveForwardOrBack.move(
+                                new DirectionLocation().getLocationValueAccordingToEnteredValue
+                                        (player.getGame(), choose));
 
                         if (!moveForwardOrBack.getClass().getTypeName().equals(MoveBack.class.getTypeName())) {
                             button.setId(CURRENT_BTN_ID);
@@ -131,7 +138,5 @@ public class PersonPlayingStyle extends PlayerPlayingStyle {
         return player.getPlayerMove().getMoveForward();
     }
 
-    int listLastIndex() {
-        return listMovedSquareBtn.size() - 1;
-    }
+
 }
