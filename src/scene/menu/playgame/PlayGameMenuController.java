@@ -5,11 +5,14 @@ import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.Game;
 import algorithm.game.gamerepo.player.Player;
 import algorithm.game.gamerepo.player.person.Person;
+import algorithm.game.gamerepo.player.person.PersonSpecialStuffToPrepareBeforeStartGame;
 import algorithm.game.gamerepo.player.robot.Robot;
+import algorithm.game.gamerepo.player.robot.solution.RobotSpecialStuffToPrepareBeforeStartGame;
 import algorithm.game.play.input.person.ButtonClickInputForFXML;
 import algorithm.game.play.input.person.PersonInput;
 import algorithm.game.play.input.person.PersonPlayingStyle;
 import algorithm.game.play.input.person.SafeScannerInput;
+import algorithm.game.play.input.robot.RobotPlayingStyle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -19,6 +22,8 @@ import preparegamebyselectingmenu.PrepareGameBySelectingMenu;
 import scene.SwitchNewScene;
 import scene.basescenecontroller.BaseSceneController;
 import scene.menu.main.MainMenuSceneUIDesigner;
+import scene.menu.playgame.solutionChoice.SolutionChoiceController;
+import scene.menu.playgame.solutionChoice.SolutionChoiceSceneUIDesigner;
 import scene.menu.selectedgeevalue.EdgeValueController;
 import scene.menu.selectedgeevalue.EdgeValueSceneUIDesigner;
 
@@ -28,7 +33,7 @@ import java.util.ResourceBundle;
 public class PlayGameMenuController extends BaseSceneController /*implements ISelectPlayer*//*, ISelectPlayer */ {
 
     private PrepareGameBySelectingMenu prepareGameBySelectingMenu;
-    private Player player;
+//    private Player player;
 
 
     public PlayGameMenuController(PrepareGameBySelectingMenu prepareGameBySelectingMenu) {
@@ -37,8 +42,8 @@ public class PlayGameMenuController extends BaseSceneController /*implements ISe
     }
 
 
-    @FXML
-    private AnchorPane anchorPane;
+//    @FXML
+//    private AnchorPane anchorPane;
 
     @FXML
     private VBox menuVBox;
@@ -58,22 +63,30 @@ public class PlayGameMenuController extends BaseSceneController /*implements ISe
 
     @FXML
     void playGameByPerson(ActionEvent event) {
-        player = new Person();
-        prepareGameBySelectingMenu.selectPlayer(player);
-        prepareGameBySelectingMenu.setPlayerPlayingStyle(new PersonPlayingStyle(player));
-
+        prepareGameBySelectingMenu.setPlayer(new Person());
+//        prepareGameBySelectingMenu.selectPlayer(prepareGameBySelectingMenu.getPlayer());
+        prepareGameBySelectingMenu.setPlayerPlayingStyle(new PersonPlayingStyle(prepareGameBySelectingMenu.getPlayer()));
+        prepareGameBySelectingMenu.setPlayerSpecialStuffToPrepareBeforeStartGame(new PersonSpecialStuffToPrepareBeforeStartGame(prepareGameBySelectingMenu));
 //        prepareGameBySelectingMenu.setPersonPlayingStyle(new PersonPlayingStyle(player));
 
 
-        player.setIPlayerInput(new PersonInput(new ButtonClickInputForFXML((Person) player)));
+        prepareGameBySelectingMenu.getPlayer().setIPlayerInput(new PersonInput(new ButtonClickInputForFXML((Person) prepareGameBySelectingMenu.getPlayer())));
 
         new SwitchNewScene().switchScene(anchorPane, new EdgeValueSceneUIDesigner(new EdgeValueController(prepareGameBySelectingMenu)).getCreatedScene());
     }
 
     @FXML
     void playGameByRobot(ActionEvent event) {
-        player = new Robot();
-        ShowPanel.show(getClass(), "DAHA BIR SEY EKLENMEDI");
+        prepareGameBySelectingMenu.setPlayer(new Robot());
+
+//        prepareGameBySelectingMenu.selectPlayer(prepareGameBySelectingMenu.getPlayer());
+        prepareGameBySelectingMenu.setPlayerPlayingStyle(new RobotPlayingStyle(prepareGameBySelectingMenu.getPlayer()));
+        new SwitchNewScene().switchScene(anchorPane, new SolutionChoiceSceneUIDesigner(new SolutionChoiceController(prepareGameBySelectingMenu)).getCreatedScene());
+        prepareGameBySelectingMenu.setPlayerSpecialStuffToPrepareBeforeStartGame(new RobotSpecialStuffToPrepareBeforeStartGame(prepareGameBySelectingMenu));
+//        prepareGameBySelectingMenu.setPlayerPlayingStyle(new RobotPlayingStyle(player));
+//        player.setIPlayerInput(new PersonInput(new ButtonClickInputForFXML((Person) player)));
+
+//        new SwitchNewScene().switchScene(anchorPane, new EdgeValueSceneUIDesigner(new EdgeValueController(prepareGameBySelectingMenu)).getCreatedScene());
     }
 
     @FXML

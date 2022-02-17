@@ -37,8 +37,16 @@
 #radioBtnSquareEdge7x7,
 #radioBtnSquareEdge8x8,
 #radioBtnSquareEdge9x9,
-#radioBtnSquareEdge10x10 {
+#radioBtnSquareEdge10x10{
     -fx-pref-width: 400px;
+    -fx-font-size: 30;
+    -fx-font-family: "Courier New";
+    -fx-cursor: hand;
+    -fx-text-fill: cyan;
+}
+
+#solutionFirst, #solutionSecond {
+    -fx-pref-width: 750px;
     -fx-font-size: 30;
     -fx-font-family: "Courier New";
     -fx-cursor: hand;
@@ -50,7 +58,8 @@
 #radioBtnSquareEdge7x7:hover,
 #radioBtnSquareEdge8x8:hover,
 #radioBtnSquareEdge9x9:hover,
-#radioBtnSquareEdge10x10:hover {
+#radioBtnSquareEdge10x10:hover,
+#solutionFirst:hover,#solutionSecond:hover{
     -fx-text-size: 25;
     -fx-text-fill: rgb(10, 20, 30);
     -fx-font-weight: bold;

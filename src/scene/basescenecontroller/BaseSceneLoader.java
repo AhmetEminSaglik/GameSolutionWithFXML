@@ -12,14 +12,14 @@ import javax.swing.*;
 import java.io.IOException;
 
 public abstract class BaseSceneLoader extends AnchorPane {
-
     protected Scene scene;
     protected BaseSceneController baseSceneController;
+    public String fxmlPath, cssPath;
 
     public BaseSceneLoader(BaseSceneController baseSceneController) {
         this.baseSceneController = baseSceneController;
-    }
 
+    }
 
 
     public Scene loadFxmlFile(String fxmlPath) {
@@ -49,5 +49,11 @@ public abstract class BaseSceneLoader extends AnchorPane {
 
     public void addCss(Scene scene, String cssPath) {
         new SceneBuilder().addCss(scene, cssPath);
+    }
+
+
+    protected void getSceeneWithAddedCss() {
+        scene = loadFxmlFile(fxmlPath);
+        addCss(scene, cssPath);
     }
 }

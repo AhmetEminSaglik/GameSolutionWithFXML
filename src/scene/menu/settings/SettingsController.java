@@ -1,14 +1,12 @@
 package scene.menu.settings;
 
-import javafx.fxml.Initializable;
+import preparegamebyselectingmenu.PrepareGameBySelectingMenu;
+import scene.basescenecontroller.BaseSceneController;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
-public class SettingsController implements Initializable {
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        System.out.println("Baslatildi");
+public class SettingsController extends BaseSceneController {
+    public SettingsController(PrepareGameBySelectingMenu prepareGameBySelectingMenu) {
+        super(prepareGameBySelectingMenu);
     }
+
 
 }

@@ -7,12 +7,14 @@ import javafx.scene.Scene;
 
 public class MainMenuSceneUIDesigner extends BaseSceneLoader {
 
-    final String fxmlPath = "/scene/menu/main/MainMenu.fxml", cssPath = "/resource/menu.css";
 
     public MainMenuSceneUIDesigner(BaseSceneController baseSceneController) {
         super(baseSceneController);
-        scene = loadFxmlFile(fxmlPath);
-        addCss(scene, cssPath);
+        fxmlPath = "/scene/menu/main/MainMenu.fxml";
+        cssPath = "/resource/menu.css";
+        getSceeneWithAddedCss();
+//        scene = loadFxmlFile(fxmlPath);
+//        addCss(scene, cssPath);
     }
 
     public MainMenuSceneUIDesigner() {

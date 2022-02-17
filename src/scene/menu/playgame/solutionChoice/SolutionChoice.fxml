@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="anchorPane" prefHeight="579.0" prefWidth="839.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox fx:id="menuFirstDeepVBox" alignment="CENTER" fillWidth="false" layoutX="239.0" prefHeight="600.0" prefWidth="600.0" spacing="70.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox alignment="CENTER_LEFT" spacing="30.0">
+               <children>
+                  <RadioButton fx:id="solutionFirst" mnemonicParsing="false" onAction="#getSelectedSolution" style=": ;" text="(First)  Solution : Combination">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="solutionGroup" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="solutionSecond" mnemonicParsing="false" onAction="#getSelectedSolution" text="(Second) Solution : Predict Next Step" toggleGroup="$solutionGroup" />
+               </children>
+               <padding>
+                  <Insets top="30.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </VBox>
+            <Button fx:id="btnStart" mnemonicParsing="false" onAction="#startGame" text="Next" />
+            <Button fx:id="btnGoBack" mnemonicParsing="false" onAction="#goBack" text="Go Back" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

@@ -39,7 +39,6 @@ public abstract class Move implements IMove { // ICalculateMove
     @Override
     public boolean isRequiredToChangeStartLocation() {
         if (game.getPlayer().getStep() == 1 && getClass().equals(MoveBack.class)) {
-
             return true;
         }
         return false;

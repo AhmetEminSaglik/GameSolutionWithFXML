@@ -1,6 +1,7 @@
 package scene.menu.selectedgeevalue;
 
 import algorithm.game.gamerepo.IDetermineEdgeValue;
+import algorithm.game.gamerepo.player.PlayerSpecialStuffToPrepareBeforeStartGame;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -30,8 +31,8 @@ public class EdgeValueController extends BaseSceneController implements IDetermi
         this.prepareGameBySelectingMenu = prepareGameBySelectingMenu;
     }
 
-    @FXML
-    private AnchorPane anchorPane;
+//    @FXML
+//    private AnchorPane anchorPane;
 
     @FXML
     private VBox menuFirstDeepVBox;
@@ -88,9 +89,10 @@ public class EdgeValueController extends BaseSceneController implements IDetermi
     void startGame(ActionEvent event) {
         if (squareEdgeValue != UNSELECTED_VALUE) {
             prepareGameBySelectingMenu.buildGameModel(this);
+            prepareGameBySelectingMenu.getPlayerSpecialStuffToPrepareBeforeStartGame().prepare();
             new SwitchNewScene().switchScene(anchorPane, new GameSceneUIDesigner(new GameController(prepareGameBySelectingMenu)).getCreatedScene());
         } else {
-            //TODO hata message bastirilacak
+            //TODO hata message bastirilacak : Edge Value Controller
             System.out.println("HATA MESAJI BASTIRILACAK");
         }
     }

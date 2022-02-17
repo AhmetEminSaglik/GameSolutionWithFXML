@@ -1,25 +1,19 @@
 package scene.game;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import scene.basescenecontroller.BaseSceneController;
 import scene.basescenecontroller.BaseSceneLoader;
-import scene.scenebuilder.SceneBuilder;
-
-import java.io.IOException;
-import java.util.List;
 
 public class GameSceneUIDesigner extends BaseSceneLoader {
 
-    String fxmlPath = "/scene/game/Game.fxml", cssPath = "/resource/menu.css";
 
     public GameSceneUIDesigner(BaseSceneController baseSceneController) {
         super(baseSceneController);
-        scene=loadFxmlFile(fxmlPath);
-        addCss(scene,cssPath);
+        fxmlPath = "/scene/game/Game.fxml";
+        cssPath = "/resource/menu.css";
+        getSceeneWithAddedCss();
+//        scene=loadFxmlFile(fxmlPath);
+//        addCss(scene,cssPath);
     }
 
   /*  public Scene getScene(int edgeValue) {

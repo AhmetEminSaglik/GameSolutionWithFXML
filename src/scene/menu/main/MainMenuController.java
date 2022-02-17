@@ -11,6 +11,7 @@ import scene.SwitchNewScene;
 import scene.basescenecontroller.BaseSceneController;
 import scene.menu.playgame.PlayGameMenuController;
 import scene.menu.playgame.PlayGameMenuSceneUIDesigner;
+import scene.menu.settings.SettingsController;
 import scene.menu.settings.SettingsUIDesigner;
 
 public class MainMenuController extends BaseSceneController  /*implements Initializable*/ {
@@ -21,8 +22,8 @@ public class MainMenuController extends BaseSceneController  /*implements Initia
         this.prepareGameBySelectingMenu = prepareGameBySelectingMenu;
     }
 
-    @FXML
-    private AnchorPane anchorPane;
+//    @FXML
+//    private AnchorPane anchorPane;
 
     //    @FXML
 //    private VBox menuVBox;
@@ -48,7 +49,7 @@ public class MainMenuController extends BaseSceneController  /*implements Initia
 
     @FXML
     void openSettings(ActionEvent event) {
-        new SwitchNewScene().switchScene(anchorPane, new SettingsUIDesigner().getScene());
+        new SwitchNewScene().switchScene(anchorPane, new SettingsUIDesigner(new SettingsController(prepareGameBySelectingMenu)).getCreatedScene());
     }
 
     @FXML

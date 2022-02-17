@@ -9,7 +9,7 @@
       <VBox fx:id="menuVBox" alignment="TOP_CENTER" layoutX="239.0" prefHeight="582.0" prefWidth="229.0" spacing="70.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Button fx:id="btnPersonWantToPlay" mnemonicParsing="false" onAction="#playGameByPerson" prefHeight="50.0" prefWidth="226.0" text="I Want To Play" />
-            <Button fx:id="btnRobotWillPlay" disable="true" mnemonicParsing="false" onAction="#playGameByRobot" prefHeight="50.0" prefWidth="226.0" text="I Want To See Solution" />
+            <Button fx:id="btnRobotWillPlay" mnemonicParsing="false" onAction="#playGameByRobot" prefHeight="50.0" prefWidth="226.0" text="I Want To See Solution" />
             <Button fx:id="btnPersonvsRobot" disable="true" mnemonicParsing="false" onAction="#playBothPersonAndRobot" prefHeight="50.0" prefWidth="226.0" text="Me VS Robot ???" />
             <Button fx:id="btnGoBack" mnemonicParsing="false" onAction="#goBackMenu" prefHeight="50.0" prefWidth="226.0" text="Go Back" />
          </children>

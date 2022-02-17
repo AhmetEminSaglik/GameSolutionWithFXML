@@ -61,7 +61,13 @@ public class Robot extends Player {
 
     public void setSolution(BaseSolution solution) {
         this.solution = solution;
+    }
+
+    public void buildRobotMove() {
+
+        solution.setGame(game);
         solution.buildRobotMove();
+
         setName(solution.getClass().getSimpleName() + "_" + game.getModel().getGameSquares());
         setPlayerMove();
     }

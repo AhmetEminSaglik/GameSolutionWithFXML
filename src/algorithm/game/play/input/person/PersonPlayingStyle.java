@@ -1,53 +1,37 @@
 package algorithm.game.play.input.person;
 
+import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.gamerepo.player.Player;
 import algorithm.game.gamerepo.player.person.Person;
 import algorithm.game.location.DirectionLocation;
-import algorithm.game.location.LocationsList;
 import algorithm.game.move.Move;
 import algorithm.game.move.fundamental.MoveBack;
-import algorithm.game.move.fundamental.MoveForward;
 import algorithm.game.play.SelectFirstSqaureToStart;
 import algorithm.game.play.input.PlayerPlayingStyle;
-import javafx.scene.control.Button;
+import javafx.application.Platform;
 import scene.game.SquareButton;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class PersonPlayingStyle extends PlayerPlayingStyle {
 
-    Person person;
-
-    //    SquareButton oldSquareBtn;
-//    public List<SquareButton> listMovedSquareBtn = new ArrayList<>();
-
-
     public PersonPlayingStyle(Player player) {
         super(player);
-        person = (Person) player;
     }
 
     @Override
     public void play(SquareButton button/*int x, int y*/) {
 
-        if (person.getStep() == 0) {
-            person.getGame().increaseRoundCounter();
+        if (player.getStep() == 0) {
+            player.getGame().increaseRoundCounter();
             locatePlayerFirstLocation(button.getX(), button.getY());
             button.setId(CURRENT_BTN_ID);
-            button.setText(person.getStep() + "");
-//            oldSquareBtn = button;
+            button.setText(player.getStep() + "");
             listMovedSquareBtn.add(button);
             System.out.println(" listMovedSquareBtn  size: " + listMovedSquareBtn.size());
         } else {
-//            listMovedSquareBtn.get(listMovedSquareBtn.size() - 1).setId(VISITED_BEFORE_BTN_ID); // ileri adim atilirsa bu olacak yoksa bu olmayacak
-            // geri adim atilirsa da son adimdaki butonu bulup current yapicazcurrent olacak
-
-
-            if (button.getX() != player.getLocation().getX() || button.getY()!= player.getLocation().getY()) {
+            if (button.getX() != player.getLocation().getX() || button.getY() != player.getLocation().getY()) {
 //            }
-                ButtonClickInputForFXML buttonClickInputForFXML = new ButtonClickInputForFXML(person);
+                ButtonClickInputForFXML buttonClickInputForFXML = new ButtonClickInputForFXML((Person) player);
                 buttonClickInputForFXML.setLocationToGetCompassDirectionLocation(button.getX(), button.getY());
                 PersonInput personInput = new PersonInput(buttonClickInputForFXML);
                 player.setIPlayerInput(personInput);
@@ -56,30 +40,22 @@ public class PersonPlayingStyle extends PlayerPlayingStyle {
                 int choose = player.getInput(player.getGame());
 
                 if (choose != -1) {
-                    person.getGame().increaseRoundCounter();
+                    player.getGame().increaseRoundCounter();
                     listMovedSquareBtn.get(listLastIndex()).setId(VISITED_BEFORE_BTN_ID);
                     Move moveForwardOrBack = getMoveBackOrForward(choose);
 
                     if (moveForwardOrBack != null) {
-                        moveForwardOrBack.move(new DirectionLocation().getLocationValueAccordingToEnteredValue(person.getGame(), choose));
+                        moveForwardOrBack.move(new DirectionLocation().getLocationValueAccordingToEnteredValue(player.getGame(), choose));
 
                         if (!moveForwardOrBack.getClass().getTypeName().equals(MoveBack.class.getTypeName())) {
                             button.setId(CURRENT_BTN_ID);
-                            String text = person.getStep() + "";
+                            String text = player.getStep() + "";
                             button.setText(text);
-//                        System.out.println("Yazdirilacak deger : " + text);
                             listMovedSquareBtn.add(button);
                             System.out.println(" listMovedSquareBtn  size: " + listMovedSquareBtn.size());
 
-
-//                        if (person.gameRule.isGameOver(player.getGame())) {
-//                            JOptionPane.showMessageDialog(null, " Game Over Step deger i : "+person.getStep());
-//                        }
                         } else {
                             listMovedSquareBtn.remove(button);
-
-//                    listMovedSquareBtn.get(listMovedSquareBtn.size()-1).setId(NORMAL_SQUARE_BTN_ID);
-//                    listMovedSquareBtn.get(listMovedSquareBtn.size()-1).setText("");
                             button.setId(NORMAL_SQUARE_BTN_ID);
                             button.setText("");
                             listMovedSquareBtn.get(listLastIndex()).setId(CURRENT_BTN_ID);
@@ -87,29 +63,70 @@ public class PersonPlayingStyle extends PlayerPlayingStyle {
                         }
 
                     }
-            /*if(moveForwardOrBack.getClass())
-                button.setId(CURRENT_BTN_ID);
-                button.setText(person.getStep() + "");
-                oldSquareBtn = button;*/
-
 
                 }
             }
+        }
+
+        Platform.runLater(() -> {
+
+            if (prepareGameBySelectingMenu.getPlayer().getGameRule().isGameOver(prepareGameBySelectingMenu.getPlayer().getGame())) {
+                if (prepareGameBySelectingMenu.getPlayer().getStep() == prepareGameBySelectingMenu.getEdgeValue() * prepareGameBySelectingMenu.getEdgeValue()) {
+                    ShowPanel.show(getClass(), "Tebrikler butun bosluklari doldurdunuz.");
+                    prepareGameBySelectingMenu.getPlayer().getScore().increaseTotalGameFinishedScore();
+                    gameController.lblScoreValue.setText(prepareGameBySelectingMenu.getPlayer().getScore().getTotalGameFinishedScore() + "");
+                } else {
+                    ShowPanel.show(getClass(), " Game Over Step deger i : " + prepareGameBySelectingMenu.getPlayer().getStep());
+                    gameController.resetGame();
+                }
+            }
+            gameController.updateCurrentValue();
+            gameController.updateStepValue();
+
+        });
+    }
+
+    @Override
+    public void stepBack() {
+        //Todo geri adim atma ihtimali yoksa uyari eklenebilir
+        if (prepareGameBySelectingMenu.getPlayer() instanceof Person) {
+            if (prepareGameBySelectingMenu.getPlayer().getStep() > 1) {
+                gameController.updateOldHintButtons();
+                prepareGameBySelectingMenu.getGame().increaseRoundCounter();
+                PlayerPlayingStyle playerPlayingStyle = prepareGameBySelectingMenu.getPlayerPlayingStyle();
+
+                SquareButton button = playerPlayingStyle.listMovedSquareBtn.get(playerPlayingStyle.listMovedSquareBtn.size() - 1);
+                button.setId(playerPlayingStyle.NORMAL_SQUARE_BTN_ID);
+                button.setText("");
+
+                Move moveBack = prepareGameBySelectingMenu.getPlayer().getPlayerMove().getMoveBack();
+                moveBack.move(new DirectionLocation().getLocationValueAccordingToEnteredValue(prepareGameBySelectingMenu.getGame(),
+                        prepareGameBySelectingMenu.getPlayer().getCompass().getLastLocation()));
+
+                playerPlayingStyle.listMovedSquareBtn.remove(playerPlayingStyle.listMovedSquareBtn.size() - 1);
+                SquareButton squareButton = playerPlayingStyle.listMovedSquareBtn.get(playerPlayingStyle.listMovedSquareBtn.size() - 1);
+                squareButton.setId(playerPlayingStyle.CURRENT_BTN_ID);
+
+                gameController.updateCurrentValue();
+                gameController.updateStepValue();
+                gameController.paintHintButton();
+            }
+            gameController.printModel();
         }
     }
 
 
     void locatePlayerFirstLocation(int x, int y) {
-        SelectFirstSqaureToStart selectFirstSqaureToStart = new SelectFirstSqaureToStart(person.getGame());
+        SelectFirstSqaureToStart selectFirstSqaureToStart = new SelectFirstSqaureToStart(player.getGame());
         selectFirstSqaureToStart.selectSquareStart(x, y);
         selectFirstSqaureToStart.locateThePlayer();
-        System.out.println("Baslangic yeri : secildi" + person.getLocation().toString());
+        System.out.println("Baslangic yeri : secildi" + player.getLocation().toString());
     }
 
     Move getMoveBackOrForward(int index) {
         if (index == player.getCompass().getLastLocation()) {
-//            return player.getPlayerMove().getMoveBack();
-            return null;
+            return player.getPlayerMove().getMoveBack();
+
         }
         return player.getPlayerMove().getMoveForward();
     }
