@@ -1,8 +1,6 @@
 package scene.game;
 
 
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Cursor;
 import javafx.scene.control.Button;
 
@@ -40,5 +38,13 @@ public class SquareButton extends Button {
 
     public void setY(int y) {
         this.y = y;
+    }
+
+    @Override
+    public String toString() {
+        return "SquareButton{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
     }
 }

@@ -43,7 +43,23 @@ public class ConvertNanoTimeToTime {
     }
 
     void addTimeToStringFormat() {
-        timeString = hour + ":" + minute + ":" + second + ":" + nanoTime;
+        timeString = hour + ":" + getTwoDigitTime(minute) + ":" + getTwoDigitTime(second) + ":" + getThreeDigitNanoTime(nanoTime);
     }
 
+    String getThreeDigitNanoTime(long nanoTime) {
+        if (nanoTime / 10 < 10) {
+            if (nanoTime / 10 < 1) {
+                return "00" + nanoTime;
+            }
+            return "0" + nanoTime;
+        }
+        return nanoTime + "";
+    }
+
+    String getTwoDigitTime(int time) {
+        if (time / 10 < 1) {
+            return "0" + time;
+        }
+        return time + "";
+    }
 }

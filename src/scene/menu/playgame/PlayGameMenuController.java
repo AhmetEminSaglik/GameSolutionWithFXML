@@ -1,34 +1,30 @@
 package scene.menu.playgame;
 
-import algorithm.Main.ISelectPlayer;
 import algorithm.errormessage.joptionpanel.ShowPanel;
-import algorithm.game.Game;
-import algorithm.game.gamerepo.player.Player;
 import algorithm.game.gamerepo.player.person.Person;
 import algorithm.game.gamerepo.player.person.PersonSpecialStuffToPrepareBeforeStartGame;
 import algorithm.game.gamerepo.player.robot.Robot;
 import algorithm.game.gamerepo.player.robot.solution.RobotSpecialStuffToPrepareBeforeStartGame;
+import algorithm.game.play.PlayerMove;
 import algorithm.game.play.input.person.ButtonClickInputForFXML;
 import algorithm.game.play.input.person.PersonInput;
 import algorithm.game.play.input.person.PersonPlayingStyle;
-import algorithm.game.play.input.person.SafeScannerInput;
 import algorithm.game.play.input.robot.RobotPlayingStyle;
+import fxmlmove.FxmlMoveBack;
+import fxmlmove.FxmlMoveForward;
+import scene.SwitchNewScene;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import preparegamebyselectingmenu.PrepareGameBySelectingMenu;
-import scene.SwitchNewScene;
+
 import scene.basescenecontroller.BaseSceneController;
 import scene.menu.main.MainMenuSceneUIDesigner;
 import scene.menu.playgame.solutionChoice.SolutionChoiceController;
 import scene.menu.playgame.solutionChoice.SolutionChoiceSceneUIDesigner;
 import scene.menu.selectedgeevalue.EdgeValueController;
 import scene.menu.selectedgeevalue.EdgeValueSceneUIDesigner;
-
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class PlayGameMenuController extends BaseSceneController /*implements ISelectPlayer*//*, ISelectPlayer */ {
 
@@ -63,6 +59,8 @@ public class PlayGameMenuController extends BaseSceneController /*implements ISe
 
     @FXML
     void playGameByPerson(ActionEvent event) {
+        Person person= new Person();
+
         prepareGameBySelectingMenu.setPlayer(new Person());
 //        prepareGameBySelectingMenu.selectPlayer(prepareGameBySelectingMenu.getPlayer());
         prepareGameBySelectingMenu.setPlayerPlayingStyle(new PersonPlayingStyle(prepareGameBySelectingMenu.getPlayer()));

@@ -6,6 +6,7 @@ import algorithm.compass.KeyboardCompass;
 import algorithm.game.Game;
 import algorithm.game.gameover.PersonGameOver;
 import algorithm.game.gamerepo.player.Player;
+import algorithm.game.move.PersonChangeLocationMove;
 import algorithm.game.move.fundamental.MoveBack;
 import algorithm.game.move.fundamental.MoveForward;
 import algorithm.game.play.PlayerMove;
@@ -24,13 +25,24 @@ public class Person extends Player {
     @Override
     public void setGame(Game game) {
         super.setGame(game);
-        setPlayerMove();
+
     }
 
     @Override
-    public void setPlayerMove() {
-        playerMove = new PlayerMove(/*new PersonMove(game),*/new MoveForward(game), new MoveBack(game));
+    public void setPlayerMove(PlayerMove playerMove) {
+        this.playerMove = playerMove;
+//        playerMove.setChangeableStartLocationSpecialMovement(new PersonChangeLocationMove(this));
     }
+
+   /* @Override
+    public void buildMove() {
+        setPlayerMove();
+    }*/
+
+ /*   @Override
+    public void setPlayerMove(MoveForward moveForward, MoveBack moveBack) {
+        playerMove = new PlayerMove(moveForward,moveBack*//*new PersonMove(game),*//**//*new MoveForward(game), new MoveBack(game)*//*);
+    }*/
 
     @Override
     public Compass getCompass() {

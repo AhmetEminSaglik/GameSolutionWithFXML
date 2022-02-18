@@ -12,21 +12,21 @@ public class GameSceneUIDesigner extends BaseSceneLoader {
         fxmlPath = "/scene/game/Game.fxml";
         cssPath = "/resource/menu.css";
         getSceeneWithAddedCss();
-//        scene=loadFxmlFile(fxmlPath);
-//        addCss(scene,cssPath);
+//        fxmlmove.scene=loadFxmlFile(fxmlPath);
+//        addCss(fxmlmove.scene,cssPath);
     }
 
   /*  public Scene getScene(int edgeValue) {
-//        Scene scene = new SceneBuilder().buildScene("/scene/game/Game.fxml", "/resource/menu.css");
+//        Scene fxmlmove.scene = new SceneBuilder().buildScene("/fxmlmove.scene/game/Game.fxml", "/fxmlmove.resource/menu.css");
         try {
             System.out.println("gonderilecek edge : " + edgeValue);
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));
             Parent root = fxmlLoader.load();
             GameController gameController = fxmlLoader.getController();
             gameController.setEdgeValue(edgeValue);
-            Scene scene = new Scene(root);
-            addCss(scene, cssPath);
-            return scene;
+            Scene fxmlmove.scene = new Scene(root);
+            addCss(fxmlmove.scene, cssPath);
+            return fxmlmove.scene;
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -48,7 +48,7 @@ public class GameSceneUIDesigner extends BaseSceneLoader {
             vBox.getChildren().add(hBox);
         } */
 
-//        FXMLLoader fxmlLoader = (FXMLLoader) scene.getWindow().get;
+//        FXMLLoader fxmlLoader = (FXMLLoader) fxmlmove.scene.getWindow().get;
 //        GameController gameController = fxmlLoader.getController();
 //        gameController.anchorPaneForButtons.getChildren().add(vBox);
 //}

@@ -2,10 +2,12 @@ package algorithm.game.play;
 
 import algorithm.game.move.fundamental.MoveBack;
 import algorithm.game.move.fundamental.MoveForward;
+import algorithm.game.move.seal.ChangeableStartLocationSpecialMovement;
 
 public class PlayerMove {
     private MoveForward moveForward;
     private MoveBack moveBack;
+//    private ChangeableStartLocationSpecialMovement changeableStartLocationSpecialMovement;
 
     public PlayerMove(MoveForward moveForward, MoveBack moveBack) {
         this.moveForward = moveForward;
@@ -28,4 +30,12 @@ public class PlayerMove {
                 ", moveBack=" + moveBack +
                 '}';
     }
+
+//    public ChangeableStartLocationSpecialMovement getChangeableStartLocationSpecialMovement() {
+//        return changeableStartLocationSpecialMovement;
+//    }
+//
+//    public void setChangeableStartLocationSpecialMovement(ChangeableStartLocationSpecialMovement changeableStartLocationSpecialMovement) {
+//        this.changeableStartLocationSpecialMovement = changeableStartLocationSpecialMovement;
+//    }
 }

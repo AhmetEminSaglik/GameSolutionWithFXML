@@ -9,12 +9,12 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-//        Parent root ``= FXMLLoader.load(getClass().getResource("/scene.menu.mainmenu/MainMenu.fxml"));
+//        Parent root ``= FXMLLoader.load(getClass().getResource("/fxmlmove.scene.menu.mainmenu/MainMenu.fxml"));
 //        primaryStage.setTitle("Reachg");
 //        primaryStage.setScene(new Scene(root));
         primaryStage.centerOnScreen();
         primaryStage.setScene(new MainMenuSceneUIDesigner().getCreatedScene());
-//        primaryStage.setScene(new PlayGameMenuSceneUIDesigner(new PlayGameMenuController(new PrepareGameBySelectingMenu())).getCreatedScene());
+//        primaryStage.setScene(new PlayGameMenuSceneUIDesigner(new PlayGameMenuController(new fxmlmove.preparegamebyselectingmenu.PrepareGameBySelectingMenu())).getCreatedScene());
 //        primaryStage.setResizable(false);
 
 

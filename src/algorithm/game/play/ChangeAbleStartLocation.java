@@ -1,7 +1,9 @@
+/*
 package algorithm.game.play;
 
 import algorithm.game.Game;
 
-public interface ChangeAbleStartLocation {
+public interface ChangeAbleStartLocation {asd
     public void changeStartLocationSpecialMovement(Game game);
 }
+*/

@@ -1,13 +1,12 @@
 package algorithm.game.move;
 
 import algorithm.game.gamerepo.player.Player;
-import algorithm.game.location.Location;
 
-public class MovePlayer {
+public  abstract class ChangePlayerLocation implements ChangeLocation {
 
     Player player;
 
-    public MovePlayer(Player player) {
+    public ChangePlayerLocation(Player player) {
         this.player = player;
     }
 
@@ -19,7 +18,7 @@ public class MovePlayer {
         player.getLocation().setY(player.getLocation().getY() + y);
     }
 
-    public void changePlayerLocationByAdding(Location location) {
+ /*   public void changePlayerLocationByAdding(Location location) {
         xChangeLocationByAdding(location.getX());
         yChangeLocationByAdding(location.getY());
     }
@@ -27,7 +26,7 @@ public class MovePlayer {
     public void changePlayerLocationByExcatlyLocation(Location location) {
         xChangeLocationByExcatly(location.getX());
         yChangeLocationByExcatly(location.getY());
-    }
+    }*/
 
     void xChangeLocationByExcatly(int x) {
         player.getLocation().setX(x);

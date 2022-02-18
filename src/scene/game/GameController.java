@@ -1,10 +1,10 @@
 package scene.game;
 
-import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.location.DirectionLocation;
 import algorithm.game.location.LocationsList;
 import algorithm.game.play.input.PlayerPlayingStyle;
 import algorithm.printarray.StringFormat;
+import fxmlmove.FxmlSquareBtnCommunity;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -23,6 +23,8 @@ import scene.menu.main.MainMenuSceneUIDesigner;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class GameController extends BaseSceneController {
     @FXML
@@ -30,9 +32,12 @@ public class GameController extends BaseSceneController {
     private int edgeValue;
     @FXML
     private VBox vBoxToCenterButtons;
-    public SquareButton squareButtonArray[][];
+    //    public SquareButton squareButtonArray[][];
+    public FxmlSquareBtnCommunity squareBtnCommunity = new FxmlSquareBtnCommunity();
     private PrepareGameBySelectingMenu prepareGameBySelectingMenu;
 
+    @FXML
+    private Label lblTimeField;
     @FXML
     public Label lblTotalStepValue;
     @FXML
@@ -50,6 +55,9 @@ public class GameController extends BaseSceneController {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+
+//        getPrepareGameBySelectingMenu().getPlayer().getTimeKeeper().startTime();
         Platform.runLater(() -> {
             addSquaresToAnchorPane();
 //            new Thread(new Runnable() {
@@ -62,8 +70,8 @@ public class GameController extends BaseSceneController {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-
                     prepareGameBySelectingMenu.getPlayerPlayingStyle().startGame();
+
                 }
             }).start();
 
@@ -94,7 +102,7 @@ public class GameController extends BaseSceneController {
 
         vBoxToCenterButtons.setSpacing(space);
 
-        squareButtonArray = new SquareButton[edgeValue][edgeValue];
+        squareBtnCommunity.squareButtonArray = new SquareButton[edgeValue][edgeValue];
         for (int y = edgeValue - 1; y >= 0; y--) {
             HBox hBox = new HBox(space);
             hBox.setAlignment(Pos.CENTER);
@@ -102,7 +110,7 @@ public class GameController extends BaseSceneController {
                 SquareButton squareButton = new SquareButton(x, y);
                 squareButton.setOnAction(getValueOfButton(squareButton));
                 hBox.getChildren().add(squareButton);
-                squareButtonArray[x][y] = squareButton;
+                squareBtnCommunity.squareButtonArray[x][y] = squareButton;
             }
             vBoxToCenterButtons.getChildren().add(hBox);
         }
@@ -114,11 +122,12 @@ public class GameController extends BaseSceneController {
         return new EventHandler<>() {
             @Override
             public void handle(Event event) {
-                updateOldHintButtons();
+                startTiming();
                 prepareGameBySelectingMenu.getPlayerPlayingStyle().play(button);
-                System.out.println("TIklanilan deger;" + button.getX() + "-" + button.getY());
-                paintHintButton();
-                printModel();
+//                System.out.println("TIklanilan deger;" + button.getX() + "-" + button.getY());
+//                paintHintButtonsOfCurrentBtn();
+//                printModel();
+//                ShowPanel.show(getClass(),"GUNCELLENDIM I ");
 
             }
         };
@@ -135,8 +144,8 @@ public class GameController extends BaseSceneController {
         prepareGameBySelectingMenu.getGame().resetRoundCounter();
         prepareGameBySelectingMenu.prepareGame();
         prepareGameBySelectingMenu.getPlayer().setStep(0);
-        updateCurrentValue();
-        updateStepValue();
+        updateLabelCurrentValue();
+        updateLabelTotalStepValue();
         updateTotalFinishedScore();
     }
 
@@ -145,11 +154,11 @@ public class GameController extends BaseSceneController {
         System.out.println(textWillAppendToFile);
     }
 
-    public void updateCurrentValue() {
+    public void updateLabelCurrentValue() {
         lblCurrentStepValue.setText(prepareGameBySelectingMenu.getPlayer().getStep() + "");
     }
 
-    public void updateStepValue() {
+    public void updateLabelTotalStepValue() {
         lblTotalStepValue.setText(prepareGameBySelectingMenu.getGame().getRoundCounter() + "");
     }
 
@@ -157,14 +166,50 @@ public class GameController extends BaseSceneController {
         lblScoreValue.setText(prepareGameBySelectingMenu.getPlayer().getScore().getTotalGameFinishedScore() + "");
     }
 
+    boolean timerStarted = false;
+
+    public void startTiming() {
+        if (timerStarted == false) {
+            Timer timer = new Timer();
+            TimerTask printElapsedTime = new ElapsedTimePrinter(lblTimeField);
+            timer.schedule(printElapsedTime, 0, 1);
+            timerStarted=true;
+        }
+    }
+
     public void paintNormalBtn() {
-        squareButtonArray
+        squareBtnCommunity.squareButtonArray
                 [prepareGameBySelectingMenu.getPlayer().getLocation().getX()]
                 [prepareGameBySelectingMenu.getPlayer().getLocation().getY()]
                 .setId(PlayerPlayingStyle.NORMAL_SQUARE_BTN_ID);
     }
 
-    public void paintHintButton() {
+
+    public void paintSquareBtnTo_CurrentBtn(SquareButton squareButton) {
+        paintSquareBtn(squareButton, PlayerPlayingStyle.CURRENT_BTN_ID);
+    }
+
+    public void paintSquareBtnTo_NormalSquareBtn(SquareButton squareButton) {
+        paintSquareBtn(squareButton, PlayerPlayingStyle.NORMAL_SQUARE_BTN_ID);
+    }
+
+    public void paintSquareBtnTo_VisitedBeforeBtn(SquareButton squareButton) {
+        paintSquareBtn(squareButton, PlayerPlayingStyle.VISITED_BEFORE_BTN_ID);
+    }
+
+    public void paintSquareBtnTo_HintBtn(SquareButton squareButton) {
+        paintSquareBtn(squareButton, PlayerPlayingStyle.HINT_BTN_ID);
+    }
+
+    public void paintSquareBtn(SquareButton squareButton, String btnId) {
+        squareButton.setId(btnId);
+    }
+
+    public void setStepValueToToSquareBtnAsAText(SquareButton squareButton) {
+        squareButton.setText(prepareGameBySelectingMenu.getPlayer().getStep() + "");
+    }
+
+    public void paintHintButtonsOfCurrentBtn() {
 //        vBoxToCenterButtons.getChildren();
 /*
         for (int i = vBoxToCenterButtons.getChildren().size() - 1; i >= 0; i--) {
@@ -193,7 +238,7 @@ public class GameController extends BaseSceneController {
 
     public void paintCurrentButton() {
 //        paintButton(PlayerPlayingStyle.CURRENT_BTN_ID);
-        squareButtonArray
+        squareBtnCommunity.squareButtonArray
                 [prepareGameBySelectingMenu.getPlayer().getLocation().getX()]
                 [prepareGameBySelectingMenu.getPlayer().getLocation().getY()]
                 .setId(PlayerPlayingStyle.CURRENT_BTN_ID);
@@ -207,8 +252,9 @@ public class GameController extends BaseSceneController {
 */
 
     void determineHintBtn(int x, int y) {
-        if (!squareButtonArray[x][y].getId().equals(PlayerPlayingStyle.VISITED_BEFORE_BTN_ID))
-            squareButtonArray[x][y].setId(PlayerPlayingStyle.HINT_BTN_ID);
+        if (!squareBtnCommunity.squareButtonArray[x][y].getId().equals(PlayerPlayingStyle.VISITED_BEFORE_BTN_ID))
+            paintSquareBtnTo_HintBtn(squareBtnCommunity.squareButtonArray[x][y]);
+//            squareBtnCommunity.squareButtonArray[x][y].setId(PlayerPlayingStyle.HINT_BTN_ID);
 
     }
 
@@ -226,7 +272,7 @@ public class GameController extends BaseSceneController {
         return false;
     }*/
 
-    public void updateOldHintButtons() {
+    public void clearOldHintButtons() {
         vBoxToCenterButtons.getChildren();
 
         for (int i = vBoxToCenterButtons.getChildren().size() - 1; i >= 0; i--) {

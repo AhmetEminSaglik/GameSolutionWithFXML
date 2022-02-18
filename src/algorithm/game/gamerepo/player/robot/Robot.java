@@ -9,6 +9,9 @@ import algorithm.game.gamerepo.player.robot.memory.RoadMemory;
 import algorithm.game.gamerepo.player.robot.memory.RobotMemory;
 import algorithm.game.gamerepo.player.robot.solution.BaseSolution;
 import algorithm.game.location.DirectionLocation;
+import algorithm.game.move.RobotChangeLocationMove;
+import algorithm.game.move.fundamental.MoveBack;
+import algorithm.game.move.fundamental.MoveForward;
 import algorithm.game.play.PlayerMove;
 import algorithm.game.play.input.robot.RobotInput;
 import algorithm.game.rule.BaseGameRule;
@@ -25,13 +28,27 @@ public class Robot extends Player {
         printAbleEveryStep = false;
     }
 
+    @Override
+    public void setPlayerMove(PlayerMove playerMove) {
+        solution.setGame(game);
+        solution.buildRobotMove();
+        setName(solution.getClass().getSimpleName() + "_" + game.getModel().getGameSquares());
+        this.playerMove = playerMove;
+//        playerMove.setChangeableStartLocationSpecialMovement(new RobotChangeLocationMove(getGame()));
+
+//        setPlayerMove(playerMove/*solution.getMoveForward(),solution.getMoveBack()*/);
+
+
+    }
+
+
     //    public Robot(Game game/*, BaseSolution solution*/) {
 //        super(game);
 //        this.game = game;
 //        robotMemory = new RobotMemory(game);
 ////        this.solution = solution;
 ////        solution.buildRobotMove();
-////        playerMove = new PlayerMove(/*new RobotMove(game),*/ solution.getMoveForward(), solution.getMoveBack());
+////        playerMove = new PlayerMove(/*new RobotChangeLocationMove(game),*/ solution.getMoveForward(), solution.getMoveBack());
 ////       setName(solution.getClass().getSimpleName() + "_" + game.getModel().getGameSquares());
 //        printAbleEveryStep = false;
 //    }
@@ -40,7 +57,7 @@ public class Robot extends Player {
         robotMemory = new RobotMemory(game);
         this.solution = solution;
         solution.buildRobotMove();
-        playerMove = new PlayerMove(*//*new RobotMove(game),*//* solution.getMoveForward(), solution.getMoveBack());
+        playerMove = new PlayerMove(*//*new RobotChangeLocationMove(game),*//* solution.getMoveForward(), solution.getMoveBack());
         setName(solution.getClass().getSimpleName() + "_" + game.getModel().getGameSquares());
         printAbleEveryStep = false;
     }*/
@@ -63,19 +80,12 @@ public class Robot extends Player {
         this.solution = solution;
     }
 
-    public void buildRobotMove() {
 
-        solution.setGame(game);
-        solution.buildRobotMove();
 
-        setName(solution.getClass().getSimpleName() + "_" + game.getModel().getGameSquares());
-        setPlayerMove();
-    }
-
-    @Override
-    public void setPlayerMove() {
-        playerMove = new PlayerMove(/*new RobotMove(game),*/ solution.getMoveForward(), solution.getMoveBack());
-    }
+  /*  @Override
+    public void setPlayerMove(MoveForward moveForward, MoveBack moveBack) {
+        playerMove = new PlayerMove(*//*new RobotChangeLocationMove(game),*//* *//*solution.getMoveForward(), solution.getMoveBack()*//*);
+    }*/
 
     @Override
     public BaseGameRule getGameRule() {

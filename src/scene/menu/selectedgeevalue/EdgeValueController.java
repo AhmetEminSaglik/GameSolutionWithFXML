@@ -1,14 +1,11 @@
 package scene.menu.selectedgeevalue;
 
 import algorithm.game.gamerepo.IDetermineEdgeValue;
-import algorithm.game.gamerepo.player.PlayerSpecialStuffToPrepareBeforeStartGame;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import preparegamebyselectingmenu.PrepareGameBySelectingMenu;
 import scene.SwitchNewScene;

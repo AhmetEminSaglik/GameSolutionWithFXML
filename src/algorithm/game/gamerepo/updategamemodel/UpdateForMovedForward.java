@@ -3,6 +3,7 @@ package algorithm.game.gamerepo.updategamemodel;
 
 import algorithm.game.Game;
 import algorithm.game.location.DirectionLocation;
+import algorithm.game.move.ChangePlayerLocation;
 import algorithm.game.move.seal.Signature;
 
 public class UpdateForMovedForward extends UpdateValuesInGameModel {

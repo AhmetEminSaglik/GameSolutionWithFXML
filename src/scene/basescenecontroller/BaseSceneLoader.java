@@ -1,14 +1,12 @@
 package scene.basescenecontroller;
 
 import algorithm.errormessage.ErrorMessage;
-import algorithm.errormessage.joptionpanel.ShowPanel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import scene.scenebuilder.SceneBuilder;
 
-import javax.swing.*;
 import java.io.IOException;
 
 public abstract class BaseSceneLoader extends AnchorPane {
@@ -24,6 +22,7 @@ public abstract class BaseSceneLoader extends AnchorPane {
 
     public Scene loadFxmlFile(String fxmlPath) {
 //        ShowPanel.show(getClass(),"Gelen controller : "+baseSceneController.getClass());
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));
 
         fxmlLoader.setController(baseSceneController);

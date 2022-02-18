@@ -7,6 +7,8 @@ import algorithm.game.gamerepo.player.robot.TimeKeeper;
 import algorithm.game.location.DirectionLocation;
 import algorithm.game.location.Location;
 import algorithm.game.location.LocationsList;
+import algorithm.game.move.fundamental.MoveBack;
+import algorithm.game.move.fundamental.MoveForward;
 import algorithm.game.play.PlayerMove;
 import algorithm.game.play.input.person.IPlayerInput;
 import algorithm.game.rule.BaseGameRule;
@@ -23,11 +25,10 @@ public abstract class Player implements UpdateableVistedDirection, PrintableEver
     protected int squareTotalSolvedValue = 0;
     protected Game game;
     private boolean visitedDirections[][];
-    TimeKeeper timeKeeper;
+    TimeKeeper timeKeeper = new TimeKeeper();
     Score score;
 
     public Player() {
-        timeKeeper = new TimeKeeper();
         name = "Unknow " + getClass().getSimpleName() + " name ";
     }
 
@@ -71,7 +72,10 @@ public abstract class Player implements UpdateableVistedDirection, PrintableEver
 
     }
 
-    public abstract void setPlayerMove();
+    //    public abstract void setPlayerMove(MoveForward moveForward, MoveBack moveBack);
+    public abstract void setPlayerMove(PlayerMove playerMove/*MoveForward moveForward, MoveBack moveBack*/);
+
+//    public abstract void buildMove();
 
     public BaseGameRule gameRule;
     Location location = new Location();
@@ -119,6 +123,7 @@ public abstract class Player implements UpdateableVistedDirection, PrintableEver
 //        System.out.println("Input Alindi");
         return iPlayerInput.getInput(game);
     }
+
     public abstract Compass getCompass();
 
     @Override

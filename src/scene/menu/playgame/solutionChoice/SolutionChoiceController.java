@@ -4,6 +4,7 @@ import algorithm.game.gamerepo.player.robot.Robot;
 import algorithm.game.gamerepo.player.robot.solution.BaseSolution;
 import algorithm.game.gamerepo.player.robot.solution.first.FirstSolution_Combination;
 import algorithm.game.gamerepo.player.robot.solution.second.SecondSolution_CalculateForwardAvailableWays;
+import algorithm.game.play.PlayerMove;
 import algorithm.game.play.input.robot.RobotInput;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -61,7 +62,8 @@ public class SolutionChoiceController extends BaseSceneController {
             Robot robot = (Robot) prepareGameBySelectingMenu.getPlayer();
             robot.setSolution(baseSolution);
             robot.setIPlayerInput(new RobotInput(robot.getSolution()));
-            
+            robot.setPlayerMove(new PlayerMove(robot.getSolution().getMoveForward(), robot.getSolution().getMoveBack()));
+
             new SwitchNewScene().switchScene(anchorPane, new EdgeValueSceneUIDesigner(new EdgeValueController(prepareGameBySelectingMenu)).getCreatedScene());
 
         } else {

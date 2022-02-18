@@ -1,11 +1,7 @@
 package scene.menu.main;
 
-import algorithm.Main.ISelectPlayer;
-import algorithm.game.Game;
-import algorithm.game.gamerepo.player.Player;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.layout.AnchorPane;
 import preparegamebyselectingmenu.PrepareGameBySelectingMenu;
 import scene.SwitchNewScene;
 import scene.basescenecontroller.BaseSceneController;

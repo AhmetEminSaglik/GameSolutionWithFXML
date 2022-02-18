@@ -1,5 +1,6 @@
 package algorithm.game.gamerepo.player;
 
+
 import preparegamebyselectingmenu.PrepareGameBySelectingMenu;
 
 public abstract class PlayerSpecialStuffToPrepareBeforeStartGame {

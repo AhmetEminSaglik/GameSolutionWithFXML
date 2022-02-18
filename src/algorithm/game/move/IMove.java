@@ -1,6 +1,5 @@
 package algorithm.game.move;
 
-
 public interface IMove {
 
     void prepareAllStuff();
@@ -19,5 +18,5 @@ public interface IMove {
 
     boolean isRequiredToChangeStartLocation();
 
-    void changeStartLocationSpecialMovement();
+//    void changeStartLocation(DirectionLocation directionLocation);
 }

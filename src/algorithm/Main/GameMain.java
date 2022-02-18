@@ -9,7 +9,10 @@ import algorithm.game.gamerepo.player.robot.Robot;
 import algorithm.game.gamerepo.player.robot.solution.BaseSolution;
 import algorithm.game.gamerepo.player.robot.solution.first.FirstSolution_Combination;
 import algorithm.game.gamerepo.player.robot.solution.second.SecondSolution_CalculateForwardAvailableWays;
+import algorithm.game.move.fundamental.MoveBack;
+import algorithm.game.move.fundamental.MoveForward;
 import algorithm.game.play.PlayGame;
+import algorithm.game.play.PlayerMove;
 import algorithm.game.play.input.person.ButtonClickInputForFXML;
 import algorithm.game.play.input.person.PersonInput;
 import algorithm.game.play.input.person.SafeScannerInput;
@@ -79,6 +82,7 @@ public class GameMain implements ISelectPlayer {
             Person person = new Person();
             person.setGame(game);
             person.setIPlayerInput(new PersonInput(new ButtonClickInputForFXML(person)));
+            person.setPlayerMove(new PlayerMove(new MoveForward(person.getGame()), new MoveBack(person.getGame())));
             System.out.println("game : " + game.toString());
             return person;
 //            return new Person(/*game*/);
@@ -87,8 +91,8 @@ public class GameMain implements ISelectPlayer {
             robot.setGame(game);
             baseSolution = new SecondSolution_CalculateForwardAvailableWays(game);
             robot.setSolution(baseSolution);
-            robot.buildRobotMove();
             robot.setIPlayerInput(new RobotInput(robot.getSolution()));
+            robot.setPlayerMove(new PlayerMove(baseSolution.getMoveForward(), baseSolution.getMoveBack()));
             return robot;
 
 //            return new Robot(game, baseSolution);

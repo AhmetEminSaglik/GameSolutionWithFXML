@@ -2,19 +2,20 @@ package algorithm.game.play;
 
 import algorithm.game.Game;
 import algorithm.game.location.DirectionLocation;
+import algorithm.game.move.ChangeLocationByExactlyLocation;
+import algorithm.game.move.ChangePlayerLocation;
 import algorithm.game.move.fundamental.MoveForward;
-import algorithm.game.move.MovePlayer;
 
 import java.util.Random;
 
 public class SelectFirstSqaureToStart extends DirectionLocation {
 
     private Game game;
-    MovePlayer movePlayer;
+    ChangePlayerLocation movePlayer;
 
     public SelectFirstSqaureToStart(Game game) {
         this.game = game;
-        movePlayer = new MovePlayer(game.getPlayer());
+        movePlayer = new ChangeLocationByExactlyLocation(game.getPlayer());
     }
 
     public void randomStart() {
@@ -42,10 +43,10 @@ public class SelectFirstSqaureToStart extends DirectionLocation {
     }
 
     public void locateThePlayer() {
-        MoveForward moveForward = new MoveForward(game);
+        MoveForward moveForward = game.getPlayer().getPlayerMove().getMoveForward();//new MoveForward(game);
         moveForward.updatePlayerStepValue();
 
-        movePlayer.changePlayerLocationByExcatlyLocation(this);
+        movePlayer.change(this);
 
         moveForward.updateVisitedArea();
         moveForward.getFillGameSquare().printStepInGameSquare();

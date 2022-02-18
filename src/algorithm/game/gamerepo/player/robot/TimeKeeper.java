@@ -2,13 +2,16 @@ package algorithm.game.gamerepo.player.robot;
 
 import algorithm.utility.ConvertNanoTimeToTime;
 
+import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
-public class TimeKeeper {
+public class TimeKeeper extends TimerTask {
     long start;
     long totalTimePassed;
 
-    public TimeKeeper() {
+
+    public void startTime(){
+
         start = System.nanoTime();
     }
 
@@ -28,4 +31,8 @@ public class TimeKeeper {
     }
 
 
+    @Override
+    public void run() {
+
+    }
 }

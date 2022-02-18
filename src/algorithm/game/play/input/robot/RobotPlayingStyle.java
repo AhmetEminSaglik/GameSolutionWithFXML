@@ -26,15 +26,15 @@ public class RobotPlayingStyle extends PlayerPlayingStyle {
         gameController.printModel();
         getCurrentSquareBtn().setText(player.getStep() + "");
         gameController.paintCurrentButton();
-        listMovedSquareBtn.add(getCurrentSquareBtn());
-        gameController.paintHintButton();
-        gameController.updateOldHintButtons();
+        squareBtnCommunity.listMovedSquareBtn.add(getCurrentSquareBtn());
+        gameController.paintHintButtonsOfCurrentBtn();
+        gameController.clearOldHintButtons();
 
 
         while (!player.getGameRule().isGameOver(game)) {
 
 
-            listMovedSquareBtn.get(listLastIndex()).setId(VISITED_BEFORE_BTN_ID);
+            squareBtnCommunity. listMovedSquareBtn.get(listLastIndex()).setId(VISITED_BEFORE_BTN_ID);
 
 
             int choose = player.getInput(game);
@@ -49,19 +49,19 @@ public class RobotPlayingStyle extends PlayerPlayingStyle {
                 Platform.runLater(() -> {
                     getCurrentSquareBtn().setText(player.getStep() + "");
                 });
-                gameController.paintHintButton();
+                gameController.paintHintButtonsOfCurrentBtn();
                 game.increaseRoundCounter();
-                listMovedSquareBtn.add(getCurrentSquareBtn());
+                squareBtnCommunity.  listMovedSquareBtn.add(getCurrentSquareBtn());
 
             } else {
                 ShowPanel.show(getClass(), "GERI ADIM ATIYOR");
-                listMovedSquareBtn.remove(getCurrentSquareBtn());
+                squareBtnCommunity.    listMovedSquareBtn.remove(getCurrentSquareBtn());
                 gameController.paintNormalBtn();
                 Platform.runLater(() -> {
                     getCurrentSquareBtn().setText("");
 
                 });
-                listMovedSquareBtn.get(listLastIndex()).setId(CURRENT_BTN_ID);
+                squareBtnCommunity.  listMovedSquareBtn.get(listLastIndex()).setId(CURRENT_BTN_ID);
             }
 
             try {
@@ -73,9 +73,9 @@ public class RobotPlayingStyle extends PlayerPlayingStyle {
 //            gameController.printModel();
             Platform.runLater(() -> {
                 getCurrentSquareBtn().setText(player.getStep() + "");
-                gameController.updateStepValue();
-                gameController.updateCurrentValue();
-                gameController.updateOldHintButtons();
+                gameController.updateLabelTotalStepValue();
+                gameController.updateLabelCurrentValue();
+                gameController.clearOldHintButtons();
             });
 
 
@@ -84,7 +84,7 @@ public class RobotPlayingStyle extends PlayerPlayingStyle {
     }
 
     SquareButton getCurrentSquareBtn() {
-        return squareButtonArray[player.getLocation().getX()][player.getLocation().getY()];
+        return squareBtnCommunity.squareButtonArray[player.getLocation().getX()][player.getLocation().getY()];
     }
 
     public RobotPlayingStyle(Player player) {

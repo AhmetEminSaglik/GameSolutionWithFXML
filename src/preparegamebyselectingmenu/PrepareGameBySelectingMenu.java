@@ -1,6 +1,5 @@
 package preparegamebyselectingmenu;
 
-
 import algorithm.game.Game;
 import algorithm.game.gamerepo.BuildGame;
 import algorithm.game.gamerepo.IDetermineEdgeValue;
@@ -104,7 +103,7 @@ public class PrepareGameBySelectingMenu {
 
     @Override
     public String toString() {
-        return "PrepareGameBySelectingMenu{" +
+        return "fxmlmove.preparegamebyselectingmenu.PrepareGameBySelectingMenu{" +
                 "buildGameModel=" + buildGameModel +
                 ", player=" + player +
                 ", game=" + game +
