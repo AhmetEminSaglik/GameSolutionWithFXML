@@ -15,6 +15,8 @@ import algorithm.game.rule.BaseGameRule;
 import algorithm.print.FileWriteProcess;
 import algorithm.print.PrintAble;
 
+import java.util.Arrays;
+
 public abstract class Player implements UpdateableVistedDirection, PrintableEveryStepToSee {
     protected IPlayerInput iPlayerInput;
     protected PlayerMove playerMove;
@@ -114,10 +116,27 @@ public abstract class Player implements UpdateableVistedDirection, PrintableEver
         step--;
     }
 
+/*
     @Override
     public String toString() {
-        return "Player{" + "location=" + location.toString() + ", step=" + step + ", compass=" + getCompass() + '}';
+        return "Player{" +
+                "iPlayerInput=" + iPlayerInput +
+                ", playerMove=" + playerMove +
+                ", name='" + name + '\'' +
+                ", printableFileScore=" + printableFileScore +
+                ", printAbleEveryStep=" + printAbleEveryStep +
+                ", squareTotalSolvedValue=" + squareTotalSolvedValue +
+                ", game=" + game +
+                ", visitedDirections=" + Arrays.toString(visitedDirections) +
+                ", timeKeeper=" + timeKeeper +
+                ", score=" + score +
+                ", gameRule=" + gameRule +
+                ", location=" + location +
+                ", step=" + step +
+                ", compass=" + compass +
+                '}';
     }
+*/
 
     public final int getInput(Game game) {
 //        System.out.println("Input Alindi");
@@ -182,4 +201,5 @@ public abstract class Player implements UpdateableVistedDirection, PrintableEver
     public void setIPlayerInput(IPlayerInput iPlayerInput) {
         this.iPlayerInput = iPlayerInput;
     }
+
 }

@@ -33,6 +33,7 @@ public class CheckSquare extends BaseCheck {
     }
 
     public boolean isIndexsSuitableForArray(Game game, Location currentProcessLocation, int choose) {
+
         validation.setCompass(getCompass());
         return validation.isInputValidForArray(game, currentProcessLocation, choose);
     }

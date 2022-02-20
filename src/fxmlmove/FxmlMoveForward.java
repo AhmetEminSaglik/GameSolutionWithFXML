@@ -60,7 +60,6 @@ public class FxmlMoveForward extends FxmlMove {
 //        System.out.println(" 2 getDirection : " + getDirectionLocation());
         moveForward.setDirectionLocation(getDirectionLocation());
         moveForward.updateAfterStep();
-        gameController.getPrepareGameBySelectingMenu().getGame().increaseRoundCounter();
 
         SquareButton currentBtn = getCurrentBtn();
         gameController.paintSquareBtnTo_CurrentBtn(currentBtn);

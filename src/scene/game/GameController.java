@@ -144,7 +144,8 @@ public class GameController extends BaseSceneController {
     }
 
     public void printModel() {
-        String textWillAppendToFile = new StringFormat().getStringFormatArray(prepareGameBySelectingMenu.getGame().getModel().getGameSquares());//  print game squares
+        String textWillAppendToFile=" Round Counter : "+prepareGameBySelectingMenu.getGame().getRoundCounter()+"\n";
+         textWillAppendToFile += new StringFormat().getStringFormatArray(prepareGameBySelectingMenu.getGame().getModel().getGameSquares());//  print game squares
         System.out.println(textWillAppendToFile);
     }
 
@@ -166,6 +167,7 @@ public class GameController extends BaseSceneController {
 
     public void runFunctionInPlatformThread(Runnable runnable) {
         Platform.runLater(() -> runnable.run());
+
 
     }
 
@@ -206,6 +208,13 @@ public class GameController extends BaseSceneController {
 
     public void paintSquareBtn(SquareButton squareButton, String btnId) {
         squareButton.setId(btnId);
+        /*runnable= new Runnable() {
+            @Override
+            public void run() {
+
+            }
+        };
+        runFunctionInPlatformThread(runnable);*/
         /*runnable = new Runnable() {
             @Override
             public void run() {

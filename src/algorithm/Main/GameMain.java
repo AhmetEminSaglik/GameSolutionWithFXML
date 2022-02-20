@@ -9,6 +9,8 @@ import algorithm.game.gamerepo.player.robot.Robot;
 import algorithm.game.gamerepo.player.robot.solution.BaseSolution;
 import algorithm.game.gamerepo.player.robot.solution.first.FirstSolution_Combination;
 import algorithm.game.gamerepo.player.robot.solution.second.SecondSolution_CalculateForwardAvailableWays;
+import algorithm.game.move.ChangeLocationByAdding;
+import algorithm.game.move.ChangeLocationByExactlyLocation;
 import algorithm.game.move.fundamental.MoveBack;
 import algorithm.game.move.fundamental.MoveForward;
 import algorithm.game.play.PlayGame;
@@ -93,7 +95,18 @@ public class GameMain implements ISelectPlayer {
             baseSolution.setGame(game);
             robot.setSolution(baseSolution);
             robot.setIPlayerInput(new RobotInput(robot.getSolution()));
+            MoveForward moveForward= new MoveForward(game);
+            moveForward.setChangePlayerLocation(new ChangeLocationByExactlyLocation(robot));
+            baseSolution.setMoveForward(moveForward);
+
+            MoveBack moveBack= new MoveBack(game);
+            moveBack.setChangePlayerLocation(new ChangeLocationByAdding(robot));
+            baseSolution.setMoveBack(moveBack);
             robot.setPlayerMove(new PlayerMove(baseSolution.getMoveForward(), baseSolution.getMoveBack()));
+
+//            robot.setPlayerMove(new PlayerMove(new MoveForward(game),new MoveBack(game)));
+            System.out.println("Robot : "+robot);
+            System.out.println(robot.getPlayerMove().toString());
             return robot;
 
 //            return new Robot(game, baseSolution);

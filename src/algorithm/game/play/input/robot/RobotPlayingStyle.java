@@ -1,7 +1,10 @@
 package algorithm.game.play.input.robot;
 
+import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.gamerepo.player.Player;
 import algorithm.game.location.DirectionLocation;
+import algorithm.game.move.ChangeLocationByAdding;
+import algorithm.game.move.ChangeLocationByExactlyLocation;
 import algorithm.game.move.Move;
 import algorithm.game.play.input.PlayerPlayingStyle;
 import fxmlmove.FxmlMove;
@@ -9,71 +12,60 @@ import scene.game.SquareButton;
 
 public class RobotPlayingStyle extends PlayerPlayingStyle {
 
-    int sleepTime = 2000;
-//    PrepareGame prepareGame;
-//    boolean moveForward = true;
-
-    Move moveForwardOrBack;
+    int sleepTime = 1000;
 
     @Override
     public void startGame() {
         game = player.getGame();
         fillFxmlMoveForward();
         fillFxmlMoveBack();
-//        setFxmlMoveBack(new FxmlMoveBack(gameController));
-//        getFxmlMoveBack().setChangePlayerLocation(new ChangeLocationByAdding(player));
-//        setFxmlMoveForward(new FxmlMoveForward(gameController));
-//        getFxmlMoveForward().setChangePlayerLocation(new ChangeLocationByAdding(player));
-//        Robot robot = (Robot) player;
-//        fillForwardAndBackMoveReferances(new FxmlMoveForward<MoveForwardSecondSolution>(gameController), new FxmlMoveBack<MoveBackSecondSolution>(gameController));
 
-//        fillForwardAndBackMoveReferances();
-//        player.setPlayerMove(new );
+        fxmlMoveForwardOrBack = fxmlMoveForward;
+
+        fxmlMoveForwardOrBack.setUpdateValuesInGameModel(player.getPlayerMove().getMoveForward().getUpdateValuesInGameModel());
+        fxmlMoveForwardOrBack.setChangePlayerLocation(new ChangeLocationByExactlyLocation(player));
+        System.out.println(fxmlMoveForwardOrBack.getChangePlayerLocation());
+
+        DirectionLocation directionLocation = new DirectionLocation();
+        directionLocation.setX(0);
+        directionLocation.setY(0);
+
+        fxmlMoveForwardOrBack.move(directionLocation);
 
 
+        updateChangePlayerLocationFunctionOfFxmlMove(fxmlMoveForward, new ChangeLocationByAdding(player));
+        try {
+            Thread.sleep(sleepTime);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
-     /*   System.out.println("start game geldi");
-        prepareGame = new PrepareGame(player.getGame());
-        prepareGame.prepareToPlay(0, 0);
-        prepareGameBySelectingMenu.getGame().increaseRoundCounter();
-
-        Game game = player.getGame();
-        gameController.printModel();
-        gameController.setStepValueToSquareBtnAsAText(getCurrentSquareBtn());
-        gameController.paintCurrentButton();
-        squareBtnCommunity.listMovedSquareBtn.add(getCurrentSquareBtn());
-        gameController.paintHintButtonsOfCurrentBtn();
-        gameController.clearOldHintButtons();*/
-
-//        squareBtnCommunity.listMovedSquareBtn.add(getCurrentSquareBtn());
-//        moveForwardOrBack = player.getPlayerMove().getMoveForward();
-//        System.out.println("while oncesi moveForwardOrBack : "+moveForwardOrBack.getClass().getName());
-//        moveForwardOrBack.setChangePlayerLocation(new ChangeLocationByExactlyLocation(player));
-//        DirectionLocation directionLocation = new DirectionLocation();
-//        directionLocation.setX(0);
-//        directionLocation.setY(0);
-//        moveForwardOrBack.move(directionLocation);
-//        try {
-//                gameController
-//            Thread.sleep(sleepTime);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
         while (!player.getGameRule().isGameOver(game)) {
+            playRobot();
+
+        }
+
+
+    }
+
+    synchronized void playRobot() {
 
 
 //            squareBtnCommunity.listMovedSquareBtn.get(listLastIndex()).setId(VISITED_BEFORE_BTN_ID);
 
 
-            int choose = player.getInput(game);
-            System.out.println("GELEN CHOOSE : " + choose);
+        int choose = player.getInput(game);
+        System.out.println("GELEN CHOOSE : " + choose);
 //            fxmlMoveForwardOrBack = getMoveBackOrForward(choose);
-            moveForwardOrBack = getMoveBackOrForward(choose);
-            moveForwardOrBack.move(
-                    new DirectionLocation().
-                            getLocationValueAccordingToEnteredValue(game, choose));
-            System.out.println("while ici  moveForwardOrBack (move sonrasi)  : " + moveForwardOrBack.getClass().getName());
-//            ShowPanel.show(getClass(), "moveForwardOrBack.getClass().getTypeName().equals(MoveForward.class.getTypeName()) : " + moveForwardOrBack.getClass().getTypeName().equals(MoveForward.class.getTypeName()) + "\n" +
+//        fxmlMoveForwardOrBack = getMoveBackOrForward(choose);
+        Move moveForwardOrBack= getMoveBackOrForward(choose);
+        moveForwardOrBack.move(new DirectionLocation().
+                getLocationValueAccordingToEnteredValue(game, choose));
+        /*fxmlMoveForwardOrBack.move(
+                new DirectionLocation().
+                        getLocationValueAccordingToEnteredValue(game, choose));*/
+//        System.out.println("while ici  moveForwardOrBack (move sonrasi)  : " + fxmlMoveForwardOrBack.getClass().getName());
+//            ShowPanel.show(getClass(), "moveForwardOrBack.getClass().3getTypeName().equals(MoveForward.class.getTypeName()) : " + moveForwardOrBack.getClass().getTypeName().equals(MoveForward.class.getTypeName()) + "\n" +
 //                    "moveForwardOrBack.getClass().getTypeName() : " + moveForwardOrBack.getClass().getTypeName());
            /* if (moveForward) {
                 gameController.paintCurrentButton();
@@ -93,13 +85,12 @@ public class RobotPlayingStyle extends PlayerPlayingStyle {
                 squareBtnCommunity.listMovedSquareBtn.get(listLastIndex()).setId(CURRENT_BTN_ID);
             }*/
 
-            checkStatus();
-            try {
-//                gameController
-                Thread.sleep(sleepTime);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+        checkStatus();
+        try {
+            Thread.sleep(sleepTime);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 //            gameController.printModel();
           /*  Platform.runLater(() -> {
                 getCurrentSquareBtn().setText(player.getStep() + "");
@@ -108,14 +99,17 @@ public class RobotPlayingStyle extends PlayerPlayingStyle {
                 gameController.clearOldHintButtons();
             });*/
 
-            if (player.getStep() == gameController.getPrepareGameBySelectingMenu().getEdgeValue() * gameController.getPrepareGameBySelectingMenu().getEdgeValue()) {
-                maxSayioldu = true;
-            }
-            if (maxSayioldu) {
-                System.out.println(" adim sayisi  en az 1 kere max sayiya esit oldu : ");
-            }
+        if (player.getStep() == 25) {
+            ShowPanel.show(getClass(), " DURRRRRRRR 25 oldu");
         }
-
+        if (player.getStep() == gameController.getPrepareGameBySelectingMenu().getEdgeValue() * gameController.getPrepareGameBySelectingMenu().getEdgeValue()) {
+            maxSayioldu = true;
+        }
+        if (maxSayioldu) {
+            System.out.println(" adim sayisi  en az 1 kere max sayiya esit oldu : ");
+        }
+        gameController.printModel();
+//        notify();
     }
 
     boolean maxSayioldu = false;
@@ -131,7 +125,6 @@ public class RobotPlayingStyle extends PlayerPlayingStyle {
     @Override
     public void play(SquareButton button) {
         System.out.println("robot burada oynicak");
-
     }
 
     @Override
@@ -139,12 +132,18 @@ public class RobotPlayingStyle extends PlayerPlayingStyle {
         System.out.println("bu buton calismicak");
     }
 
-    FxmlMove getMoveBackOrForward(int index) {
+    Move getMoveBackOrForward(int index) {
+        if (index == player.getCompass().getLastLocation()) {
+            return player.getPlayerMove().getMoveBack();
+        }
+        return player.getPlayerMove().getMoveForward();
+    }
+  /*  FxmlMove getMoveBackOrForward(int index) {
         if (index == player.getCompass().getLastLocation()) {
             return fxmlMoveBack;
         }
         return fxmlMoveForward;
-    }
+    }*/
 /*
     Move getMoveBackOrForward(int index) {
         if (index == player.getCompass().getLastLocation()) {

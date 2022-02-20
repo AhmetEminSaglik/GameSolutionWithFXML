@@ -56,7 +56,6 @@ public class FxmlMoveBack extends FxmlMove {
 //        super.updateAfterStep();
         moveBack.setDirectionLocation(getDirectionLocation());
         moveBack.updateAfterStep();
-        gameController.getPrepareGameBySelectingMenu().getGame().increaseRoundCounter();
 
         SquareButton currentBtn = getCurrentBtn();
         gameController.paintSquareBtnTo_CurrentBtn(currentBtn);

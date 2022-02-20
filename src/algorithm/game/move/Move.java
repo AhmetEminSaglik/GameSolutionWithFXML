@@ -39,6 +39,8 @@ public abstract class Move implements IMove { // ICalculateMove
     }
 
     public final void move(DirectionLocation directionLocation) {
+        game.increaseRoundCounter();
+        prepareAllStuff();
 //        System.out.println("+++++++++++++++++++++++++++++++++++++");
 //        System.out.println("gelen direciton : " + directionLocation);
 //        System.out.println(" getDirection : " + getDirectionLocation());
@@ -49,7 +51,7 @@ public abstract class Move implements IMove { // ICalculateMove
 //        System.out.println("gelen direciton : " + directionLocation);
 //        System.out.println(" getDirection : " + getDirectionLocation());
 //        System.out.println("----------------------------------------------");
-        prepareAllStuff();
+
 
         setDirectionLocation(directionLocation);
 

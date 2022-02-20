@@ -49,8 +49,10 @@ public class PlayGame {
 //        game.getPlayer().getLocation().setX(1);
 //        game.getPlayer().getLocation().setY(1);
         printGamelastStuation(game);
+        System.out.println(player.toString());
 
-//        while (!player.getGameRule().isGameOver(game)) {
+
+        while (!player.getGameRule().isGameOver(game)) {
 
         game.increaseRoundCounter();
         int choose = player.getInput(game);
@@ -75,7 +77,7 @@ public class PlayGame {
             System.out.println("Total Number Solved " + getEasyReadyNumber(player.getScore().getTotalGameFinishedScore()));
             saveGameResultToScore();
         }
-//        }
+        }
 
 
     }
@@ -102,8 +104,10 @@ public class PlayGame {
 
     Move getMoveBackOrForward(int index) {
         if (index == player.getCompass().getLastLocation()) {
+            System.out.println("DOnecek deger : "+player.getPlayerMove().getMoveBack());
             return player.getPlayerMove().getMoveBack();
         }
+        System.out.println("DOnecek deger : "+player.getPlayerMove().getMoveForward());
         return player.getPlayerMove().getMoveForward();
     }
 
