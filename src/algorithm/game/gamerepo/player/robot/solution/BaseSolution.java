@@ -10,10 +10,11 @@ import algorithm.squareprocess.SquareProcess;
 public abstract class BaseSolution {
     private Game game;
     public Location playerLocation;
-    public BaseSolution(Game game) {
+
+  /*  public BaseSolution(Game game) {
         this.game = game;
 
-    }
+    }*/
 
     private MoveForward moveForward;
     private MoveBack moveBack;
@@ -51,4 +52,16 @@ public abstract class BaseSolution {
     }
 
     public abstract void buildRobotMove();
+
+    @Override
+    public String toString() {
+        return "BaseSolution{" +
+                "game=" + game +
+                ", playerLocation=" + playerLocation +
+                ", moveForward=" + moveForward +
+                ", moveBack=" + moveBack +
+                ", checkSquare=" + checkSquare +
+                ", squareProcess=" + squareProcess +
+                '}';
+    }
 }

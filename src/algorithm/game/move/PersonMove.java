@@ -1,6 +1,7 @@
+/*
 package algorithm.game.move;
 
-import algorithm.errormessage.joptionpanel.ShowPanel;
+//import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.Game;
 
 public class PersonMove extends Move {
@@ -10,7 +11,9 @@ public class PersonMove extends Move {
 
     @Override
     public void updateVisitedDirection() {
-        ShowPanel.show(getClass(),"PERSON PERSONMOVE activated GUNCELLEMEEEmain");
+        */
+/*ShowPanel.show(getClass(),"PERSON PERSONMOVE activated GUNCELLEMEEEmain");*//*
+
     }
 
     @Override
@@ -23,3 +26,4 @@ public class PersonMove extends Move {
 
     }
 }
+*/

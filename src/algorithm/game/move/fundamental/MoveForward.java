@@ -10,7 +10,7 @@ public class MoveForward extends Move {
 
     public MoveForward(Game game) {
         super(game);
-        MoveForward t = this;
+//        MoveForward t = this;
         updateValuesInGameModel = new UpdateForMovedForward(game);
 
 //        changePlayerLocation = updateValuesInGameModel.getChangePlayerLocation();
@@ -30,6 +30,7 @@ public class MoveForward extends Move {
 
     @Override
     public void updateAfterStep() {
+//        System.out.println(" 3 getDirection : " + getDirectionLocation());
         updatePlayerLocation();
         updateVisitedArea();
         updateVisitedDirection();

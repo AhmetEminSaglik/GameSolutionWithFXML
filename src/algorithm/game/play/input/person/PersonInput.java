@@ -4,10 +4,8 @@ import algorithm.check.CheckSquare;
 import algorithm.compass.Compass;
 import algorithm.compass.KeyboardCompass;
 import algorithm.errormessage.ErrorMessage;
-import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.Game;
 import algorithm.game.location.Location;
-//import algorithm.game.play.input.BaseControlInput;
 import algorithm.validation.Validation;
 
 

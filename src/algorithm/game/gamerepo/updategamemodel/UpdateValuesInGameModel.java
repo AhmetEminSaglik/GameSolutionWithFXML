@@ -24,6 +24,7 @@ public abstract class UpdateValuesInGameModel {
     public abstract void updatePlayerStepValue();
 
     public final void changePlayerLocation(Location location) {
+//        System.out.println(" 5 BITTI getDirection : " + location );
         changePlayerLocation.change(location);
 //        movePlayer.changePlayerLocationByAdding(location);
     }

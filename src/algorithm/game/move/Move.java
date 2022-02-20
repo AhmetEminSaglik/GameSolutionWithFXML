@@ -16,7 +16,7 @@ public abstract class Move implements IMove { // ICalculateMove
     public Game game;
     Compass compass;
     Validation validation = new Validation();
-    public UpdateValuesInGameModel updateValuesInGameModel;
+    protected UpdateValuesInGameModel updateValuesInGameModel;
     private FillGameSquare fillGameSquare;
 
     private DirectionLocation directionLocation;
@@ -39,7 +39,16 @@ public abstract class Move implements IMove { // ICalculateMove
     }
 
     public final void move(DirectionLocation directionLocation) {
-
+//        System.out.println("+++++++++++++++++++++++++++++++++++++");
+//        System.out.println("gelen direciton : " + directionLocation);
+//        System.out.println(" getDirection : " + getDirectionLocation());
+//        System.out.println("----------------------------------------------");
+        setDirectionLocation(directionLocation);
+//        System.out.println(" 1 getDirection : " + getDirectionLocation());
+//        System.out.println("||||||||||||||||||||||||||||||||||");
+//        System.out.println("gelen direciton : " + directionLocation);
+//        System.out.println(" getDirection : " + getDirectionLocation());
+//        System.out.println("----------------------------------------------");
         prepareAllStuff();
 
         setDirectionLocation(directionLocation);
@@ -133,6 +142,7 @@ public abstract class Move implements IMove { // ICalculateMove
 
     @Override
     public void updatePlayerLocation() {
+//        System.out.println(" 4 getDirection : " + getDirectionLocation());
         updateValuesInGameModel.changePlayerLocation(getDirectionLocation());
     }
 
@@ -160,5 +170,13 @@ public abstract class Move implements IMove { // ICalculateMove
     public void setChangePlayerLocation(ChangePlayerLocation changePlayerLocation) {
         this.changePlayerLocation = changePlayerLocation;
         updateValuesInGameModel.setChangePlayerLocation(changePlayerLocation);
+    }
+
+    public UpdateValuesInGameModel getUpdateValuesInGameModel() {
+        return updateValuesInGameModel;
+    }
+
+    public void setUpdateValuesInGameModel(UpdateValuesInGameModel updateValuesInGameModel) {
+        this.updateValuesInGameModel = updateValuesInGameModel;
     }
 }

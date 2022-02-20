@@ -11,7 +11,18 @@ public class RobotSpecialStuffToPrepareBeforeStartGame extends PlayerSpecialStuf
         super(prepareGameBySelectingMenu);
     }
 
-  /*  @Override
+    @Override
+    public void prepare() {
+        super.prepare();
+//        prepareGameBySelectingMenu.getPlayer().setGame(prepareGameBySelectingMenu.getGame());
+        Robot robot = (Robot) prepareGameBySelectingMenu.getPlayer();
+        robot.getSolution().setGame(prepareGameBySelectingMenu.getGame());
+        System.out.println("solution : "+robot.getSolution().toString());
+
+//        robot.setPlayerMove(new PlayerMove(robot.getSolution().getMoveForward(), robot.getSolution().getMoveBack()));
+    }
+
+    /*  @Override
     public void prepare() {
         super.prepare();
 //        Robot robot = (Robot) prepareGameBySelectingMenu.getPlayer();

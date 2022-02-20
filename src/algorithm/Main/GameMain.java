@@ -89,7 +89,8 @@ public class GameMain implements ISelectPlayer {
         } else if (input.equals("2")) {
             Robot robot = new Robot();
             robot.setGame(game);
-            baseSolution = new SecondSolution_CalculateForwardAvailableWays(game);
+            baseSolution = new SecondSolution_CalculateForwardAvailableWays(/*game*/);
+            baseSolution.setGame(game);
             robot.setSolution(baseSolution);
             robot.setIPlayerInput(new RobotInput(robot.getSolution()));
             robot.setPlayerMove(new PlayerMove(baseSolution.getMoveForward(), baseSolution.getMoveBack()));

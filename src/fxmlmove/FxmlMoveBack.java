@@ -1,45 +1,66 @@
 package fxmlmove;
 
+import algorithm.game.Game;
 import algorithm.game.move.fundamental.MoveBack;
 import scene.game.GameController;
 import scene.game.SquareButton;
 
-public class FxmlMoveBack extends MoveBack {
-    FxmlSquareBtnCommunity squareBtnCommunity;
-    GameController gameController;
-    int playerLocationX, playerLocationY;// = game.getPlayer().getLocation().getX();// = game.getPlayer().getLocation().getY();
-    SquareButton currentBtn;
+public class FxmlMoveBack extends FxmlMove {
+    MoveBack moveBack;
 
-    public FxmlMoveBack(GameController gameController) {
-        super(gameController.getPrepareGameBySelectingMenu().getGame());
-        this.squareBtnCommunity = gameController.squareBtnCommunity;
+    public FxmlMoveBack(Game game, GameController gameController) {
+        super(game);
         this.gameController = gameController;
     }
 
-    @Override
-    public void updatePlayerLocation() {
-//        updateValuesInGameModel.setMovePlayer(new ChangeLocationByAdding(game.getPlayer()));
-        super.updatePlayerLocation();
+/*    MoveBack moveBack;
+    FxmlSquareBtnCommunity squareBtnCommunity;
+    GameController gameController;
+    int playerLocationX, playerLocationY;// = game.getPlayer().getLocation().getX();// = game.getPlayer().getLocation().getY();
+    SquareButton currentBtn;*/
+/*
+
+    public FxmlMoveBack(GameController gameController, MoveBack moveBack) {
+        super(gameController.getPrepareGameBySelectingMenu().getGame());
+        this.moveBack = moveBack;
+        this.squareBtnCommunity = gameController.squareBtnCommunity;
+        this.gameController = gameController;
     }
+*/
+
+    @Override
+    public void prepareAllStuff() {
+        moveBack.prepareAllStuff();
+    }
+
+
+    @Override
+    public void updateVisitedDirection() {
+        moveBack.updateVisitedDirection();
+    }
+
 
     @Override
     public void updateBeforeStep() {
-        super.updateBeforeStep();
+//        super.updateBeforeStep();
+        moveBack.updateBeforeStep();
         gameController.clearOldHintButtons();
         currentBtn = getCurrentBtn();
-        currentBtn.setText("");
+        gameController.clearStepValueOfSquareBtnAsAText(currentBtn);
+//        currentBtn.setText("");
         gameController.paintSquareBtnTo_NormalSquareBtn(currentBtn);
     }
 
     @Override
     public void updateAfterStep() {
-        super.updateAfterStep();
-
+//        super.updateAfterStep();
+        moveBack.setDirectionLocation(getDirectionLocation());
+        moveBack.updateAfterStep();
         gameController.getPrepareGameBySelectingMenu().getGame().increaseRoundCounter();
 
         SquareButton currentBtn = getCurrentBtn();
         gameController.paintSquareBtnTo_CurrentBtn(currentBtn);
-        gameController.setStepValueToToSquareBtnAsAText(currentBtn);
+        gameController.setStepValueToSquareBtnAsAText(currentBtn);
         gameController.paintHintButtonsOfCurrentBtn();
         gameController.updateLabelTotalStepValue();
         gameController.updateLabelCurrentValue();
@@ -49,8 +70,16 @@ public class FxmlMoveBack extends MoveBack {
 
 
     @Override
+    public void updatePlayerLocation() {
+//        updateValuesInGameModel.setMovePlayer(new ChangeLocationByAdding(game.getPlayer()));
+        moveBack.updatePlayerLocation();
+//        super.updatePlayerLocation();
+    }
+
+
+    @Override
     public void updateVisitedArea() {
-        super.updateVisitedArea();
+        moveBack.updateVisitedArea();
     }
 
     SquareButton getCurrentBtn() {
@@ -58,10 +87,13 @@ public class FxmlMoveBack extends MoveBack {
         return gameController.squareBtnCommunity.getCurrentSquareBtn(playerLocationX, playerLocationY);
     }
 
-    void updatePlayerLocationToGetCurrentBtn() {
-        playerLocationX = game.getPlayer().getLocation().getX();
-        playerLocationY = game.getPlayer().getLocation().getY();
+
+
+    public MoveBack getMoveBack() {
+        return moveBack;
     }
 
-
+    public void setMoveBack(MoveBack moveBack) {
+        this.moveBack = moveBack;
+    }
 }

@@ -31,6 +31,13 @@ public class PlayerMove {
                 '}';
     }
 
+    public void setMoveForward(MoveForward moveForward) {
+        this.moveForward = moveForward;
+    }
+
+    public void setMoveBack(MoveBack moveBack) {
+        this.moveBack = moveBack;
+    }
 //    public ChangeableStartLocationSpecialMovement getChangeableStartLocationSpecialMovement() {
 //        return changeableStartLocationSpecialMovement;
 //    }

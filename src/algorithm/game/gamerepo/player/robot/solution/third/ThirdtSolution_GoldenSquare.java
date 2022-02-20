@@ -1,6 +1,5 @@
 package algorithm.game.gamerepo.player.robot.solution.third;
 
-import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.Game;
 import algorithm.game.gamerepo.player.robot.Robot;
 import algorithm.game.gamerepo.player.robot.solution.BaseSolution;
@@ -11,7 +10,7 @@ import algorithm.game.move.fundamental.thirdsolution.MoveForwardThirdSolution;
 
 public class ThirdtSolution_GoldenSquare extends BaseSolution {
     public ThirdtSolution_GoldenSquare(Game game) {
-        super(game);
+//        super(game);
     }
 
 

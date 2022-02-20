@@ -1,6 +1,5 @@
 package algorithm.game.gamerepo.player.robot.solution.second.navigation;
 
-import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.Game;
 import algorithm.game.gamerepo.player.robot.Robot;
 import algorithm.game.gamerepo.player.robot.solution.second.exitsituation.ExitSituation;

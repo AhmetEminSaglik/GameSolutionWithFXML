@@ -42,7 +42,7 @@ public class GameController extends BaseSceneController {
     public Label lblTotalStepValue;
     @FXML
     public Label lblCurrentStepValue;
-
+    Runnable runnable;
     @FXML
     public Label lblScoreValue;
     //TODO buraya person'un buldugu degerleri ayni olmayacak sekilde ayirt etmek icin liste eklenip icine skorlar eklenip karsilastirilabilir
@@ -67,13 +67,7 @@ public class GameController extends BaseSceneController {
 
             prepareGameBySelectingMenu.getPlayerPlayingStyle().setGameController(this);
             prepareGameBySelectingMenu.prepareGame();
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    prepareGameBySelectingMenu.getPlayerPlayingStyle().startGame();
-
-                }
-            }).start();
+            new Thread(() -> prepareGameBySelectingMenu.getPlayerPlayingStyle().startGame()).start();
 
 //                }
 //            }).start();
@@ -155,15 +149,24 @@ public class GameController extends BaseSceneController {
     }
 
     public void updateLabelCurrentValue() {
-        lblCurrentStepValue.setText(prepareGameBySelectingMenu.getPlayer().getStep() + "");
+        runnable = () -> lblCurrentStepValue.setText(prepareGameBySelectingMenu.getPlayer().getStep() + "");
+        runFunctionInPlatformThread(runnable);
     }
 
     public void updateLabelTotalStepValue() {
-        lblTotalStepValue.setText(prepareGameBySelectingMenu.getGame().getRoundCounter() + "");
+
+        runnable = () -> lblTotalStepValue.setText(prepareGameBySelectingMenu.getGame().getRoundCounter() + "");
+        runFunctionInPlatformThread(runnable);
     }
 
     public void updateTotalFinishedScore() {
-        lblScoreValue.setText(prepareGameBySelectingMenu.getPlayer().getScore().getTotalGameFinishedScore() + "");
+        runnable = () -> lblScoreValue.setText(prepareGameBySelectingMenu.getPlayer().getScore().getTotalGameFinishedScore() + "");
+        runFunctionInPlatformThread(runnable);
+    }
+
+    public void runFunctionInPlatformThread(Runnable runnable) {
+        Platform.runLater(() -> runnable.run());
+
     }
 
     boolean timerStarted = false;
@@ -173,7 +176,7 @@ public class GameController extends BaseSceneController {
             Timer timer = new Timer();
             TimerTask printElapsedTime = new ElapsedTimePrinter(lblTimeField);
             timer.schedule(printElapsedTime, 0, 1);
-            timerStarted=true;
+            timerStarted = true;
         }
     }
 
@@ -203,10 +206,24 @@ public class GameController extends BaseSceneController {
 
     public void paintSquareBtn(SquareButton squareButton, String btnId) {
         squareButton.setId(btnId);
+        /*runnable = new Runnable() {
+            @Override
+            public void run() {
+                squareButton.setId(btnId);
+
+            }
+        };
+        runFunctionInPlatformThread(runnable);*/
     }
 
-    public void setStepValueToToSquareBtnAsAText(SquareButton squareButton) {
-        squareButton.setText(prepareGameBySelectingMenu.getPlayer().getStep() + "");
+    public void setStepValueToSquareBtnAsAText(SquareButton squareButton) {
+        runnable = () -> squareButton.setText(prepareGameBySelectingMenu.getPlayer().getStep() + "");
+        runFunctionInPlatformThread(runnable);
+    }
+
+    public void clearStepValueOfSquareBtnAsAText(SquareButton squareButton) {
+        runnable = () -> squareButton.setText("");
+        runFunctionInPlatformThread(runnable);
     }
 
     public void paintHintButtonsOfCurrentBtn() {

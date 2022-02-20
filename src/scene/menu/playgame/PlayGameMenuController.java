@@ -5,20 +5,19 @@ import algorithm.game.gamerepo.player.person.Person;
 import algorithm.game.gamerepo.player.person.PersonSpecialStuffToPrepareBeforeStartGame;
 import algorithm.game.gamerepo.player.robot.Robot;
 import algorithm.game.gamerepo.player.robot.solution.RobotSpecialStuffToPrepareBeforeStartGame;
+import algorithm.game.move.fundamental.MoveBack;
+import algorithm.game.move.fundamental.MoveForward;
 import algorithm.game.play.PlayerMove;
 import algorithm.game.play.input.person.ButtonClickInputForFXML;
 import algorithm.game.play.input.person.PersonInput;
 import algorithm.game.play.input.person.PersonPlayingStyle;
 import algorithm.game.play.input.robot.RobotPlayingStyle;
-import fxmlmove.FxmlMoveBack;
-import fxmlmove.FxmlMoveForward;
 import scene.SwitchNewScene;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 import preparegamebyselectingmenu.PrepareGameBySelectingMenu;
-
 import scene.basescenecontroller.BaseSceneController;
 import scene.menu.main.MainMenuSceneUIDesigner;
 import scene.menu.playgame.solutionChoice.SolutionChoiceController;
@@ -59,14 +58,13 @@ public class PlayGameMenuController extends BaseSceneController /*implements ISe
 
     @FXML
     void playGameByPerson(ActionEvent event) {
-        Person person= new Person();
+        Person person = new Person();
 
-        prepareGameBySelectingMenu.setPlayer(new Person());
+        prepareGameBySelectingMenu.setPlayer(person);
 //        prepareGameBySelectingMenu.selectPlayer(prepareGameBySelectingMenu.getPlayer());
         prepareGameBySelectingMenu.setPlayerPlayingStyle(new PersonPlayingStyle(prepareGameBySelectingMenu.getPlayer()));
         prepareGameBySelectingMenu.setPlayerSpecialStuffToPrepareBeforeStartGame(new PersonSpecialStuffToPrepareBeforeStartGame(prepareGameBySelectingMenu));
 //        prepareGameBySelectingMenu.setPersonPlayingStyle(new PersonPlayingStyle(player));
-
 
         prepareGameBySelectingMenu.getPlayer().setIPlayerInput(new PersonInput(new ButtonClickInputForFXML((Person) prepareGameBySelectingMenu.getPlayer())));
 
@@ -75,12 +73,15 @@ public class PlayGameMenuController extends BaseSceneController /*implements ISe
 
     @FXML
     void playGameByRobot(ActionEvent event) {
-        prepareGameBySelectingMenu.setPlayer(new Robot());
+        Robot robot = new Robot();
+
+        prepareGameBySelectingMenu.setPlayer(robot);
 
 //        prepareGameBySelectingMenu.selectPlayer(prepareGameBySelectingMenu.getPlayer());
         prepareGameBySelectingMenu.setPlayerPlayingStyle(new RobotPlayingStyle(prepareGameBySelectingMenu.getPlayer()));
-        new SwitchNewScene().switchScene(anchorPane, new SolutionChoiceSceneUIDesigner(new SolutionChoiceController(prepareGameBySelectingMenu)).getCreatedScene());
         prepareGameBySelectingMenu.setPlayerSpecialStuffToPrepareBeforeStartGame(new RobotSpecialStuffToPrepareBeforeStartGame(prepareGameBySelectingMenu));
+
+        new SwitchNewScene().switchScene(anchorPane, new SolutionChoiceSceneUIDesigner(new SolutionChoiceController(prepareGameBySelectingMenu)).getCreatedScene());
 //        prepareGameBySelectingMenu.setPlayerPlayingStyle(new RobotPlayingStyle(player));
 //        player.setIPlayerInput(new PersonInput(new ButtonClickInputForFXML((Person) player)));
 

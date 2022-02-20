@@ -2,18 +2,12 @@ package algorithm.game.gamerepo.player.robot;
 
 import algorithm.compass.Compass;
 import algorithm.compass.DirectionCompass;
-import algorithm.game.Game;
 import algorithm.game.gameover.RobotGameOver;
 import algorithm.game.gamerepo.player.Player;
-import algorithm.game.gamerepo.player.robot.memory.RoadMemory;
 import algorithm.game.gamerepo.player.robot.memory.RobotMemory;
 import algorithm.game.gamerepo.player.robot.solution.BaseSolution;
 import algorithm.game.location.DirectionLocation;
-import algorithm.game.move.RobotChangeLocationMove;
-import algorithm.game.move.fundamental.MoveBack;
-import algorithm.game.move.fundamental.MoveForward;
 import algorithm.game.play.PlayerMove;
-import algorithm.game.play.input.robot.RobotInput;
 import algorithm.game.rule.BaseGameRule;
 
 

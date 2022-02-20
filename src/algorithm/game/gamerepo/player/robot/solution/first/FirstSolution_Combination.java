@@ -11,9 +11,9 @@ import java.util.ArrayList;
 
 public class FirstSolution_Combination extends BaseSolution {
 
-    public FirstSolution_Combination(Game game) {
-        super(game);
-    }
+//    public FirstSolution_Combination(Game game) {
+//        super(game);
+//    }
 
     @Override
     public int getLocationInput(Game game) {

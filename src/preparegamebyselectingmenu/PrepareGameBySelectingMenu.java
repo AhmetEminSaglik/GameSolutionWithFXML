@@ -1,5 +1,6 @@
 package preparegamebyselectingmenu;
 
+import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.Game;
 import algorithm.game.gamerepo.BuildGame;
 import algorithm.game.gamerepo.IDetermineEdgeValue;
@@ -26,6 +27,8 @@ public class PrepareGameBySelectingMenu {
     }
 
     void prepareAllStuffs() {
+//        ShowPanel.show(getClass(),"  prepare geldi");
+
         createGame();
         createVisitedArea();
         player.setStep(0);
@@ -81,6 +84,8 @@ public class PrepareGameBySelectingMenu {
     }
 
     public Game getGame() {
+//        ShowPanel.show(getClass(),"Donecek olan game : "+game);
+
         return game;
     }
 
@@ -118,4 +123,5 @@ public class PrepareGameBySelectingMenu {
     public void setPlayerSpecialStuffToPrepareBeforeStartGame(PlayerSpecialStuffToPrepareBeforeStartGame playerSpecialStuffToPrepareBeforeStartGame) {
         this.playerSpecialStuffToPrepareBeforeStartGame = playerSpecialStuffToPrepareBeforeStartGame;
     }
+
 }

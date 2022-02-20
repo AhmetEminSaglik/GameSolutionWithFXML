@@ -1,11 +1,7 @@
 package algorithm.game.play.input.person;
 
-import algorithm.compass.KeyboardCompass;
-import algorithm.errormessage.joptionpanel.ShowPanel;
-import algorithm.game.gamerepo.player.Player;
 import algorithm.game.gamerepo.player.person.Person;
 import algorithm.game.location.DirectionLocation;
-import algorithm.game.location.Location;
 import algorithm.game.location.LocationsList;
 
 import java.util.ArrayList;

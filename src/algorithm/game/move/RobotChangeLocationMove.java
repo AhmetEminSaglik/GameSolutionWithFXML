@@ -1,7 +1,6 @@
 package algorithm.game.move;
 
 import algorithm.errormessage.ErrorMessage;
-import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.Game;
 import algorithm.game.move.seal.ChangeableStartLocationSpecialMovement;
 import algorithm.game.play.SelectFirstSqaureToStart;
@@ -15,7 +14,7 @@ public class RobotChangeLocationMove implements ChangeableStartLocationSpecialMo
 
     @Override
     public void changeStartLocation() {
-        ShowPanel.show(getClass(), "GELDIIIIIIIIIIIIIIIIII  DOLUUU");
+//        ShowPanel.show(getClass(), "GELDIIIIIIIIIIIIIIIIII  DOLUUU");
         int locationX = game.getPlayer().getLocation().getX();
         int locationY = game.getPlayer().getLocation().getY();
         locationX++;
@@ -39,7 +38,7 @@ public class RobotChangeLocationMove implements ChangeableStartLocationSpecialMo
 
             }
         } else {
-            ShowPanel.show(getClass(), " Y siniri asti ");
+//            ShowPanel.show(getClass(), " Y siniri asti ");
         }
 
 

@@ -6,9 +6,9 @@ import algorithm.game.move.fundamental.secondsolutionforrobot.MoveBackSecondSolu
 import algorithm.game.move.fundamental.secondsolutionforrobot.MoveForwardSecondSolution;
 
 public class SecondSolution_CalculateForwardAvailableWays extends BaseSolution {
-    public SecondSolution_CalculateForwardAvailableWays(Game game) {
+/*    public SecondSolution_CalculateForwardAvailableWays(Game game) {
         super(game);
-    }
+    }*/
 
     @Override
     public int getLocationInput(Game game) {
@@ -23,5 +23,10 @@ public class SecondSolution_CalculateForwardAvailableWays extends BaseSolution {
     public void buildRobotMove() {
         setMoveForward(new MoveForwardSecondSolution(getGame()));
         setMoveBack(new MoveBackSecondSolution(getGame()));
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }

@@ -44,10 +44,11 @@ public class SolutionChoiceController extends BaseSceneController {
     @FXML
     void getSelectedSolution(ActionEvent event) {
         if (solutionFirst.equals(solutionGroup.getSelectedToggle())) {
-            baseSolution = new FirstSolution_Combination(prepareGameBySelectingMenu.getGame());
+            baseSolution = new FirstSolution_Combination(/*prepareGameBySelectingMenu.getGame()*/);
         } else if (solutionSecond.equals(solutionGroup.getSelectedToggle())) {
-            baseSolution = new SecondSolution_CalculateForwardAvailableWays(prepareGameBySelectingMenu.getGame());
+            baseSolution = new SecondSolution_CalculateForwardAvailableWays(/*prepareGameBySelectingMenu.getGame()*/);
         }
+        prepareGameBySelectingMenu.getPlayer().setIPlayerInput(new RobotInput(baseSolution));
     }
 
     @FXML
@@ -62,7 +63,7 @@ public class SolutionChoiceController extends BaseSceneController {
             Robot robot = (Robot) prepareGameBySelectingMenu.getPlayer();
             robot.setSolution(baseSolution);
             robot.setIPlayerInput(new RobotInput(robot.getSolution()));
-            robot.setPlayerMove(new PlayerMove(robot.getSolution().getMoveForward(), robot.getSolution().getMoveBack()));
+//            robot.setPlayerMove(new PlayerMove(robot.getSolution().getMoveForward(), robot.getSolution().getMoveBack()));
 
             new SwitchNewScene().switchScene(anchorPane, new EdgeValueSceneUIDesigner(new EdgeValueController(prepareGameBySelectingMenu)).getCreatedScene());
 
