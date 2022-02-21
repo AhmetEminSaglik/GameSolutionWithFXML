@@ -1,5 +1,6 @@
 package scene.game;
 
+import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.location.DirectionLocation;
 import algorithm.game.location.LocationsList;
 import algorithm.game.play.input.PlayerPlayingStyle;
@@ -21,10 +22,7 @@ import scene.basescenecontroller.BaseSceneController;
 import scene.menu.main.MainMenuSceneUIDesigner;
 
 import java.net.URL;
-import java.util.List;
-import java.util.ResourceBundle;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 
 public class GameController extends BaseSceneController {
     @FXML
@@ -68,6 +66,8 @@ public class GameController extends BaseSceneController {
             prepareGameBySelectingMenu.getPlayerPlayingStyle().setGameController(this);
             prepareGameBySelectingMenu.prepareGame();
             new Thread(() -> prepareGameBySelectingMenu.getPlayerPlayingStyle().startGame()).start();
+            ShowPanel.show(getClass()," 1-) Robot geri adim atamiyor,\n" +
+                    "2-) max sayiya ulasinda  visited area'ya  max degeri koyup true yapmaya calisiyor. ");
 
 //                }
 //            }).start();
@@ -144,8 +144,8 @@ public class GameController extends BaseSceneController {
     }
 
     public void printModel() {
-        String textWillAppendToFile=" Round Counter : "+prepareGameBySelectingMenu.getGame().getRoundCounter()+"\n";
-         textWillAppendToFile += new StringFormat().getStringFormatArray(prepareGameBySelectingMenu.getGame().getModel().getGameSquares());//  print game squares
+        String textWillAppendToFile = " Round Counter : " + prepareGameBySelectingMenu.getGame().getRoundCounter() + "\n";
+        textWillAppendToFile += new StringFormat().getStringFormatArray(prepareGameBySelectingMenu.getGame().getModel().getGameSquares());//  print game squares
         System.out.println(textWillAppendToFile);
     }
 
@@ -207,22 +207,28 @@ public class GameController extends BaseSceneController {
     }
 
     public void paintSquareBtn(SquareButton squareButton, String btnId) {
-        squareButton.setId(btnId);
-        /*runnable= new Runnable() {
-            @Override
-            public void run() {
+        try {
+            squareButton.setId(btnId);
+        } catch (ConcurrentModificationException e) {
+            System.err.println(e.getMessage());
 
-            }
-        };
-        runFunctionInPlatformThread(runnable);*/
-        /*runnable = new Runnable() {
-            @Override
-            public void run() {
-                squareButton.setId(btnId);
 
-            }
-        };
-        runFunctionInPlatformThread(runnable);*/
+            runnable = new Runnable() {
+                @Override
+                public void run() {
+
+                }
+            };
+            runFunctionInPlatformThread(runnable);
+            runnable = new Runnable() {
+                @Override
+                public void run() {
+                    squareButton.setId(btnId);
+
+                }
+            };
+            runFunctionInPlatformThread(runnable);
+        }
     }
 
     public void setStepValueToSquareBtnAsAText(SquareButton squareButton) {

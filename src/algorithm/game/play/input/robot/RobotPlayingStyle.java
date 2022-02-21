@@ -12,7 +12,7 @@ import scene.game.SquareButton;
 
 public class RobotPlayingStyle extends PlayerPlayingStyle {
 
-    int sleepTime = 1000;
+    int sleepTime = 500;
 
     @Override
     public void startGame() {
@@ -58,9 +58,17 @@ public class RobotPlayingStyle extends PlayerPlayingStyle {
         System.out.println("GELEN CHOOSE : " + choose);
 //            fxmlMoveForwardOrBack = getMoveBackOrForward(choose);
 //        fxmlMoveForwardOrBack = getMoveBackOrForward(choose);
-        Move moveForwardOrBack= getMoveBackOrForward(choose);
+        /*Move moveForwardOrBack = getMoveBackOrForward(choose);
         moveForwardOrBack.move(new DirectionLocation().
-                getLocationValueAccordingToEnteredValue(game, choose));
+                getLocationValueAccordingToEnteredValue(game, choose));*/
+        fxmlMoveForwardOrBack = getFxmlMoveBackOrForward(choose);
+        DirectionLocation directionLocation = new DirectionLocation();
+        directionLocation.setCompass(player.getCompass());
+        directionLocation.getLocationValueAccordingToEnteredValue(game,choose);
+        System.out.println("direction  1 -) :"+directionLocation.toString());
+        System.out.println("direction  2 -) :"+directionLocation.getLocationValueAccordingToEnteredValue(game,choose).toString());
+        System.out.println("direction  3 -) :"+new DirectionLocation().getLocationValueAccordingToEnteredValue(game, choose).toString());
+        fxmlMoveForward.move(new DirectionLocation().getLocationValueAccordingToEnteredValue(game, choose));
         /*fxmlMoveForwardOrBack.move(
                 new DirectionLocation().
                         getLocationValueAccordingToEnteredValue(game, choose));*/
@@ -99,8 +107,8 @@ public class RobotPlayingStyle extends PlayerPlayingStyle {
                 gameController.clearOldHintButtons();
             });*/
 
-        if (player.getStep() == 25) {
-            ShowPanel.show(getClass(), " DURRRRRRRR 25 oldu");
+        if (player.getStep() == gameController.getPrepareGameBySelectingMenu().getEdgeValue() * gameController.getPrepareGameBySelectingMenu().getEdgeValue()) {
+            ShowPanel.show(getClass(), " DURRRRRRRR "+(gameController.getPrepareGameBySelectingMenu().getEdgeValue() * gameController.getPrepareGameBySelectingMenu().getEdgeValue())+" oldu");
         }
         if (player.getStep() == gameController.getPrepareGameBySelectingMenu().getEdgeValue() * gameController.getPrepareGameBySelectingMenu().getEdgeValue()) {
             maxSayioldu = true;
@@ -138,12 +146,13 @@ public class RobotPlayingStyle extends PlayerPlayingStyle {
         }
         return player.getPlayerMove().getMoveForward();
     }
-  /*  FxmlMove getMoveBackOrForward(int index) {
+
+    FxmlMove getFxmlMoveBackOrForward(int index) {
         if (index == player.getCompass().getLastLocation()) {
             return fxmlMoveBack;
         }
         return fxmlMoveForward;
-    }*/
+    }
 /*
     Move getMoveBackOrForward(int index) {
         if (index == player.getCompass().getLastLocation()) {
