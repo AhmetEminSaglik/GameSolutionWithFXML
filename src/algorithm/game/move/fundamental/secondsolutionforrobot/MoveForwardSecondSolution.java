@@ -89,11 +89,11 @@ public class MoveForwardSecondSolution extends MoveForward {
     @Override
     public String toString() {
         return "MoveForwardSecondSolution{" +
-                "game=" + game +
+//                "game=" + game +
                 ", updateValuesInGameModel=" + updateValuesInGameModel +
-                ", robot=" + robot +
-                ", navigation=" + navigation +
-                ", lastLocation=" + lastLocation +
+//                ", robot=" + robot +
+//                ", navigation=" + navigation +
+//                ", lastLocation=" + lastLocation +
                 '}';
     }
 }

@@ -75,10 +75,10 @@ public class MoveBackSecondSolution extends MoveBack {
     @Override
     public String toString() {
         return "MoveBackSecondSolution\n{" +
-                "game=" + game +
+//                "game=" + game +
                 ", updateValuesInGameModel=" + updateValuesInGameModel +
-                ", robot=" + robot +
-                ", navigation=" + navigation +
+//                ", robot=" + robot +
+//                ", navigation=" + navigation +
                 '}';
     }
 }

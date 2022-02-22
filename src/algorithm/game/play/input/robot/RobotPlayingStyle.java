@@ -72,12 +72,18 @@ public class RobotPlayingStyle extends PlayerPlayingStyle {
 //        System.out.println("direction  1 -) :"+directionLocation.toString());
 //        System.out.println("direction  2 -) :"+directionLocation.getLocationValueAccordingToEnteredValue(game,choose).toString());
 //        System.out.println("direction  3 -) :"+new DirectionLocation().getLocationValueAccordingToEnteredValue(game, choose).toString());
-        DirectionLocation directionLocationToMove = new DirectionLocation().getLocationValueAccordingToEnteredValue(game, choose);
-        if (choose == player.getCompass().getLastLocation()) {
-            fxmlMoveBack.move(directionLocationToMove);
-        } else {
-            fxmlMoveForward.move(directionLocationToMove);
+        fxmlMoveForwardOrBack=getFxmlMoveBackOrForward(choose);
+        if(fxmlMoveForwardOrBack==fxmlMoveBack){
+            ShowPanel.show(getClass()," GERI ADIM ATRACKA gelen chose : "+choose);
         }
+        System.out.println("gelen choose : "+choose);
+        DirectionLocation directionLocationToMove = new DirectionLocation().getLocationValueAccordingToEnteredValue(game, choose);
+        fxmlMoveForwardOrBack.move(directionLocationToMove);
+//        if (choose == player.getCompass().getLastLocation()) {
+//            fxmlMoveBack.move(directionLocationToMove);
+//        } else {
+//            fxmlMoveForward.move(directionLocationToMove);
+//        }
         /*fxmlMoveForwardOrBack.move(
                 new DirectionLocation().
                         getLocationValueAccordingToEnteredValue(game, choose));*/

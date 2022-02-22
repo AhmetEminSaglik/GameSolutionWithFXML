@@ -8,7 +8,7 @@ import algorithm.validation.Validation;
 
 public abstract class BaseCheck {
 
-    private Game game;
+//    private Game game;
     Validation validation = new Validation();
     private Compass compass ;//= new DirectionCompass();
 

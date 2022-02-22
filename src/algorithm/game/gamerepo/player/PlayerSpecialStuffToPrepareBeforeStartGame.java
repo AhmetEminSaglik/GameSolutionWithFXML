@@ -26,9 +26,10 @@ public abstract class PlayerSpecialStuffToPrepareBeforeStartGame {
 //        moveBack.createUpdateValuesInGameModel();
 //        FxmlMoveForward fxmlMoveForward= new FxmlMoveForward(prepareGameBySelectingMenu.getGame());
 
-        MoveForward moveForward = new MoveForward(prepareGameBySelectingMenu.getGame());
-        MoveBack moveBack = new MoveBack(prepareGameBySelectingMenu.getGame());
-        prepareGameBySelectingMenu.getPlayer().setPlayerMove(new PlayerMove(moveForward, moveBack));
+//        MoveForward moveForward = new MoveForward(prepareGameBySelectingMenu.getGame());
+//        MoveBack moveBack = new MoveBack(prepareGameBySelectingMenu.getGame());
+//        prepareGameBySelectingMenu.getPlayer().setPlayerMove(new PlayerMove(moveForward, moveBack));
+//        ShowPanel.show(getClass()," player move : ???? \n "+prepareGameBySelectingMenu.getPlayer().getPlayerMove().toString());
 
 
     }

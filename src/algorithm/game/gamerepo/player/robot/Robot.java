@@ -28,7 +28,9 @@ public class Robot extends Player {
         solution.setGame(game);
         solution.buildRobotMove();
         setName(solution.getClass().getSimpleName() + "_" + game.getModel().getGameSquares());
+
         this.playerMove = playerMove;
+//        ShowPanel.show(getClass()," player move : "+playerMove.toString());
 //        playerMove.setChangeableStartLocationSpecialMovement(new RobotChangeLocationMove(getGame()));
 
 //        setPlayerMove(playerMove/*solution.getMoveForward(),solution.getMoveBack()*/);

@@ -73,7 +73,7 @@ public class PlayGame {
 //        if (player.isPrintableStepSituation() == true) {
 //            printGamelastStuation(game);
 //        }
-            printGamelastStuation(game);
+//            printGamelastStuation(game);
         if (player.getGameRule().isGameOver(game)) {
             ShowPanel.show(getClass(), "Game Over");
             System.out.println("Total Number Solved " + getEasyReadyNumber(player.getScore().getTotalGameFinishedScore()));

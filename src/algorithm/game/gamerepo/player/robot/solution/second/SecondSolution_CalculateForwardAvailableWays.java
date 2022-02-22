@@ -22,12 +22,14 @@ public class SecondSolution_CalculateForwardAvailableWays extends BaseSolution {
 
     @Override
     public void buildRobotMove() {
+//        ShowPanel.show(getClass()," "+getClass().getName()+" movelar setleniyor");
         setMoveForward(new MoveForwardSecondSolution(getGame()));
         setMoveBack(new MoveBackSecondSolution(getGame()));
+//        ShowPanel.show(getClass()," "+getClass().getName()+" setlenen movelar : "+getMoveForward()+" "+getMoveBack());
     }
 
     @Override
     public String toString() {
-        return  "Second Solution  {"+super.toString()+'}';
+        return "Second Solution  {" + super.toString() + '}';
     }
 }

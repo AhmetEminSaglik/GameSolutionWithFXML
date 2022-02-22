@@ -28,6 +28,7 @@ public class MoveForward extends Move {
     @Override
     public void updateAfterStep() {
 //        System.out.println(" 3 getDirection : " + getDirectionLocation());
+//        ShowPanel.show(getClass()," "+getClass().getName()+" updateAfterStep \n (super ici)");
         updatePlayerLocation();
         updateVisitedArea();
         updateVisitedDirection();
