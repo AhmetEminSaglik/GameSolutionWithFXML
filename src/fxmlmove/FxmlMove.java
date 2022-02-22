@@ -22,15 +22,6 @@ public abstract class FxmlMove extends Move {
 
     }*/
 
-    @Override
-    public void updateBeforeStep() {
-
-    }
-
-    @Override
-    public void updateAfterStep() {
-    }
-
     SquareButton getCurrentBtn() {
         updatePlayerLocationToGetCurrentBtn();
         return gameController.squareBtnCommunity.getCurrentSquareBtn(playerLocationX, playerLocationY);
@@ -44,13 +35,7 @@ public abstract class FxmlMove extends Move {
     @Override
     public String toString() {
         return "FxmlMove{" +
-                "game=" + game +
                 ", updateValuesInGameModel=" + updateValuesInGameModel +
-                ", squareBtnCommunity=" + squareBtnCommunity +
-                ", gameController=" + gameController +
-                ", playerLocationX=" + playerLocationX +
-                ", playerLocationY=" + playerLocationY +
-                ", currentBtn=" + currentBtn +
                 '}';
     }
 

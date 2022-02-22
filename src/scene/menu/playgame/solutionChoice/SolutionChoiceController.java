@@ -1,5 +1,6 @@
 package scene.menu.playgame.solutionChoice;
 
+import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.gamerepo.player.robot.Robot;
 import algorithm.game.gamerepo.player.robot.solution.BaseSolution;
 import algorithm.game.gamerepo.player.robot.solution.first.FirstSolution_Combination;
@@ -62,7 +63,13 @@ public class SolutionChoiceController extends BaseSceneController {
         if (baseSolution != null) {
             Robot robot = (Robot) prepareGameBySelectingMenu.getPlayer();
             robot.setSolution(baseSolution);
-            robot.setIPlayerInput(new RobotInput(robot.getSolution()));
+
+
+            robot.setIPlayerInput(prepareGameBySelectingMenu.getPlayer().getIPlayerInput());
+//            System.out.println(robot);
+
+//            ShowPanel.show(getClass()," DURR BUNU DA INCELE");
+//            robot.setIPlayerInput(new RobotInput(robot.getSolution()));
 //            robot.setPlayerMove(new PlayerMove(robot.getSolution().getMoveForward(), robot.getSolution().getMoveBack()));
 
             new SwitchNewScene().switchScene(anchorPane, new EdgeValueSceneUIDesigner(new EdgeValueController(prepareGameBySelectingMenu)).getCreatedScene());

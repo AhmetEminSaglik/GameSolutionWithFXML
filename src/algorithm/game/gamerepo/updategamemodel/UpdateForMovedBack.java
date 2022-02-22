@@ -30,5 +30,8 @@ public class UpdateForMovedBack extends UpdateValuesInGameModel {
         }
     }
 
-
+    @Override
+    public String toString() {
+        return "UpdateForMovedBack{}";
+    }
 }

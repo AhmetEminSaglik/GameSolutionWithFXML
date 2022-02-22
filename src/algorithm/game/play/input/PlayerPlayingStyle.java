@@ -90,14 +90,14 @@ public abstract class PlayerPlayingStyle {
 //        getFxmlMoveBack().setChangePlayerLocation(new ChangeLocationByAdding(player));
 //    }
 
-    public void checkStatus() {
+ /*   public void checkStatus() {
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
-                if (prepareGameBySelectingMenu.getPlayer().getGameRule().isGameOver(prepareGameBySelectingMenu.getPlayer().getGame())) {
+                if (prepareGameBySelectingMenu.getPlayer().getGameRule().isGameOver(prepareGameBySelectingMenu.getPlayer().getGame())) {  // todo bu person kismina atanacak
                     if (prepareGameBySelectingMenu.getPlayer().getStep() == prepareGameBySelectingMenu.getEdgeValue() * prepareGameBySelectingMenu.getEdgeValue()) {
                         ShowPanel.show(getClass(), "Tebrikler butun bosluklari doldurdunuz.");
-                        prepareGameBySelectingMenu.getPlayer().getScore().increaseTotalGameFinishedScore();
+
                         gameController.lblScoreValue.setText(prepareGameBySelectingMenu.getPlayer().getScore().getTotalGameFinishedScore() + "");
                     } else {
                         ShowPanel.show(getClass(), " Game Over Step deger i : " + prepareGameBySelectingMenu.getPlayer().getStep());
@@ -108,7 +108,7 @@ public abstract class PlayerPlayingStyle {
 
         };
         gameController.runFunctionInPlatformThread(runnable);
-    }
+    }*/
 
     protected void fillFxmlMoveForward() {
         fxmlMoveForward = new FxmlMoveForward(game, gameController);
@@ -122,6 +122,18 @@ public abstract class PlayerPlayingStyle {
         fxmlMoveBack.setMoveBack(player.getPlayerMove().getMoveBack());
         fxmlMoveBack.setUpdateValuesInGameModel(player.getPlayerMove().getMoveBack().getUpdateValuesInGameModel());
         fxmlMoveBack.setChangePlayerLocation(new ChangeLocationByAdding(player));
+    }
+
+    protected FxmlMove getFxmlMoveBackOrForward(int index) {
+        if (index == player.getCompass().getLastLocation()) {
+//            fxmlMoveBack.move(new DirectionLocation().getLocationValueAccordingToEnteredValue(player.getGame(),
+//                    new LocationsList().getLastLocation(player.getCompass()).getId()));
+//            ShowPanel.show(getClass(), "\ndonecek deger : " + fxmlMoveBack);
+            return fxmlMoveBack;
+        } else {
+//            ShowPanel.show(getClass(), "\ndonecek deger : " + fxmlMoveForward);
+            return fxmlMoveForward;
+        }
     }
 
     protected void updateChangePlayerLocationFunctionOfFxmlMove(FxmlMove fxmlMove, ChangePlayerLocation changePlayerLocation) {

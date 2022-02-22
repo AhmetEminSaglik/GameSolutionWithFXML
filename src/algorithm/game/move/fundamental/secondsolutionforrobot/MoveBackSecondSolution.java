@@ -1,6 +1,7 @@
 package algorithm.game.move.fundamental.secondsolutionforrobot;
 
 
+import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.Game;
 import algorithm.game.gamerepo.player.robot.Robot;
 import algorithm.game.gamerepo.player.robot.solution.second.exitsituation.ExitSituation;
@@ -29,6 +30,7 @@ public class MoveBackSecondSolution extends MoveBack {
 
     @Override
     public void updateBeforeStep() {
+//        ShowPanel.show(getClass(), "MOVE FORWARD second solution updateBeforeStep");
         super.updateBeforeStep();
     }
 
@@ -70,4 +72,13 @@ public class MoveBackSecondSolution extends MoveBack {
         return false;
     }
 
+    @Override
+    public String toString() {
+        return "MoveBackSecondSolution\n{" +
+                "game=" + game +
+                ", updateValuesInGameModel=" + updateValuesInGameModel +
+                ", robot=" + robot +
+                ", navigation=" + navigation +
+                '}';
+    }
 }

@@ -27,4 +27,9 @@ public class UpdateForMovedForward extends UpdateValuesInGameModel {
         player.updateVisitedDirection(ifMovedForwardThenSealTheLocation().isSealed(), game.getPlayer().getStep()-1, directionLocation);
     }
 
+    @Override
+    public String toString() {
+        return "UpdateForMovedForward{" +
+                '}';
+    }
 }

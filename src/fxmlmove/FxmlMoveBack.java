@@ -1,5 +1,6 @@
 package fxmlmove;
 
+import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.Game;
 import algorithm.game.move.fundamental.MoveBack;
 import scene.game.GameController;
@@ -13,21 +14,6 @@ public class FxmlMoveBack extends FxmlMove {
         this.gameController = gameController;
     }
 
-/*    MoveBack moveBack;
-    FxmlSquareBtnCommunity squareBtnCommunity;
-    GameController gameController;
-    int playerLocationX, playerLocationY;// = game.getPlayer().getLocation().getX();// = game.getPlayer().getLocation().getY();
-    SquareButton currentBtn;*/
-/*
-
-    public FxmlMoveBack(GameController gameController, MoveBack moveBack) {
-        super(gameController.getPrepareGameBySelectingMenu().getGame());
-        this.moveBack = moveBack;
-        this.squareBtnCommunity = gameController.squareBtnCommunity;
-        this.gameController = gameController;
-    }
-*/
-
     @Override
     public void prepareAllStuff() {
         moveBack.prepareAllStuff();
@@ -36,24 +22,30 @@ public class FxmlMoveBack extends FxmlMove {
 
     @Override
     public void updateVisitedDirection() {
+//        ShowPanel.show(getClass(), " MOVE BACKk  updateBeforeStep");
         moveBack.updateVisitedDirection();
     }
 
 
     @Override
     public void updateBeforeStep() {
+//        ShowPanel.show(getClass()," MOVE BACKk  geldiiiiiiiiiiiiiiiiiiii"  );
 //        super.updateBeforeStep();
+//        ShowPanel.show(getClass()," FXML MOVE BACK ");
         moveBack.updateBeforeStep();
         gameController.clearOldHintButtons();
         currentBtn = getCurrentBtn();
         gameController.clearStepValueOfSquareBtnAsAText(currentBtn);
 //        currentBtn.setText("");
         gameController.paintSquareBtnTo_NormalSquareBtn(currentBtn);
+//        ShowPanel.show(getClass(),"FXML Update BEFORE step : "+game.getPlayer().getStep());
     }
 
     @Override
     public void updateAfterStep() {
 //        super.updateAfterStep();
+//        ShowPanel.show(getClass(), " MOVE BACKk  updateAfterStep");
+//        ShowPanel.show(getClass(),"FXML  Update AFTER step : "+game.getPlayer().getStep());
         moveBack.setDirectionLocation(getDirectionLocation());
         moveBack.updateAfterStep();
 
@@ -71,6 +63,7 @@ public class FxmlMoveBack extends FxmlMove {
     @Override
     public void updatePlayerLocation() {
 //        updateValuesInGameModel.setMovePlayer(new ChangeLocationByAdding(game.getPlayer()));
+//        ShowPanel.show(getClass(), " MOVE BACKk  updatePlayerLocation");
         moveBack.updatePlayerLocation();
 //        super.updatePlayerLocation();
     }
@@ -94,5 +87,13 @@ public class FxmlMoveBack extends FxmlMove {
 
     public void setMoveBack(MoveBack moveBack) {
         this.moveBack = moveBack;
+    }
+
+    @Override
+    public String toString() {
+        return "FxmlMoveBack\n{" +
+                ", updateValuesInGameModel=" + updateValuesInGameModel +
+                ", moveBack=" + moveBack +
+                '}';
     }
 }

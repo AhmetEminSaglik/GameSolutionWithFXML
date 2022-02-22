@@ -1,5 +1,6 @@
 package algorithm.game.gamerepo.player.robot.solution.first;
 
+import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.Game;
 import algorithm.game.gamerepo.player.robot.solution.BaseSolution;
 import algorithm.game.location.DirectionLocation;
@@ -43,5 +44,10 @@ public class FirstSolution_Combination extends BaseSolution {
         System.out.println("buraya girip move forward ve move back dolduruldu");
         System.out.println("move forward : "+getMoveForward());
         System.out.println("move back : "+getMoveBack());
+    }
+
+    @Override
+    public String toString() {
+        return  "First Solution  {"+super.toString()+'}';
     }
 }

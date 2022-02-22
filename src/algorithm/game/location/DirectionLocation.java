@@ -4,6 +4,7 @@ package algorithm.game.location;
 import algorithm.compass.Compass;
 import algorithm.game.Game;
 import algorithm.game.gamerepo.CreateLocationOfLastStep;
+import algorithm.game.location.direction.LastLocation;
 
 public class DirectionLocation extends Location {
 
@@ -22,8 +23,16 @@ public class DirectionLocation extends Location {
     }
 
     public DirectionLocation getLocationValueAccordingToEnteredValue(Game game, int choose) {
+
         if (choose == game.getPlayer().getCompass().getLastLocation()) {
             return new CreateLocationOfLastStep(game).createLastStepLocation();
+         /*   DirectionLocation directionLocation = new CreateLocationOfLastStep(game).createLastStepLocation();
+            LastLocation lastLocation = new LastLocation();
+            lastLocation.setCompass(game.getPlayer().getCompass());
+            lastLocation.setX(directionLocation.getX());
+            lastLocation.setY(directionLocation.getY());
+
+            return lastLocation;*/
         }
         return new SwitchDirection(game.getPlayer().getCompass()).choseDirection(choose);
 

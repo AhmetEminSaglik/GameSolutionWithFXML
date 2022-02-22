@@ -1,5 +1,6 @@
 package algorithm.game.play.input.person;
 
+import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.gamerepo.player.Player;
 import algorithm.game.gamerepo.player.person.Person;
 import algorithm.game.location.DirectionLocation;
@@ -51,19 +52,39 @@ public class PersonPlayingStyle extends PlayerPlayingStyle {
             int choose = player.getInput(player.getGame());
 
             if (choose != -1) {
-                FxmlMove moveForwardOrBack = getMoveBackOrForward(choose);
+                FxmlMove moveForwardOrBack = getFxmlMoveBackOrForward(choose);
 
                 if (moveForwardOrBack != null) {
+                    System.out.println("direction  3 -) :"+new DirectionLocation().getLocationValueAccordingToEnteredValue(game, choose).toString());
                     moveForwardOrBack.move(
                             new DirectionLocation().getLocationValueAccordingToEnteredValue
                                     (player.getGame(), choose));
-                    System.out.println(player.getTimeKeeper().getTotalPassedTimeDuringPlayingGame());
+//                    System.out.println(player.getTimeKeeper().getTotalPassedTimeDuringPlayingGame());
                 }
             }
             checkStatus();
         }
 
 
+    }
+    public void checkStatus() {
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                if (prepareGameBySelectingMenu.getPlayer().getGameRule().isGameOver(prepareGameBySelectingMenu.getPlayer().getGame())) {  // todo bu person kismina atanacak
+                    if (prepareGameBySelectingMenu.getPlayer().getStep() == prepareGameBySelectingMenu.getEdgeValue() * prepareGameBySelectingMenu.getEdgeValue()) {
+                        ShowPanel.show(getClass(), "Tebrikler butun bosluklari doldurdunuz.");
+
+                        gameController.lblScoreValue.setText(prepareGameBySelectingMenu.getPlayer().getScore().getTotalGameFinishedScore() + "");
+                    } else {
+                        ShowPanel.show(getClass(), " Game Over Step deger i : " + prepareGameBySelectingMenu.getPlayer().getStep());
+                        gameController.resetGame();
+                    }
+                }
+            }
+
+        };
+        gameController.runFunctionInPlatformThread(runnable);
     }
 
     @Override
@@ -75,10 +96,10 @@ public class PersonPlayingStyle extends PlayerPlayingStyle {
         }
        }
 
-    FxmlMove getMoveBackOrForward(int index) {
+/*    FxmlMove getMoveBackOrForward(int index) {
         if (index == player.getCompass().getLastLocation()) {
             return  fxmlMoveBack;
         }
         return fxmlMoveForward;
-    }
+    }*/
 }

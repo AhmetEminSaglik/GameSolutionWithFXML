@@ -5,9 +5,11 @@ import algorithm.game.Game;
 import algorithm.game.gamerepo.player.Player;
 import algorithm.game.gamerepo.player.robot.Robot;
 import algorithm.game.location.DirectionLocation;
+import algorithm.game.move.ChangeLocationByAdding;
 import algorithm.game.move.Move;
 import algorithm.print.EasylyReadNumber;
 import algorithm.printarray.StringFormat;
+import algorithm.sleep.Sleep;
 
 import java.util.Scanner;
 
@@ -53,7 +55,7 @@ public class PlayGame {
 
 
         while (!player.getGameRule().isGameOver(game)) {
-
+//            new Sleep().sleep(1000);
         game.increaseRoundCounter();
         int choose = player.getInput(game);
         moveForwardOrBack = getMoveBackOrForward(choose);
@@ -68,15 +70,21 @@ public class PlayGame {
 
 //            if (game.getModel().getGameSquares()[0][0] != 1)
 //                break;
-        if (player.isPrintableStepSituation() == true) {
+//        if (player.isPrintableStepSituation() == true) {
+//            printGamelastStuation(game);
+//        }
             printGamelastStuation(game);
-        }
-
         if (player.getGameRule().isGameOver(game)) {
             ShowPanel.show(getClass(), "Game Over");
             System.out.println("Total Number Solved " + getEasyReadyNumber(player.getScore().getTotalGameFinishedScore()));
             saveGameResultToScore();
         }
+
+     /*   if(player.getStep()==25){
+            ShowPanel.show(getClass()," 25 oldu");
+
+        }*/
+        player.getPlayerMove().getMoveForward().setChangePlayerLocation(new ChangeLocationByAdding(player));
         }
 
 

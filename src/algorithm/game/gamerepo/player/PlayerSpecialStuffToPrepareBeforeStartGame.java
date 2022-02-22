@@ -25,6 +25,7 @@ public abstract class PlayerSpecialStuffToPrepareBeforeStartGame {
 //        MoveBack moveBack = new MoveBack(prepareGameBySelectingMenu.getGame());
 //        moveBack.createUpdateValuesInGameModel();
 //        FxmlMoveForward fxmlMoveForward= new FxmlMoveForward(prepareGameBySelectingMenu.getGame());
+
         MoveForward moveForward = new MoveForward(prepareGameBySelectingMenu.getGame());
         MoveBack moveBack = new MoveBack(prepareGameBySelectingMenu.getGame());
         prepareGameBySelectingMenu.getPlayer().setPlayerMove(new PlayerMove(moveForward, moveBack));

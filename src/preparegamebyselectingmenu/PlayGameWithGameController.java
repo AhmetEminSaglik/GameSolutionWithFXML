@@ -1,3 +1,4 @@
+/*
 package preparegamebyselectingmenu;
 
 import algorithm.game.play.PlayGame;
@@ -12,3 +13,4 @@ public class PlayGameWithGameController {
     }
 
 }
+*/

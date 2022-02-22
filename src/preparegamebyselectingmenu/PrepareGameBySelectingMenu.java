@@ -61,11 +61,11 @@ public class PrepareGameBySelectingMenu {
         buildGameModel.createVisitedArea();
     }
 
-    public void playGame() {
+/*    public void playGame() {
         PlayGame playGame = new PlayGame(game);
         playGame.playGame();
 
-    }
+    }*/
 
     public BuildGame getBuildGameModel() {
         return buildGameModel;

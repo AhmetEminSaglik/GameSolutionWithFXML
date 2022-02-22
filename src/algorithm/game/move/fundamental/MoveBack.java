@@ -1,5 +1,6 @@
 package algorithm.game.move.fundamental;
 
+import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.Game;
 import algorithm.game.gamerepo.GameModelProcess;
 import algorithm.game.gamerepo.updategamemodel.UpdateForMovedBack;
@@ -42,12 +43,15 @@ public class MoveBack extends Move {
         ArrayList<DirectionLocation> directionLocationList = new LocationsList().getListOfLocationsAccordingToPlayerCompass(game.getPlayer().getCompass());
 
         for (int i = 0; i < directionLocationList.size(); i++) {
+//            ShowPanel.show(getClass()," geri adim icin isleme sokulacak direction : "+directionLocationList.get(i).toString());
             updateValuesInGameModel.updateValueVisitedDirection(directionLocationList.get(i));
         }
     }
 
     @Override
     public void updateBeforeStep() {
+
+//        ShowPanel.show(getClass()," Move Back udpateBefore Step");
         updateVisitedArea();
         updateVisitedDirection();
         removeMaxStepBeforeGoingLastStep();
@@ -76,4 +80,10 @@ public class MoveBack extends Move {
 //        printToFile(textWillAppendToFile);
     }*/
 
+    @Override
+    public String toString() {
+        return "MoveBack\n{" +
+                ", updateValuesInGameModel=" + updateValuesInGameModel +
+                '}';
+    }
 }

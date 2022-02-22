@@ -56,12 +56,8 @@ public abstract class BaseSolution {
     @Override
     public String toString() {
         return "BaseSolution{" +
-                "game=" + game +
-                ", playerLocation=" + playerLocation +
                 ", moveForward=" + moveForward +
                 ", moveBack=" + moveBack +
-                ", checkSquare=" + checkSquare +
-                ", squareProcess=" + squareProcess +
                 '}';
     }
 }

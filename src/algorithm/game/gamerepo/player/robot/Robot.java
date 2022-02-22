@@ -2,6 +2,7 @@ package algorithm.game.gamerepo.player.robot;
 
 import algorithm.compass.Compass;
 import algorithm.compass.DirectionCompass;
+import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.gameover.RobotGameOver;
 import algorithm.game.gamerepo.player.Player;
 import algorithm.game.gamerepo.player.robot.memory.RobotMemory;
@@ -93,7 +94,7 @@ public class Robot extends Player {
     public void updateVisitedDirection(boolean sealOrUnseal, int step, DirectionLocation location) {
         assert (getStep() > 1) : getClass().getName() + " >>> ADIM SAYUISI " + getStep() + " GELDI";
         location.setCompass(getGame().getPlayer().getCompass());
-
+        System.out.println("location : "+ location.toString());
         getVisitedDirections()[step][location.getId()] = sealOrUnseal;
     }
 
@@ -124,4 +125,12 @@ public class Robot extends Player {
 //    public RoadMemory getRoadMemory() {
 //        return roadMemory;
 //    }
+
+
+  /*  @Override
+    public String toString() {
+        return "Robot{" +
+                "solution=" + solution +
+                '}';
+    }*/
 }

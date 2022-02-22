@@ -3,6 +3,7 @@ package algorithm.game.play.input.robot;
 import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.gamerepo.player.Player;
 import algorithm.game.location.DirectionLocation;
+import algorithm.game.location.LocationsList;
 import algorithm.game.move.ChangeLocationByAdding;
 import algorithm.game.move.ChangeLocationByExactlyLocation;
 import algorithm.game.move.Move;
@@ -12,17 +13,17 @@ import scene.game.SquareButton;
 
 public class RobotPlayingStyle extends PlayerPlayingStyle {
 
-    int sleepTime = 500;
+    int sleepTime = 100;
 
     @Override
     public void startGame() {
         game = player.getGame();
         fillFxmlMoveForward();
-        fillFxmlMoveBack();
+
 
         fxmlMoveForwardOrBack = fxmlMoveForward;
 
-        fxmlMoveForwardOrBack.setUpdateValuesInGameModel(player.getPlayerMove().getMoveForward().getUpdateValuesInGameModel());
+//        fxmlMoveForwardOrBack.setUpdateValuesInGameModel(player.getPlayerMove().getMoveForward().getUpdateValuesInGameModel());
         fxmlMoveForwardOrBack.setChangePlayerLocation(new ChangeLocationByExactlyLocation(player));
         System.out.println(fxmlMoveForwardOrBack.getChangePlayerLocation());
 
@@ -39,7 +40,10 @@ public class RobotPlayingStyle extends PlayerPlayingStyle {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+//        ShowPanel.show(getClass()," person da create last location id -1 donuyor sorun yok ama robotta -1 donunce patliiyor");
 
+        fillFxmlMoveForward();
+        fillFxmlMoveBack();
         while (!player.getGameRule().isGameOver(game)) {
             playRobot();
 
@@ -49,11 +53,7 @@ public class RobotPlayingStyle extends PlayerPlayingStyle {
     }
 
     synchronized void playRobot() {
-
-
 //            squareBtnCommunity.listMovedSquareBtn.get(listLastIndex()).setId(VISITED_BEFORE_BTN_ID);
-
-
         int choose = player.getInput(game);
         System.out.println("GELEN CHOOSE : " + choose);
 //            fxmlMoveForwardOrBack = getMoveBackOrForward(choose);
@@ -62,13 +62,22 @@ public class RobotPlayingStyle extends PlayerPlayingStyle {
         moveForwardOrBack.move(new DirectionLocation().
                 getLocationValueAccordingToEnteredValue(game, choose));*/
         fxmlMoveForwardOrBack = getFxmlMoveBackOrForward(choose);
-        DirectionLocation directionLocation = new DirectionLocation();
-        directionLocation.setCompass(player.getCompass());
-        directionLocation.getLocationValueAccordingToEnteredValue(game,choose);
-        System.out.println("direction  1 -) :"+directionLocation.toString());
-        System.out.println("direction  2 -) :"+directionLocation.getLocationValueAccordingToEnteredValue(game,choose).toString());
-        System.out.println("direction  3 -) :"+new DirectionLocation().getLocationValueAccordingToEnteredValue(game, choose).toString());
-        fxmlMoveForward.move(new DirectionLocation().getLocationValueAccordingToEnteredValue(game, choose));
+        System.out.println("gelen deger  toString() : " + fxmlMoveForwardOrBack.toString());
+        System.out.println("gelen deger  name : " + fxmlMoveForwardOrBack.getClass().getName());
+//        System.out.println(fxmlMoveForwardOrBack.toString());
+//        DirectionLocation directionLocation = new DirectionLocation();
+//        directionLocation.setCompass(player.getCompass());
+//        directionLocation.getLocationValueAccordingToEnteredValue(game, choose);
+//        System.out.println("choose : " + choose);
+//        System.out.println("direction  1 -) :"+directionLocation.toString());
+//        System.out.println("direction  2 -) :"+directionLocation.getLocationValueAccordingToEnteredValue(game,choose).toString());
+//        System.out.println("direction  3 -) :"+new DirectionLocation().getLocationValueAccordingToEnteredValue(game, choose).toString());
+        DirectionLocation directionLocationToMove = new DirectionLocation().getLocationValueAccordingToEnteredValue(game, choose);
+        if (choose == player.getCompass().getLastLocation()) {
+            fxmlMoveBack.move(directionLocationToMove);
+        } else {
+            fxmlMoveForward.move(directionLocationToMove);
+        }
         /*fxmlMoveForwardOrBack.move(
                 new DirectionLocation().
                         getLocationValueAccordingToEnteredValue(game, choose));*/
@@ -107,9 +116,9 @@ public class RobotPlayingStyle extends PlayerPlayingStyle {
                 gameController.clearOldHintButtons();
             });*/
 
-        if (player.getStep() == gameController.getPrepareGameBySelectingMenu().getEdgeValue() * gameController.getPrepareGameBySelectingMenu().getEdgeValue()) {
-            ShowPanel.show(getClass(), " DURRRRRRRR "+(gameController.getPrepareGameBySelectingMenu().getEdgeValue() * gameController.getPrepareGameBySelectingMenu().getEdgeValue())+" oldu");
-        }
+//        if (player.getStep() == gameController.getPrepareGameBySelectingMenu().getEdgeValue() * gameController.getPrepareGameBySelectingMenu().getEdgeValue()) {
+//            ShowPanel.show(getClass(), " DURRRRRRRR " + (gameController.getPrepareGameBySelectingMenu().getEdgeValue() * gameController.getPrepareGameBySelectingMenu().getEdgeValue()) + " oldu");
+//        }
         if (player.getStep() == gameController.getPrepareGameBySelectingMenu().getEdgeValue() * gameController.getPrepareGameBySelectingMenu().getEdgeValue()) {
             maxSayioldu = true;
         }
@@ -118,6 +127,29 @@ public class RobotPlayingStyle extends PlayerPlayingStyle {
         }
         gameController.printModel();
 //        notify();
+    }
+
+    public void checkStatus() {
+        Runnable runnable = () -> {
+            if (prepareGameBySelectingMenu.getPlayer().getStep() == prepareGameBySelectingMenu.getEdgeValue() * prepareGameBySelectingMenu.getEdgeValue()) {
+//                    ShowPanel.show(getClass(), "Tebrikler butun bosluklari doldurdunuz.");
+
+                    game.getPlayer().getScore().increaseTotalGameFinishedScore();
+                    gameController.updateTotalFinishedScore();
+
+//                gameController.lblScoreValue.setText(prepareGameBySelectingMenu.getPlayer().getScore().getTotalGameFinishedScore() + "");
+            }
+//                else {
+//                    ShowPanel.show(getClass(), " Game Over Step deger i : " + prepareGameBySelectingMenu.getPlayer().getStep());
+//                    gameController.resetGame();
+//                }
+//            if (prepareGameBySelectingMenu.getPlayer().getStep() == 100) {
+//                ShowPanel.show(getClass(), " 100 oldu deger artmis olmasi lazim\n" +
+//                        "prepareGameBySelectingMenu.getPlayer().getStep()  : " + prepareGameBySelectingMenu.getPlayer().getStep() + "\n" +
+//                        "prepareGameBySelectingMenu.getEdgeValue() * prepareGameBySelectingMenu.getEdgeValue() : " + prepareGameBySelectingMenu.getEdgeValue() * prepareGameBySelectingMenu.getEdgeValue());
+//            }
+        };
+        gameController.runFunctionInPlatformThread(runnable);
     }
 
     boolean maxSayioldu = false;
@@ -147,12 +179,14 @@ public class RobotPlayingStyle extends PlayerPlayingStyle {
         return player.getPlayerMove().getMoveForward();
     }
 
-    FxmlMove getFxmlMoveBackOrForward(int index) {
+  /*  FxmlMove getFxmlMoveBackOrForward(int index) {
         if (index == player.getCompass().getLastLocation()) {
+//            fxmlMoveBack.move(new DirectionLocation().getLocationValueAccordingToEnteredValue(player.getGame(),
+//                    new LocationsList().getLastLocation(player.getCompass()).getId()));
             return fxmlMoveBack;
         }
         return fxmlMoveForward;
-    }
+    }*/
 /*
     Move getMoveBackOrForward(int index) {
         if (index == player.getCompass().getLastLocation()) {

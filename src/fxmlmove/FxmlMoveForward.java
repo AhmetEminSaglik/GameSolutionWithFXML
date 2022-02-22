@@ -1,7 +1,7 @@
 package fxmlmove;
 
+import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.Game;
-import algorithm.game.move.Move;
 import algorithm.game.move.fundamental.MoveForward;
 import scene.game.GameController;
 import scene.game.SquareButton;
@@ -9,39 +9,26 @@ import scene.game.SquareButton;
 public class FxmlMoveForward extends FxmlMove {
     MoveForward moveForward;
 
-
     public FxmlMoveForward(Game game, GameController gameController) {
         super(game);
         this.gameController = gameController;
     }
 
-
-    //    public FxmlMoveForward(GameController gameController) {
-//
-//        super(gameController.getPrepareGameBySelectingMenu().getGame());
-//        this.squareBtnCommunity = gameController.squareBtnCommunity;
-//        this.gameController = gameController;
-//
-//    }
-//
-//    @Override
-//    public void prepareAllStuff() {
-//
-////        getT().prepareAllStuff();
-//    }
-//
-
-
     @Override
-    public void prepareAllStuff() {moveForward.prepareAllStuff();}
+    public void prepareAllStuff() {
+        moveForward.prepareAllStuff();
+    }
 
     @Override
     public void updateVisitedDirection() {
+//        ShowPanel.show(getClass(), " MOVE FORWARD  updateBeforeStep");
         moveForward.updateVisitedDirection();
     }
 
     @Override
     public void updateBeforeStep() {
+//        ShowPanel.show(getClass(), " MOVE FORWARD  updateBeforeStep");
+
 //        super.updateBeforeStep();
 //        t.updateBeforeStep();
 //        super.updateBeforeStep();
@@ -54,6 +41,7 @@ public class FxmlMoveForward extends FxmlMove {
     //
     @Override
     public void updateAfterStep() {
+//        ShowPanel.show(getClass(), " MOVE FORWARD  updateAfterStep");
 //        t.updateAfterStep();
 //        super.updateAfterStep();
 //        super.updateAfterStep();
@@ -73,6 +61,7 @@ public class FxmlMoveForward extends FxmlMove {
 
     @Override
     public void updatePlayerLocation() {
+//        ShowPanel.show(getClass(), " MOVE FORWARD  updatePlayerLocation");
         moveForward.updatePlayerLocation();
     }
     //
@@ -103,5 +92,13 @@ public class FxmlMoveForward extends FxmlMove {
 
     public void setMoveForward(MoveForward moveForward) {
         this.moveForward = moveForward;
+    }
+
+    @Override
+    public String toString() {
+        return "FxmlMoveForward\n{" +
+                ", updateValuesInGameModel=" + updateValuesInGameModel +
+                ", moveForward=" + moveForward +
+                '}';
     }
 }

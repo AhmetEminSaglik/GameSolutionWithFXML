@@ -1,5 +1,6 @@
 package algorithm.game.gamerepo.player.robot.solution.second;
 
+import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.Game;
 import algorithm.game.gamerepo.player.robot.solution.BaseSolution;
 import algorithm.game.move.fundamental.secondsolutionforrobot.MoveBackSecondSolution;
@@ -27,6 +28,6 @@ public class SecondSolution_CalculateForwardAvailableWays extends BaseSolution {
 
     @Override
     public String toString() {
-        return super.toString();
+        return  "Second Solution  {"+super.toString()+'}';
     }
 }

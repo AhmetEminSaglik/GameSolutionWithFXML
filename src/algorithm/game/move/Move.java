@@ -39,13 +39,15 @@ public abstract class Move implements IMove { // ICalculateMove
     }
 
     public final void move(DirectionLocation directionLocation) {
+//        ShowPanel.show(getClass(), "  \ngelen degeri sapta :\n " + toString());
+        System.out.println("gelen degeri sapta : " + toString());
         game.increaseRoundCounter();
         prepareAllStuff();
 //        System.out.println("+++++++++++++++++++++++++++++++++++++");
 //        System.out.println("gelen direciton : " + directionLocation);
 //        System.out.println(" getDirection : " + getDirectionLocation());
 //        System.out.println("----------------------------------------------");
-        setDirectionLocation(directionLocation);
+//        setDirectionLocation(directionLocation);
 //        System.out.println(" 1 getDirection : " + getDirectionLocation());
 //        System.out.println("||||||||||||||||||||||||||||||||||");
 //        System.out.println("gelen direciton : " + directionLocation);
@@ -55,16 +57,18 @@ public abstract class Move implements IMove { // ICalculateMove
 
         setDirectionLocation(directionLocation);
 
-        if (!isRequiredToChangeStartLocation()) {
+//        if (!isRequiredToChangeStartLocation()) {
+//        }
+        if (game.getPlayer().getStep() > 0) {
             updateBeforeStep();
         }
         updatePlayerStepValue();
         updateAfterStep();
         fillGameSquare.printStepInGameSquare();
 
-        if (game.getPlayer().getGameRule().isGameOver(game)) {
+        /*if (game.getPlayer().getGameRule().isGameOver(game)) {
             appendFileSquareTotalSolvedValue();
-        }
+        }*/
     }
 
     @Override
@@ -156,11 +160,6 @@ public abstract class Move implements IMove { // ICalculateMove
         this.directionLocation = directionLocation;
     }
 
-    @Override
-    public String toString() {
-        return "Move{" + "game=" + game + ", compass=" + compass + ", validation=" + validation + ", updateValuesInGameModel=" + updateValuesInGameModel + ", fillGameSquare=" + fillGameSquare + ", directionLocation=" + directionLocation + '}';
-    }
-
     public FillGameSquare getFillGameSquare() {
         return fillGameSquare;
     }
@@ -180,5 +179,12 @@ public abstract class Move implements IMove { // ICalculateMove
 
     public void setUpdateValuesInGameModel(UpdateValuesInGameModel updateValuesInGameModel) {
         this.updateValuesInGameModel = updateValuesInGameModel;
+    }
+
+    @Override
+    public String toString() {
+        return "Move{" +
+                "updateValuesInGameModel=" + updateValuesInGameModel +
+                '}';
     }
 }

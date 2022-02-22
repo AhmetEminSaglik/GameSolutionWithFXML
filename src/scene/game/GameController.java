@@ -1,6 +1,5 @@
 package scene.game;
 
-import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.location.DirectionLocation;
 import algorithm.game.location.LocationsList;
 import algorithm.game.play.input.PlayerPlayingStyle;
@@ -66,8 +65,8 @@ public class GameController extends BaseSceneController {
             prepareGameBySelectingMenu.getPlayerPlayingStyle().setGameController(this);
             prepareGameBySelectingMenu.prepareGame();
             new Thread(() -> prepareGameBySelectingMenu.getPlayerPlayingStyle().startGame()).start();
-            ShowPanel.show(getClass()," 1-) Robot geri adim atamiyor,\n" +
-                    "2-) max sayiya ulasinda  visited area'ya  max degeri koyup true yapmaya calisiyor. ");
+//            ShowPanel.show(getClass()," 1-) Robot geri adim atamiyor,\n" +
+//                    "2-) max sayiya ulasinda  visited area'ya  max degeri koyup true yapmaya calisiyor. ");
 
 //                }
 //            }).start();
@@ -165,10 +164,8 @@ public class GameController extends BaseSceneController {
         runFunctionInPlatformThread(runnable);
     }
 
-    public void runFunctionInPlatformThread(Runnable runnable) {
+    public synchronized void runFunctionInPlatformThread(Runnable runnable) {
         Platform.runLater(() -> runnable.run());
-
-
     }
 
     boolean timerStarted = false;

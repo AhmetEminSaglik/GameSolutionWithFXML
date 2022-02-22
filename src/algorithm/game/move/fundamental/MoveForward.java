@@ -1,8 +1,8 @@
 package algorithm.game.move.fundamental;
 
+import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.Game;
 import algorithm.game.gamerepo.updategamemodel.UpdateForMovedForward;
-import algorithm.game.move.ChangePlayerLocation;
 import algorithm.game.move.Move;
 
 public class MoveForward extends Move {
@@ -10,10 +10,7 @@ public class MoveForward extends Move {
 
     public MoveForward(Game game) {
         super(game);
-//        MoveForward t = this;
         updateValuesInGameModel = new UpdateForMovedForward(game);
-
-//        changePlayerLocation = updateValuesInGameModel.getChangePlayerLocation();
     }
 
     @Override
@@ -37,5 +34,10 @@ public class MoveForward extends Move {
 
     }
 
-
+    @Override
+    public String toString() {
+        return "MoveForward\n{" +
+                ", updateValuesInGameModel=" + updateValuesInGameModel +
+                '}';
+    }
 }
