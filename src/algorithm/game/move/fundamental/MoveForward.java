@@ -1,9 +1,13 @@
 package algorithm.game.move.fundamental;
 
+import algorithm.errormessage.ErrorMessage;
 import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.Game;
 import algorithm.game.gamerepo.updategamemodel.UpdateForMovedForward;
+import algorithm.game.location.DirectionLocation;
 import algorithm.game.move.Move;
+import algorithm.game.move.ResetAllDataForGameAndPlayer;
+import algorithm.game.play.SelectFirstSqaureToStart;
 
 public class MoveForward extends Move {
 
@@ -32,6 +36,12 @@ public class MoveForward extends Move {
         updatePlayerLocation();
         updateVisitedArea();
         updateVisitedDirection();
+
+    }
+
+    @Override
+    public void changeStartLocation(DirectionLocation directionLocation) {
+        ShowPanel.show(getClass(), " ???????????????????????????? adim sayisi 0 iken buraya geldi");
 
     }
 

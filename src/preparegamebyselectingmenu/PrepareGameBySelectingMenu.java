@@ -46,8 +46,13 @@ public class PrepareGameBySelectingMenu {
 
     }
 
+    static int counter = 0;
+
     public void createGame() {
+        counter++;
         game = buildGameModel.createGame();
+        System.out.print(counter+"-) ilk olusturulan  game  :");
+        game.printGameAdress();
 
     }
 
@@ -106,7 +111,7 @@ public class PrepareGameBySelectingMenu {
         this.playerPlayingStyle = playerPlayingStyle;
     }
 
-    @Override
+/*    @Override
     public String toString() {
         return "fxmlmove.preparegamebyselectingmenu.PrepareGameBySelectingMenu{" +
                 "buildGameModel=" + buildGameModel +
@@ -114,7 +119,7 @@ public class PrepareGameBySelectingMenu {
                 ", game=" + game +
                 ", edgeValue=" + edgeValue +
                 '}';
-    }
+    }*/
 
     public PlayerSpecialStuffToPrepareBeforeStartGame getPlayerSpecialStuffToPrepareBeforeStartGame() {
         return playerSpecialStuffToPrepareBeforeStartGame;

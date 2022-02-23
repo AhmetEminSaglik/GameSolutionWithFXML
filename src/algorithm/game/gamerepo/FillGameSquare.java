@@ -15,6 +15,7 @@ public class FillGameSquare {
     }
 
     public void printStepInGameSquare() {
+        System.out.println("gelen deger x : "+player.getLocation().getX()+" y " +player.getLocation().getY());
         game.getModel().getGameSquares()[player.getLocation().getX()][player.getLocation().getY()] = player.getStep();
     }
 

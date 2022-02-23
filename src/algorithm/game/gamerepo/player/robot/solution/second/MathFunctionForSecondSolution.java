@@ -2,6 +2,7 @@ package algorithm.game.gamerepo.player.robot.solution.second;
 
 import algorithm.check.forwardlocation.InpectingForwardLocation;
 import algorithm.compass.DirectionCompass;
+import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.Game;
 import algorithm.game.gamerepo.player.robot.Robot;
 import algorithm.game.gamerepo.player.robot.solution.second.exitsituation.ExitSituation;
@@ -64,7 +65,9 @@ public class MathFunctionForSecondSolution {
             navigation = buildNavigation();
             addNavigationToRoadMemoryList();
         }
-
+        if(game.getPlayer().getStep()==0 || selectedDirection==lastLocation){
+            ShowPanel.show(getClass(),"Adim sayisi 0 ve geri adim istegi donuyor");
+        }
         return selectedDirection.getId();
 
 

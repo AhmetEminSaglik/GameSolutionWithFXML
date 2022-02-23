@@ -15,7 +15,7 @@ public abstract class Move implements IMove { // ICalculateMove
     ChangePlayerLocation changePlayerLocation;
     public Game game;
     Compass compass;
-    Validation validation = new Validation();
+    //    Validation validation = new Validation();
     protected UpdateValuesInGameModel updateValuesInGameModel;
     private FillGameSquare fillGameSquare;
 
@@ -34,6 +34,9 @@ public abstract class Move implements IMove { // ICalculateMove
     public boolean isRequiredToChangeStartLocation() {
         if (game.getPlayer().getStep() == 1 && getClass().equals(MoveBack.class) || game.getPlayer().getStep() == 0) {
             return true;
+        }
+        if(game.getPlayer().getStep() == 1 ){
+            ShowPanel.show(getClass()," STEP DEGERI 1 AMA GELEN CLASS : "+getClass());
         }
         return false;
     }
@@ -57,8 +60,10 @@ public abstract class Move implements IMove { // ICalculateMove
 
         setDirectionLocation(directionLocation);
 
-//        if (!isRequiredToChangeStartLocation()) {
-//        }
+        if (isRequiredToChangeStartLocation()) {
+//            System.out.println(" 11111111111111111 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> "+getClass());
+            changeStartLocation(directionLocation);
+        }
         if (game.getPlayer().getStep() > 0) {
             updateBeforeStep();
         }

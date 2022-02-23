@@ -25,6 +25,7 @@ public class CheckSquare extends BaseCheck {
     public boolean isSquareFreeFromVisitedDirection(Game game, Location currentProcessLocation, int directionIndex) {
 
         if (isIndexsSuitableForArray(game, currentProcessLocation, directionIndex)) {
+            System.out.println(" -?-?-?>>>  gelen step : "+game.getPlayer().getStep()+" direction : "+directionIndex);
             if (game.getPlayer().getVisitedDirections()[game.getPlayer().getStep()][directionIndex] == false) {
                 return true;
             }

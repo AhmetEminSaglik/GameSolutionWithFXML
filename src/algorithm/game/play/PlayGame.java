@@ -41,6 +41,7 @@ public class PlayGame {
     public void playGame() {
 
         prepareGame = new PrepareGame(game);
+        prepareGame.prepareToPlay(0,0);
         Move moveForwardOrBack;
 
 //        appendFileSolutionName();
@@ -73,7 +74,10 @@ public class PlayGame {
 //        if (player.isPrintableStepSituation() == true) {
 //            printGamelastStuation(game);
 //        }
-//            printGamelastStuation(game);
+            printGamelastStuation(game);
+            if(game.getModel().getGameSquares()[0][0]!=1){
+                ShowPanel.show(getClass()," ilk kare degisti");
+            }
         if (player.getGameRule().isGameOver(game)) {
             ShowPanel.show(getClass(), "Game Over");
             System.out.println("Total Number Solved " + getEasyReadyNumber(player.getScore().getTotalGameFinishedScore()));

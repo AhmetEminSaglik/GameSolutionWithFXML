@@ -2,6 +2,7 @@ package fxmlmove;
 
 import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.Game;
+import algorithm.game.location.DirectionLocation;
 import algorithm.game.move.fundamental.MoveBack;
 import scene.game.GameController;
 import scene.game.SquareButton;
@@ -57,6 +58,11 @@ public class FxmlMoveBack extends FxmlMove {
         gameController.updateLabelCurrentValue();
 
 
+    }
+
+    @Override
+    public void changeStartLocation(DirectionLocation directionLocation) {
+        moveBack.changeStartLocation(directionLocation);
     }
 
 

@@ -45,6 +45,7 @@ public class RobotPlayingStyle extends PlayerPlayingStyle {
         fillFxmlMoveForward();
         fillFxmlMoveBack();
         while (!player.getGameRule().isGameOver(game)) {
+
             playRobot();
 
         }
@@ -72,11 +73,13 @@ public class RobotPlayingStyle extends PlayerPlayingStyle {
 //        System.out.println("direction  1 -) :"+directionLocation.toString());
 //        System.out.println("direction  2 -) :"+directionLocation.getLocationValueAccordingToEnteredValue(game,choose).toString());
 //        System.out.println("direction  3 -) :"+new DirectionLocation().getLocationValueAccordingToEnteredValue(game, choose).toString());
-        fxmlMoveForwardOrBack=getFxmlMoveBackOrForward(choose);
-        if(fxmlMoveForwardOrBack==fxmlMoveBack){
-            ShowPanel.show(getClass()," GERI ADIM ATRACKA gelen chose : "+choose);
+        fxmlMoveForwardOrBack = getFxmlMoveBackOrForward(choose);
+        System.out.print("islem yapilacak game  :");
+        game.printGameAdress();
+        if (fxmlMoveForwardOrBack == fxmlMoveBack) {
+            ShowPanel.show(getClass(), " GERI ADIM ATRACKA gelen chose : " + choose);
         }
-        System.out.println("gelen choose : "+choose);
+        System.out.println("gelen choose : " + choose);
         DirectionLocation directionLocationToMove = new DirectionLocation().getLocationValueAccordingToEnteredValue(game, choose);
         fxmlMoveForwardOrBack.move(directionLocationToMove);
 //        if (choose == player.getCompass().getLastLocation()) {
@@ -140,8 +143,8 @@ public class RobotPlayingStyle extends PlayerPlayingStyle {
             if (prepareGameBySelectingMenu.getPlayer().getStep() == prepareGameBySelectingMenu.getEdgeValue() * prepareGameBySelectingMenu.getEdgeValue()) {
 //                    ShowPanel.show(getClass(), "Tebrikler butun bosluklari doldurdunuz.");
 
-                    game.getPlayer().getScore().increaseTotalGameFinishedScore();
-                    gameController.updateTotalFinishedScore();
+                game.getPlayer().getScore().increaseTotalGameFinishedScore();
+                gameController.updateTotalFinishedScore();
 
 //                gameController.lblScoreValue.setText(prepareGameBySelectingMenu.getPlayer().getScore().getTotalGameFinishedScore() + "");
             }

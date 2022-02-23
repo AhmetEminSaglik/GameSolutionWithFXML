@@ -54,8 +54,11 @@ public class Game {
     public void setPlayer(Player player) {
         this.player = player;
     }
+    public void printGameAdress(){
+        System.out.println(" ---> "+toString());
+    }
 
-    @Override
+/*    @Override
     public String toString() {
         return "Game{" +
                 "roundCounter=" + roundCounter +
@@ -63,5 +66,5 @@ public class Game {
                 ", player=" + player +
                 ", overLongRoundCounter=" + overLongRoundCounter +
                 '}';
-    }
+    }*/
 }
