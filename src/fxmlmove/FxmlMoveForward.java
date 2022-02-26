@@ -35,6 +35,7 @@ public class FxmlMoveForward extends FxmlMove {
 //        t.updateBeforeStep();
 //        super.updateBeforeStep();
         moveForward.setDirectionLocation(getDirectionLocation());
+//        if(game.getPlayer().getStep()>0)
         moveForward.updateBeforeStep();
         gameController.clearOldHintButtons();
         currentBtn = getCurrentBtn();
@@ -59,13 +60,17 @@ public class FxmlMoveForward extends FxmlMove {
         gameController.paintHintButtonsOfCurrentBtn();
         gameController.updateLabelTotalStepValue();
         gameController.updateLabelCurrentValue();
+//        if (game.getPlayer().getStep() == game.getModel().getGameSquares().length * game.getModel().getGameSquares().length) {
+//            ShowPanel.show(getClass()," Max sayiya ulasildi");
+//        }
+
 
 
     }
 
     @Override
     public void changeStartLocation(DirectionLocation directionLocation) {
-        ShowPanel.show(getClass()," changeStartLocation Fxml Move Forward");
+//        ShowPanel.show(getClass()," changeStartLocation Fxml Move Forward");
         moveForward.changeStartLocation(directionLocation);
     }
 

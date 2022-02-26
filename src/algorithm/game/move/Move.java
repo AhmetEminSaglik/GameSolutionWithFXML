@@ -68,9 +68,7 @@ public abstract class Move implements IMove { // ICalculateMove
             changeStartLocation(directionLocation);
         }
 //        if (game.getPlayer().getStep() > 0) {
-        System.out.println(">>> ??///// ?>>>> gelen direction : " + getDirectionLocation());
         updateBeforeStep();
-//        ShowPanel.show(getClass()," AAA 1 ");
 //        }
         updatePlayerStepValue();
         updateAfterStep();
@@ -82,11 +80,10 @@ public abstract class Move implements IMove { // ICalculateMove
         /*if (game.getPlayer().getGameRule().isGameOver(game)) {
             appendFileSquareTotalSolvedValue();
         }*/
-        StringFormat stringFormat = new StringFormat();
-        System.out.println("move clasisnda move fonksiyonu visited direction adresi");
-        String text = stringFormat.getStringFormatArray(game.getPlayer().getVisitedDirections());
-        System.out.println(text);
-//        ShowPanel.show(getClass(),"directions Yazdirildil bi incele");
+//        StringFormat stringFormat = new StringFormat();
+//        System.out.println("move clasisnda move fonksiyonu visited direction adresi");
+//        String text = stringFormat.getStringFormatArray(game.getPlayer().getVisitedDirections());
+//        System.out.println(text);
     }
 
     @Override

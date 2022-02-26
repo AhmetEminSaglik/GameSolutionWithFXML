@@ -37,7 +37,7 @@
 #radioBtnSquareEdge7x7,
 #radioBtnSquareEdge8x8,
 #radioBtnSquareEdge9x9,
-#radioBtnSquareEdge10x10{
+#radioBtnSquareEdge10x10 {
     -fx-pref-width: 400px;
     -fx-font-size: 30;
     -fx-font-family: "Courier New";
@@ -59,7 +59,7 @@
 #radioBtnSquareEdge8x8:hover,
 #radioBtnSquareEdge9x9:hover,
 #radioBtnSquareEdge10x10:hover,
-#solutionFirst:hover,#solutionSecond:hover{
+#solutionFirst:hover, #solutionSecond:hover {
     -fx-text-size: 25;
     -fx-text-fill: rgb(10, 20, 30);
     -fx-font-weight: bold;
@@ -72,13 +72,20 @@
 }
 
 #SquareBtn {
-    -fx-background-color: red;
+
+    /*-fx-background-color: rgb(10, 20, 30);*/
+    -fx-text-fill: rgb(10, 20, 30);
+    -fx-background-color: rgb(10, 20, 30);
+    -fx-border-color: white;
+    -fx-border-width: 5px;
+    -fx-border-radius: 5px;
     -fx-pref-width: 65;
     -fx-pref-height: 65;
     -fx-min-width: 65;
     -fx-min-height: 65;
     -fx-max-width: 65;
     -fx-max-height: 65;
+    /*-fx-background-color: Transparent;*/
 
     /*-fx-padding: 5px;
     -fx-border-insets: 5px;
@@ -87,7 +94,16 @@
 }
 
 #SquareBtn:hover {
-    -fx-background-color: cyan;
+    -fx-border-color: rgb(35, 42, 48);
+    -fx-background-color: orange;
+    -fx-background-radius: 25px;
+    -fx-border-radius: 5px;
+
+
+    /*-fx-font-weight: bold;*/
+    /*-fx-border-color: red;*/
+    /*-fx-background-color: black;*/
+    /*-fx-background-radius: 10px;*/
 }
 
 #lblTimeField {
@@ -136,10 +152,14 @@
 }
 
 #visitedSquareBtn {
-    -fx-background-color: black;/* rgb(124, 208, 54);*/
-    -fx-font-size: 25;
+    /*-fx-border-color: rgb(10, 20, 30);*/
+    /*-fx-border-width: 5px;*/
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-background-color: rgb(124, 208, 54);
+    -fx-font-size: 20;
     -fx-font-weight: bold;
-    -fx-text-fill: white;
+    /*-fx-text-fill: white;*/
     -fx-font-family: "Courier New";
     -fx-pref-width: 65;
     -fx-pref-height: 65;
@@ -150,8 +170,8 @@
 }
 
 #currentBtn {
-    -fx-background-color: white;
-    -fx-font-size: 25;
+    -fx-background-color: cyan;
+    -fx-font-size: 20;
     -fx-font-weight: bold;
     -fx-font-family: "Courier New";
     -fx-pref-width: 65;
@@ -163,8 +183,11 @@
 }
 
 #hintBtn {
-    -fx-background-color: rgb(79, 80, 78);
-    -fx-font-weight: bold;
+    -fx-border-width: 5px;
+    -fx-border-radius: 10px;
+    -fx-border-color: red;
+    -fx-background-color: black;
+    -fx-background-radius: 10px;
     -fx-pref-width: 65;
     -fx-pref-height: 65;
     -fx-min-width: 65;
