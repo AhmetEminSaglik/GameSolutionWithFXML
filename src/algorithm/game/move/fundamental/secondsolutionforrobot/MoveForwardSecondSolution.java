@@ -29,7 +29,6 @@ public class MoveForwardSecondSolution extends MoveForward {
     @Override
     public void updateBeforeStep() {
 //        ShowPanel.show(getClass(),"MOVE FORWARD second solution updateBeforeStep");
-
         super.updateBeforeStep();
         doIfThereAreThingsTodoInOneWayNumberProcess();
     }
@@ -67,7 +66,14 @@ public class MoveForwardSecondSolution extends MoveForward {
             if (isDirectionSame(getDirectionLocation(), navigation.getCompulsoryLocation())) {
                 navigation.setCompulsoryLocation(new LocationsList().getLastLocation(robot.getCompass()));
 
+//                ShowPanel.show(getClass(), " getDirectionLocation NE?   "+getDirectionLocation().toString()+" navigation zorunlu yon ne ? ");
             }
+//            System.out.println("Adim sayisi : "+game.getPlayer().getStep());
+//            System.out.println(" suanki direction : " + getDirectionLocation().toString());
+//            System.out.println("zorunlu direction : " + navigation.getCompulsoryLocation().toString());
+//            ShowPanel.show(getClass(),"Butun class dizini yazdir (Move Forward Second SOlution) "+getClass());
+//            ShowPanel.show(getClass(),"Butun class dizini yazdir (Move Forward Second SOlution) "+getClass());
+//            System.out.println("////////////////////////////");
         } else if (navigation.getOneWayNumbersValue() == 1 &&
                 robot.getRobotMemory().getRoadMemory().getExitSituation().getSituation() == ExitSituation.EXIT_LOCATED &&
                 !navigation.isExitSituationWasLocatedInThisStep()) {

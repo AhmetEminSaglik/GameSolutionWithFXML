@@ -34,4 +34,5 @@ public class RoadMemory {
     public Navigation removeOneWayListLastItem() {
         return oneWayNumbersList.remove(getLastIndex());
     }
+
 }

@@ -8,6 +8,7 @@ import algorithm.game.Game;
 import algorithm.game.location.DirectionLocation;
 import algorithm.game.move.fundamental.MoveBack;
 import algorithm.print.EasylyReadNumber;
+import algorithm.printarray.StringFormat;
 import algorithm.validation.Validation;
 
 
@@ -32,16 +33,17 @@ public abstract class Move implements IMove { // ICalculateMove
 
     @Override
     public boolean isRequiredToChangeStartLocation() {
-        if (game.getPlayer().getStep() == 1 && getClass().equals(MoveBack.class) || game.getPlayer().getStep() == 0) {
+        if (/*game.getPlayer().getStep() == 1 && getClass().equals(MoveBack.class) || */game.getPlayer().getStep() == 0) {
             return true;
         }
-        if(game.getPlayer().getStep() == 1 ){
-            ShowPanel.show(getClass()," STEP DEGERI 1 AMA GELEN CLASS : "+getClass());
-        }
+//        if(game.getPlayer().getStep() == 1 ){
+//            ShowPanel.show(getClass()," STEP DEGERI 1 AMA GELEN CLASS : "+getClass());
+//        }
         return false;
     }
 
     public final void move(DirectionLocation directionLocation) {
+
 //        ShowPanel.show(getClass(), "  \ngelen degeri sapta :\n " + toString());
         System.out.println("gelen degeri sapta : " + toString());
         game.increaseRoundCounter();
@@ -50,30 +52,41 @@ public abstract class Move implements IMove { // ICalculateMove
 //        System.out.println("gelen direciton : " + directionLocation);
 //        System.out.println(" getDirection : " + getDirectionLocation());
 //        System.out.println("----------------------------------------------");
-//        setDirectionLocation(directionLocation);
+        setDirectionLocation(directionLocation);
 //        System.out.println(" 1 getDirection : " + getDirectionLocation());
 //        System.out.println("||||||||||||||||||||||||||||||||||");
 //        System.out.println("gelen direciton : " + directionLocation);
 //        System.out.println(" getDirection : " + getDirectionLocation());
 //        System.out.println("----------------------------------------------");
 
-
-        setDirectionLocation(directionLocation);
+//        System.out.println(getDirectionLocation().toString());
+//        setDirectionLocation(directionLocation);
 
         if (isRequiredToChangeStartLocation()) {
 //            System.out.println(" 11111111111111111 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> "+getClass());
+//            ShowPanel.show(getClass(),"GELDII");
             changeStartLocation(directionLocation);
         }
-        if (game.getPlayer().getStep() > 0) {
-            updateBeforeStep();
-        }
+//        if (game.getPlayer().getStep() > 0) {
+        System.out.println(">>> ??///// ?>>>> gelen direction : " + getDirectionLocation());
+        updateBeforeStep();
+//        ShowPanel.show(getClass()," AAA 1 ");
+//        }
         updatePlayerStepValue();
         updateAfterStep();
         fillGameSquare.printStepInGameSquare();
 
+//        ShowPanel.show(getClass(), "Butun class dizini yazdir  (Move)" + getClass());
+
+
         /*if (game.getPlayer().getGameRule().isGameOver(game)) {
             appendFileSquareTotalSolvedValue();
         }*/
+        StringFormat stringFormat = new StringFormat();
+        System.out.println("move clasisnda move fonksiyonu visited direction adresi");
+        String text = stringFormat.getStringFormatArray(game.getPlayer().getVisitedDirections());
+        System.out.println(text);
+//        ShowPanel.show(getClass(),"directions Yazdirildil bi incele");
     }
 
     @Override

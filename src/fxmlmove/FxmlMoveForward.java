@@ -28,11 +28,13 @@ public class FxmlMoveForward extends FxmlMove {
 
     @Override
     public void updateBeforeStep() {
+//        ShowPanel.show(getClass()," BBB 1 ");
 //        ShowPanel.show(getClass(), " MOVE FORWARD  updateBeforeStep");
 
 //        super.updateBeforeStep();
 //        t.updateBeforeStep();
 //        super.updateBeforeStep();
+        moveForward.setDirectionLocation(getDirectionLocation());
         moveForward.updateBeforeStep();
         gameController.clearOldHintButtons();
         currentBtn = getCurrentBtn();
@@ -47,7 +49,8 @@ public class FxmlMoveForward extends FxmlMove {
 //        super.updateAfterStep();
 //        super.updateAfterStep();
 //        System.out.println(" 2 getDirection : " + getDirectionLocation());
-        moveForward.setDirectionLocation(getDirectionLocation());
+
+
         moveForward.updateAfterStep();
 
         SquareButton currentBtn = getCurrentBtn();
@@ -62,6 +65,7 @@ public class FxmlMoveForward extends FxmlMove {
 
     @Override
     public void changeStartLocation(DirectionLocation directionLocation) {
+        ShowPanel.show(getClass()," changeStartLocation Fxml Move Forward");
         moveForward.changeStartLocation(directionLocation);
     }
 

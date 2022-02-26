@@ -18,6 +18,22 @@ public class StringFormat {
         return text;
     }
 
+    public String getStringFormatArray(boolean array[][]) {
+        String text = "";
+        for (int squareIndex = 0; squareIndex < array.length; squareIndex++) {
+            text += squareIndex + "-) ";
+            for (int directionIndex = 0; directionIndex < array[squareIndex].length; directionIndex++) {
+                if (array[squareIndex][directionIndex] == true)
+                    text += "(" + directionIndex + ")" + (array[squareIndex][directionIndex]) + " , ";
+            }
+            text += getNextLine();
+
+        }
+        text += "----------------------------------" + getNextLine();
+
+        return text;
+    }
+
     private String printDesign(int value) {
         if (value > 0) {
             if (value / 100 > 0) {
@@ -33,6 +49,7 @@ public class StringFormat {
         return "|   |";
     }
 
+
     private String getNextLine() {
         return "\n";
     }
@@ -44,7 +61,7 @@ public class StringFormat {
         numberText = "";
 
         int counter = 0;
-        for (int i = numberTextLength ; i > 0; i--) {
+        for (int i = numberTextLength; i > 0; i--) {
 
             if (counter == 3) {
                 numberText = "_" + numberText;

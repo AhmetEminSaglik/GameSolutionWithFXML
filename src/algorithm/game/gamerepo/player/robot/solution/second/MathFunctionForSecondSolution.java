@@ -52,6 +52,7 @@ public class MathFunctionForSecondSolution {
             navigationService.setCompulsoryLocationToNavigation(game, navigation, lastLocation);
             try {
                 selectedDirection = navigationService.getCompulsoryLocation(navigation);
+//                ShowPanel.show(getClass()," Zorunlu  yonlendirme secilen bolge  : "+selectedDirection.toString() );
                 return selectedDirection.getId();
             } catch (Exception e) {
             }
@@ -65,9 +66,9 @@ public class MathFunctionForSecondSolution {
             navigation = buildNavigation();
             addNavigationToRoadMemoryList();
         }
-        if(game.getPlayer().getStep()==0 || selectedDirection==lastLocation){
-            ShowPanel.show(getClass(),"Adim sayisi 0 ve geri adim istegi donuyor");
-        }
+//        if(game.getPlayer().getStep()==0 || selectedDirection==lastLocation){
+//            ShowPanel.show(getClass(),"Adim sayisi 0 veya ilerlenecek yon en son lokasyon geri adim istegi donuyor");
+//        }
         return selectedDirection.getId();
 
 
@@ -121,6 +122,7 @@ public class MathFunctionForSecondSolution {
                 int availableWayNumber = availableLocationList.size();
 
                 if (isAvailableWayEqualsToZero(availableWayNumber) && !isNextStepWillBeEqualsToTotalSquareValue()) {
+//                    ShowPanel.show(getClass()," isAvailableWayEqualsToZero(availableWayNumber  &&   !isNextStepWillBeEqualsToTotalSquareValue  last location oldu");
                     selectedDirection = lastLocation;
                     return;
                 }

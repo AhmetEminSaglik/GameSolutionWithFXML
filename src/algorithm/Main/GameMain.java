@@ -1,5 +1,6 @@
 package algorithm.Main;
 
+import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.Game;
 import algorithm.game.gamerepo.BuildGame;
 import algorithm.game.gamerepo.IDetermineEdgeValue;
@@ -51,6 +52,7 @@ public class GameMain implements ISelectPlayer {
 
         Player player = main.selectPlayer(game);
 
+
         buildGameModel.createVisitedArea();
 
         PlayGame playGame = new PlayGame(game);
@@ -91,7 +93,7 @@ public class GameMain implements ISelectPlayer {
         } else if (input.equals("2")) {
             Robot robot = new Robot();
             robot.setGame(game);
-            baseSolution = new FirstSolution_Combination(/*game*/);
+            baseSolution = new SecondSolution_CalculateForwardAvailableWays(/*game*/);
             baseSolution.setGame(game);
             robot.setSolution(baseSolution);
             robot.setIPlayerInput(new RobotInput(robot.getSolution()));

@@ -22,6 +22,7 @@ public class CreateLocationOfLastStep {
         CreateLocation createLocation = new CreateLocation();
         createLocation.setX(getOppositeValue(game.getPlayer().getLocation().getX(), gameModelProcess.getX()));
         createLocation.setY(getOppositeValue(game.getPlayer().getLocation().getY(), gameModelProcess.getY()));
+//        ShowPanel.show(getClass()," GERI DONUS ILCIN OLUSTURULAN LOCASYON : "+createLocation.toString());
         return createLocation;
        /* LastLocation lastLocation = new LastLocation();
         lastLocation.setCompass(game.getPlayer().getCompass());

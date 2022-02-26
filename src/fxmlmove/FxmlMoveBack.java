@@ -33,6 +33,7 @@ public class FxmlMoveBack extends FxmlMove {
 //        ShowPanel.show(getClass()," MOVE BACKk  geldiiiiiiiiiiiiiiiiiiii"  );
 //        super.updateBeforeStep();
 //        ShowPanel.show(getClass()," FXML MOVE BACK ");
+        moveBack.setDirectionLocation(getDirectionLocation());
         moveBack.updateBeforeStep();
         gameController.clearOldHintButtons();
         currentBtn = getCurrentBtn();
@@ -47,7 +48,7 @@ public class FxmlMoveBack extends FxmlMove {
 //        super.updateAfterStep();
 //        ShowPanel.show(getClass(), " MOVE BACKk  updateAfterStep");
 //        ShowPanel.show(getClass(),"FXML  Update AFTER step : "+game.getPlayer().getStep());
-        moveBack.setDirectionLocation(getDirectionLocation());
+
         moveBack.updateAfterStep();
 
         SquareButton currentBtn = getCurrentBtn();

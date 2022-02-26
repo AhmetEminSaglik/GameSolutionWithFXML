@@ -2,6 +2,7 @@ package algorithm.game.gamerepo.player;
 
 
 import algorithm.compass.Compass;
+import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.Game;
 import algorithm.game.gamerepo.player.robot.TimeKeeper;
 import algorithm.game.location.DirectionLocation;
@@ -155,6 +156,8 @@ public abstract class Player implements UpdateableVistedDirection, PrintableEver
     }
 
     public boolean[][] getVisitedDirections() {
+        System.out.println("Visited Direction adress  : " + visitedDirections);
+//        ShowPanel.show(getClass(), "Visited Direction adress  : " + visitedDirections);
         return visitedDirections;
     }
 

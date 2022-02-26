@@ -63,6 +63,7 @@ public class RobotPlayingStyle extends PlayerPlayingStyle {
         moveForwardOrBack.move(new DirectionLocation().
                 getLocationValueAccordingToEnteredValue(game, choose));*/
         fxmlMoveForwardOrBack = getFxmlMoveBackOrForward(choose);
+//        ShowPanel.show(getClass(),"gelen yon > "+fxmlMoveForwardOrBack.toString());
         System.out.println("gelen deger  toString() : " + fxmlMoveForwardOrBack.toString());
         System.out.println("gelen deger  name : " + fxmlMoveForwardOrBack.getClass().getName());
 //        System.out.println(fxmlMoveForwardOrBack.toString());
@@ -76,9 +77,9 @@ public class RobotPlayingStyle extends PlayerPlayingStyle {
         fxmlMoveForwardOrBack = getFxmlMoveBackOrForward(choose);
         System.out.print("islem yapilacak game  :");
         game.printGameAdress();
-        if (fxmlMoveForwardOrBack == fxmlMoveBack) {
-            ShowPanel.show(getClass(), " GERI ADIM ATRACKA gelen chose : " + choose);
-        }
+//        if (fxmlMoveForwardOrBack == fxmlMoveBack) {
+//            ShowPanel.show(getClass(), " GERI ADIM ATRACKA gelen chose : " + choose);
+//        }
         System.out.println("gelen choose : " + choose);
         DirectionLocation directionLocationToMove = new DirectionLocation().getLocationValueAccordingToEnteredValue(game, choose);
         fxmlMoveForwardOrBack.move(directionLocationToMove);

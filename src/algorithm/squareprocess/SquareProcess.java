@@ -1,6 +1,7 @@
 package algorithm.squareprocess;
 
 import algorithm.check.CheckSquare;
+import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.Game;
 import algorithm.game.location.DirectionLocation;
 import algorithm.game.location.Location;
@@ -12,6 +13,7 @@ public class SquareProcess {
 
         if (isAreaAvailableToVisit(game, currentProcessLocation, directionLocation)
                 && isDirectionAvailableToVisit(game, currentProcessLocation, directionLocation)) {
+//            ShowPanel.show(getClass()," Eger buraya girdiyse o zaman  \n bolge ziyaret edilebilir \n ve yon ziyaret edilebilir demektir");
             return true;
         }
         return false;

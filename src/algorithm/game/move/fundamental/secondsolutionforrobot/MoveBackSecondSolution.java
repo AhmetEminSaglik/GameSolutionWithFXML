@@ -42,9 +42,15 @@ public class MoveBackSecondSolution extends MoveBack {
     }
 
     void clearLastIndexInNavigationList() {
+
         if (robot.getRobotMemory().getRoadMemory().getOneWayListLastItem() != null)
             if (robot.getStep() < robot.getRobotMemory().getRoadMemory().getOneWayListLastItem().getStep()) {
+//                System.out.println("Temizlik oncesi" + robot.getRobotMemory().getRoadMemory().getOneWayNumbersList().size());
+//                System.out.println("Temizlik oncesi son item : "+robot.getRobotMemory().getRoadMemory().getOneWayListLastItem().toString());
                 robot.getRobotMemory().getRoadMemory().removeOneWayListLastItem();
+//                System.out.println("Temizlik Sonrasi " + robot.getRobotMemory().getRoadMemory().getOneWayNumbersList().size());
+//                System.out.println("Temizlik Sonrasi son item : "+robot.getRobotMemory().getRoadMemory().getOneWayListLastItem().toString());
+//                ShowPanel.show(getClass(), " NAVIGATION temizlendi  ");
                 if (navigation.isExitSituationWasLocatedInThisStep())
                     robot.getRobotMemory().getRoadMemory().updateExistSituation(ExitSituation.EXIT_FREE);
             }

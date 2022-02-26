@@ -2,6 +2,7 @@ package algorithm.game.location;
 
 
 import algorithm.compass.Compass;
+import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.location.direction.*;
 
 import java.util.ArrayList;
@@ -41,6 +42,7 @@ public class LocationsList {
     public DirectionLocation getLastLocation(Compass compass) {
         DirectionLocation lastLocation = new LastLocation();
         lastLocation.setCompass(compass);
+//        ShowPanel.show(getClass(),"donecek olan lokasyon bilgileri : "+lastLocation.toString());
         return lastLocation;
     }
 
