@@ -17,6 +17,7 @@ public class FxmlMoveForward extends FxmlMove {
 
     @Override
     public void prepareAllStuff() {
+        moveForward.setDirectionLocation(getDirectionLocation());
         moveForward.prepareAllStuff();
     }
 
@@ -34,12 +35,17 @@ public class FxmlMoveForward extends FxmlMove {
 //        super.updateBeforeStep();
 //        t.updateBeforeStep();
 //        super.updateBeforeStep();
-        moveForward.setDirectionLocation(getDirectionLocation());
+//        moveForward.setDirectionLocation(getDirectionLocation());
 //        if(game.getPlayer().getStep()>0)
-        moveForward.updateBeforeStep();
-        gameController.clearOldHintButtons();
-        currentBtn = getCurrentBtn();
-        gameController.paintSquareBtnTo_VisitedBeforeBtn(currentBtn);
+//        moveForward.setDirectionLocation(getDirectionLocation());
+
+//        if (game.getPlayer().getStep() > 0) {
+
+            moveForward.updateBeforeStep();
+            gameController.clearOldHintButtons();
+            currentBtn = getCurrentBtn();
+            gameController.paintSquareBtnTo_VisitedBeforeBtn(currentBtn);
+//        }
     }
 
     //
@@ -63,7 +69,6 @@ public class FxmlMoveForward extends FxmlMove {
 //        if (game.getPlayer().getStep() == game.getModel().getGameSquares().length * game.getModel().getGameSquares().length) {
 //            ShowPanel.show(getClass()," Max sayiya ulasildi");
 //        }
-
 
 
     }

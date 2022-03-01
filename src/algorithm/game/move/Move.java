@@ -45,6 +45,7 @@ public abstract class Move implements IMove { // ICalculateMove
     public final void move(DirectionLocation directionLocation) {
 
 //        ShowPanel.show(getClass(), "  \ngelen degeri sapta :\n " + toString());
+        setDirectionLocation(directionLocation);
         System.out.println("gelen degeri sapta : " + toString());
         game.increaseRoundCounter();
         prepareAllStuff();
@@ -52,7 +53,6 @@ public abstract class Move implements IMove { // ICalculateMove
 //        System.out.println("gelen direciton : " + directionLocation);
 //        System.out.println(" getDirection : " + getDirectionLocation());
 //        System.out.println("----------------------------------------------");
-        setDirectionLocation(directionLocation);
 //        System.out.println(" 1 getDirection : " + getDirectionLocation());
 //        System.out.println("||||||||||||||||||||||||||||||||||");
 //        System.out.println("gelen direciton : " + directionLocation);
@@ -67,9 +67,9 @@ public abstract class Move implements IMove { // ICalculateMove
 //            ShowPanel.show(getClass(),"GELDII");
             changeStartLocation(directionLocation);
         }
-//        if (game.getPlayer().getStep() > 0) {
+        if (game.getPlayer().getStep() > 0) {
         updateBeforeStep();
-//        }
+        }
         updatePlayerStepValue();
         updateAfterStep();
         fillGameSquare.printStepInGameSquare();
@@ -164,6 +164,7 @@ public abstract class Move implements IMove { // ICalculateMove
     @Override
     public void updatePlayerLocation() {
 //        System.out.println(" 4 getDirection : " + getDirectionLocation());
+        System.out.println("gelen direction : "+getDirectionLocation());
         updateValuesInGameModel.changePlayerLocation(getDirectionLocation());
     }
 
