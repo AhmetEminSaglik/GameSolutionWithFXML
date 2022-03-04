@@ -55,7 +55,7 @@ public class GameController extends BaseSceneController {
 
 
 //        getPrepareGameBySelectingMenu().getPlayer().getTimeKeeper().startTime();
-        Platform.runLater(() -> {
+//        Platform.runLater(() -> {
             addSquaresToAnchorPane();
 //            new Thread(new Runnable() {
 //                @Override
@@ -71,7 +71,7 @@ public class GameController extends BaseSceneController {
 //                }
 //            }).start();
 
-        });
+//        });
     }
 
     @FXML
@@ -209,14 +209,14 @@ public class GameController extends BaseSceneController {
         } catch (ConcurrentModificationException e) {
             System.err.println(e.getMessage());
 
-
-            runnable = new Runnable() {
-                @Override
-                public void run() {
-
-                }
-            };
-            runFunctionInPlatformThread(runnable);
+//
+//            runnable = new Runnable() {
+//                @Override
+//                public void run() {
+//
+//                }
+//            };
+//            runFunctionInPlatformThread(runnable);
             runnable = new Runnable() {
                 @Override
                 public void run() {
