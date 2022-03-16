@@ -4,6 +4,7 @@ import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.location.DirectionLocation;
 import algorithm.game.location.LocationsList;
 import algorithm.game.play.input.PlayerPlayingStyle;
+import algorithm.print.EasylyReadNumber;
 import algorithm.printarray.StringFormat;
 import fxmlmove.FxmlSquareBtnCommunity;
 import javafx.application.Platform;
@@ -45,6 +46,7 @@ public class GameController extends BaseSceneController {
     Runnable runnable;
     @FXML
     public Label lblScoreValue;
+    private EasylyReadNumber easylyReadNumber= new EasylyReadNumber();
     //TODO buraya person'un buldugu degerleri ayni olmayacak sekilde ayirt etmek icin liste eklenip icine skorlar eklenip karsilastirilabilir
     /*public ExecutorService executorService = Executors.newFixedThreadPool(1, r -> {
         Thread thread = new Thread(r);
@@ -190,7 +192,7 @@ public class GameController extends BaseSceneController {
         runnable = () -> {
 
 //            Platform.runLater(() -> {
-            lblCurrentStepValue.setText(prepareGameBySelectingMenu.getPlayer().getStep() + "");
+            lblCurrentStepValue.setText(getEasyReadyNumber(prepareGameBySelectingMenu.getPlayer().getStep()));
 //            prepareGameBySelectingMenu.getPlayerPlayingStyle().movementLocked = false;
 //            unLocked1 = true;
 //            });
@@ -203,7 +205,8 @@ public class GameController extends BaseSceneController {
     public void updateLabelTotalStepValue() {
 
         runnable = () -> {
-            lblTotalStepValue.setText(prepareGameBySelectingMenu.getGame().getRoundCounter() + "");
+
+            lblTotalStepValue.setText(getEasyReadyNumber(prepareGameBySelectingMenu.getGame().getRoundCounter()));
 //            unLocked2 = true;
         };
 //        runnable = () -> {
@@ -214,7 +217,7 @@ public class GameController extends BaseSceneController {
 
     public void updateTotalFinishedScore() {
         runnable = () -> {
-            lblScoreValue.setText(prepareGameBySelectingMenu.getPlayer().getScore().getTotalGameFinishedScore() + "");
+            lblScoreValue.setText(getEasyReadyNumber(prepareGameBySelectingMenu.getPlayer().getScore().getTotalGameFinishedScore()));
 //            unLocked2cked3 = true;
         };
 //        Callable callable = new Callable() {
@@ -474,5 +477,10 @@ public class GameController extends BaseSceneController {
     public PrepareGameBySelectingMenu getPrepareGameBySelectingMenu() {
         return prepareGameBySelectingMenu;
     }
+
+    String getEasyReadyNumber(long number) {
+        return easylyReadNumber.getReadableNumberInStringFormat(number);
+    }
+
 }
 

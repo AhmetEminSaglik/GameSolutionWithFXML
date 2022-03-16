@@ -25,8 +25,10 @@ public abstract class PlayerPlayingStyle {
 
 
     protected Game game;
-//    private boolean movementLocked = false;
-    public  boolean movementLocked = false;
+    //    private boolean movementLocked = false;
+    public boolean movementLocked = false;
+    public final static boolean UNLOCK = false;
+    public final static boolean LOCK = true;
     //    protected FxmlMoveBack fxmlMoveBack;
     protected FxmlMoveForward fxmlMoveForward;
     protected FxmlMoveBack fxmlMoveBack;
@@ -157,4 +159,4 @@ public abstract class PlayerPlayingStyle {
 //    public void setMovementLocked(boolean movementLocked) {
 //        this.movementLocked = movementLocked;
 //    }
-    }
+}

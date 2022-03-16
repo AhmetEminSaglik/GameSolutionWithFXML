@@ -62,7 +62,7 @@ public class RobotPlayingStyle extends PlayerPlayingStyle {
 //            if (!isMovementLocked()) {
 //                playRobot();
 //            }
-            if (!movementLocked) {
+            if (movementLocked == UNLOCK) {
                 playRobot();
 //                sleep.sleep(30);
             } else {
@@ -133,7 +133,7 @@ public class RobotPlayingStyle extends PlayerPlayingStyle {
 
     void playRobot() {
 //        setMovementLocked(true);
-        movementLocked = true;
+        movementLocked = PlayerPlayingStyle.LOCK;
 //        System.out.println(" -----  >>>  (  playRobot Function girdi   ---- >>>  " + counter);
 //        System.out.println(" -----  >>>  {  playRobot task ici basi ---- >>> " + counter);
 
@@ -192,7 +192,7 @@ public class RobotPlayingStyle extends PlayerPlayingStyle {
 //                });
 
             }
-            movementLocked = false;
+            movementLocked = PlayerPlayingStyle.UNLOCK;
             sleep.sleep(1);
         };
 
