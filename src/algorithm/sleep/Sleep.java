@@ -1,6 +1,7 @@
 package algorithm.sleep;
 
 import algorithm.errormessage.ErrorMessage;
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,9 +20,10 @@ public class Sleep {
 
     public void sleep(int time) {
         try {
-            showWarningMessage();
             Thread.sleep(time);
         } catch (InterruptedException ex) {
+            showWarningMessage();
+            System.out.println("uyku fonksiyonunda hata meydana geldi");
             Logger.getLogger(getClass().getName()).log(Level.SEVERE, null, ex);
         }
     }

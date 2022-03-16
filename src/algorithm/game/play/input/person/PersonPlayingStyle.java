@@ -29,13 +29,13 @@ public class PersonPlayingStyle extends PlayerPlayingStyle {
 
     @Override
     public void play(SquareButton button) {
-        gameController.printModel();
+//        gameController.printModel();
         if (player.getStep() == 0) {
 //  TODO : Bu lazim olabilir            player.getPlayerMove().setChangeableStartLocationSpecialMovement(new PersonChangeLocationMove(player, button));
             fxmlMoveForwardOrBack = fxmlMoveForward;
             fxmlMoveForwardOrBack.setUpdateValuesInGameModel(player.getPlayerMove().getMoveForward().getUpdateValuesInGameModel());
             fxmlMoveForwardOrBack.setChangePlayerLocation(new ChangeLocationByExactlyLocation(player));
-            System.out.println(fxmlMoveForwardOrBack.getChangePlayerLocation());
+//            System.out.println(fxmlMoveForwardOrBack.getChangePlayerLocation());
 
             DirectionLocation directionLocation = new DirectionLocation();
             directionLocation.setX(button.getX());
@@ -55,7 +55,7 @@ public class PersonPlayingStyle extends PlayerPlayingStyle {
                 FxmlMove moveForwardOrBack = getFxmlMoveBackOrForward(choose);
 
                 if (moveForwardOrBack != null) {
-                    System.out.println("direction  3 -) :"+new DirectionLocation().getLocationValueAccordingToEnteredValue(game, choose).toString());
+//                    System.out.println("direction  3 -) :"+new DirectionLocation().getLocationValueAccordingToEnteredValue(game, choose).toString());
                     moveForwardOrBack.move(
                             new DirectionLocation().getLocationValueAccordingToEnteredValue
                                     (player.getGame(), choose));
@@ -84,6 +84,7 @@ public class PersonPlayingStyle extends PlayerPlayingStyle {
             }
 
         };
+
         gameController.runFunctionInPlatformThread(runnable);
     }
 

@@ -16,11 +16,17 @@ import preparegamebyselectingmenu.PrepareGameBySelectingMenu;
 import scene.game.GameController;
 import scene.game.SquareButton;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 
 public abstract class PlayerPlayingStyle {
 //    protected Move moveForwardOrBack;
 
+
     protected Game game;
+//    private boolean movementLocked = false;
+    public  boolean movementLocked = false;
     //    protected FxmlMoveBack fxmlMoveBack;
     protected FxmlMoveForward fxmlMoveForward;
     protected FxmlMoveBack fxmlMoveBack;
@@ -57,7 +63,7 @@ public abstract class PlayerPlayingStyle {
     }
 
     public void setGameController(GameController gameController) {
-        System.out.println("buraya geldik player : " + player.getClass().getName());
+//        System.out.println("buraya geldik player : " + player.getClass().getName());
         squareBtnCommunity = gameController.squareBtnCommunity;
         this.gameController = gameController;
         this.prepareGameBySelectingMenu = gameController.getPrepareGameBySelectingMenu();
@@ -144,4 +150,11 @@ public abstract class PlayerPlayingStyle {
 //        fxmlMoveForward.setMoveForward(player.getPlayerMove().getMoveForward());
 //    }
 
-}
+//    public boolean isMovementLocked() {
+//        return movementLocked;
+//    }
+//
+//    public void setMovementLocked(boolean movementLocked) {
+//        this.movementLocked = movementLocked;
+//    }
+    }

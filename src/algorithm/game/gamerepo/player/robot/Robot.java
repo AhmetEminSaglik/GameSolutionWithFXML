@@ -96,8 +96,8 @@ public class Robot extends Player {
     public void updateVisitedDirection(boolean sealOrUnseal, int step, DirectionLocation location) {
         assert (getStep() > 1) : getClass().getName() + " >>> ADIM SAYUISI " + getStep() + " GELDI";
         location.setCompass(getGame().getPlayer().getCompass());
-        System.out.println("location : "+ location.toString());
-        System.out.print(" robot muhurleme icin visited direction adressi");
+//        System.out.println("location : "+ location.toString());
+//        System.out.print(" robot muhurleme icin visited direction adressi");
         getVisitedDirections()[step][location.getId()] = sealOrUnseal;
     }
 

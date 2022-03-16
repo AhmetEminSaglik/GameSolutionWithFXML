@@ -16,7 +16,7 @@ public class SealationOfLocation implements UpdateableLocation {
     @Override
     public void updateLocationCondition(boolean[][] area, Signature signature) {
         try {
-            System.out.println("player Location : "+game.getPlayer().getLocation().getX()+" "+game.getPlayer().getLocation().getY());
+//            System.out.println("player Location : "+game.getPlayer().getLocation().getX()+" "+game.getPlayer().getLocation().getY());
             area[game.getPlayer().getLocation().getX()][game.getPlayer().getLocation().getY()] = signature.isSealed();
 
         } catch (ArrayIndexOutOfBoundsException ex) {

@@ -2,21 +2,16 @@ package algorithm.game.gamerepo.player;
 
 
 import algorithm.compass.Compass;
-import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.Game;
 import algorithm.game.gamerepo.player.robot.TimeKeeper;
 import algorithm.game.location.DirectionLocation;
 import algorithm.game.location.Location;
 import algorithm.game.location.LocationsList;
-import algorithm.game.move.fundamental.MoveBack;
-import algorithm.game.move.fundamental.MoveForward;
 import algorithm.game.play.PlayerMove;
 import algorithm.game.play.input.person.IPlayerInput;
 import algorithm.game.rule.BaseGameRule;
 import algorithm.print.FileWriteProcess;
 import algorithm.print.PrintAble;
-
-import java.util.Arrays;
 
 public abstract class Player implements UpdateableVistedDirection, PrintableEveryStepToSee {
     protected IPlayerInput iPlayerInput;
@@ -156,7 +151,7 @@ public abstract class Player implements UpdateableVistedDirection, PrintableEver
     }
 
     public boolean[][] getVisitedDirections() {
-        System.out.println("Visited Direction adress  : " + visitedDirections);
+//        System.out.println("Visited Direction adress  : " + visitedDirections);
 //        ShowPanel.show(getClass(), "Visited Direction adress  : " + visitedDirections);
         return visitedDirections;
     }

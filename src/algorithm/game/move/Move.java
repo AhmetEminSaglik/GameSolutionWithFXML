@@ -46,7 +46,7 @@ public abstract class Move implements IMove { // ICalculateMove
 
 //        ShowPanel.show(getClass(), "  \ngelen degeri sapta :\n " + toString());
         setDirectionLocation(directionLocation);
-        System.out.println("gelen degeri sapta : " + toString());
+//        System.out.println("gelen degeri sapta : " + toString());
         game.increaseRoundCounter();
         prepareAllStuff();
 //        System.out.println("+++++++++++++++++++++++++++++++++++++");
