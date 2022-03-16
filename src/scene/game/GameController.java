@@ -65,11 +65,7 @@ public class GameController extends BaseSceneController {
 
 //        getPrepareGameBySelectingMenu().getPlayer().getTimeKeeper().startTime();
 //        Platform.runLater(() -> {
-<<<<<<< HEAD
         addSquaresToAnchorPane();
-=======
-            addSquaresToAnchorPane();
->>>>>>> 21b5af56cce1501002e6dee5571d4eb2c4f0b46c
 //            new Thread(new Runnable() {
 //                @Override
 //                public void run() {
@@ -321,7 +317,6 @@ public class GameController extends BaseSceneController {
         } catch (ConcurrentModificationException e) {
             System.err.println(e.getMessage());
 
-<<<<<<< HEAD
 
             /*runnable = new Runnable() {
                 @Override
@@ -336,16 +331,6 @@ public class GameController extends BaseSceneController {
                 return "paintSquareBtn calisti";
             }
         };*/
-=======
-//
-//            runnable = new Runnable() {
-//                @Override
-//                public void run() {
-//
-//                }
-//            };
-//            runFunctionInPlatformThread(runnable);
->>>>>>> 21b5af56cce1501002e6dee5571d4eb2c4f0b46c
             runnable = new Runnable() {
                 @Override
                 public void run() {
