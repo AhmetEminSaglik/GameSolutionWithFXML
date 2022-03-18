@@ -9,9 +9,13 @@ import algorithm.squareprocess.SquareProcess;
 
 public abstract class BaseSolution {
     private Game game;
+    private String name;
     public Location playerLocation;
 
-  /*  public BaseSolution(Game game) {
+    public BaseSolution(String name) {
+        this.name = name;
+    }
+/*  public BaseSolution(Game game) {
         this.game = game;
 
     }*/
@@ -52,6 +56,14 @@ public abstract class BaseSolution {
     }
 
     public abstract void buildRobotMove();
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     @Override
     public String toString() {

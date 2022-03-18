@@ -7,6 +7,9 @@ import algorithm.game.move.fundamental.secondsolutionforrobot.MoveBackSecondSolu
 import algorithm.game.move.fundamental.secondsolutionforrobot.MoveForwardSecondSolution;
 
 public class SecondSolution_CalculateForwardAvailableWays extends BaseSolution {
+    public SecondSolution_CalculateForwardAvailableWays() {
+        super("Second Solution");
+    }
 /*    public SecondSolution_CalculateForwardAvailableWays(Game game) {
         super(game);
     }*/

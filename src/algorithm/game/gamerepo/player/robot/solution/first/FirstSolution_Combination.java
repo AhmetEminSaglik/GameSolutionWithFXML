@@ -16,14 +16,17 @@ public class FirstSolution_Combination extends BaseSolution {
 //        super(game);
 //    }
 
+
+    public FirstSolution_Combination() {
+        super("First Solution");
+    }
+
     @Override
     public int getLocationInput(Game game) {
         prepareation();
         ArrayList<DirectionLocation> locationsList =
                 new LocationsList().getListOfLocationsAccordingToPlayerCompass
                         (game.getPlayer().getCompass());
-
-
 
 
         for (int i = 0; i < locationsList.size() - 1; i++) {
@@ -48,6 +51,6 @@ public class FirstSolution_Combination extends BaseSolution {
 
     @Override
     public String toString() {
-        return  "First Solution  {"+super.toString()+'}';
+        return "First Solution  {" + super.toString() + '}';
     }
 }

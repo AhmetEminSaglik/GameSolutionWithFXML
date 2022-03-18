@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="GameWithFXML">
+    <output-path>$PROJECT_DIR$/out/artifacts/GameWithFXML</output-path>
+    <root id="root">
+      <element id="archive" name="GameWithFXML.jar">
+        <element id="module-output" name="GameWithFXML" />
+      </element>
+    </root>
+  </artifact>
+</component>

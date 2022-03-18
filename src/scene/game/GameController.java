@@ -40,13 +40,15 @@ public class GameController extends BaseSceneController {
     @FXML
     private Label lblTimeField;
     @FXML
+    private Label lblPlayerName;
+    @FXML
     public Label lblTotalStepValue;
     @FXML
     public Label lblCurrentStepValue;
     Runnable runnable;
     @FXML
     public Label lblScoreValue;
-    private EasylyReadNumber easylyReadNumber= new EasylyReadNumber();
+    private EasylyReadNumber easylyReadNumber = new EasylyReadNumber();
     //TODO buraya person'un buldugu degerleri ayni olmayacak sekilde ayirt etmek icin liste eklenip icine skorlar eklenip karsilastirilabilir
     /*public ExecutorService executorService = Executors.newFixedThreadPool(1, r -> {
         Thread thread = new Thread(r);
@@ -64,6 +66,7 @@ public class GameController extends BaseSceneController {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         startTiming();
 
+        lblPlayerName.setText(getPrepareGameBySelectingMenu().getPlayer().getName());
 
 //        getPrepareGameBySelectingMenu().getPlayer().getTimeKeeper().startTime();
 //        Platform.runLater(() -> {

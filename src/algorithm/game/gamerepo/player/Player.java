@@ -26,9 +26,9 @@ public abstract class Player implements UpdateableVistedDirection, PrintableEver
     TimeKeeper timeKeeper = new TimeKeeper();
     Score score;
 
-    public Player() {
-        name = "Unknow " + getClass().getSimpleName() + " name ";
-    }
+//    public Player() {
+//        name = "Unknow " + getClass().getSimpleName() + " name ";
+//    }
 
     /* public Player(Game game) {
             this.game = game;

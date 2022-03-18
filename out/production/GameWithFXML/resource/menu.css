@@ -106,10 +106,10 @@
     /*-fx-background-radius: 10px;*/
 }
 
-#lblTimeField {
+#lblTimeField,#lblPlayer,#lblPlayerName  {
     -fx-text-fill: cyan;
     -fx-font-weight: bold;
-    -fx-font-size: 33;
+    -fx-font-size: 30;
     -fx-font-family: "Courier New";
 }
 
@@ -133,7 +133,7 @@
     -fx-background-color: black;
 }
 
-#lblTotalStep, #lblTotalStepValue, #lblCurrentStep, #lblCurrentStepValue, #lblScore, #lblScoreValue {
+#lblTotalStep, #lblTotalStepValue, #lblCurrentStep, #lblCurrentStepValue, #lblScore, #lblScoreValue{
     -fx-text-fill: cyan;
     -fx-font-weight: bold;
     -fx-font-size: 27;
@@ -141,8 +141,8 @@
 }
 
 #seperator1, #seperator2, #seperator3, #seperator4 {
-    -fx-border-height: 100;
-    -fx-border-widtht: 30;
+    /*-fx-border-height: 1;*/
+    /*-fx-border-widtht: 0.2;*/
     -fx-border-color: white;
     -fx-background-color: white;
 }

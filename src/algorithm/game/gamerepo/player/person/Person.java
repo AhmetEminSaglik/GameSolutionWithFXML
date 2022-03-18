@@ -19,6 +19,7 @@ public class Person extends Player {
     public Person() {
 //        super(game);
         printAbleEveryStep = true;
+        setName("Person");
 //        playerMove = new PlayerMove(/*new PersonMove(game),*/new MoveForward(game), new MoveBack(game));
     }
 

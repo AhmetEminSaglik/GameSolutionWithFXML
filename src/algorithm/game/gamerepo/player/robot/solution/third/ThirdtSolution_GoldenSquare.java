@@ -10,6 +10,7 @@ import algorithm.game.move.fundamental.thirdsolution.MoveForwardThirdSolution;
 
 public class ThirdtSolution_GoldenSquare extends BaseSolution {
     public ThirdtSolution_GoldenSquare(Game game) {
+        super("Third  SOlution ( Problemmm)");
 //        super(game);
     }
 
