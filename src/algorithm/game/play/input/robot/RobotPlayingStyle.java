@@ -139,7 +139,7 @@ public class RobotPlayingStyle extends PlayerPlayingStyle {
 
         int choose = player.getInput(game);
         fxmlMoveForwardOrBack = getFxmlMoveBackOrForward(choose);
-        fxmlMoveForwardOrBack = getFxmlMoveBackOrForward(choose);
+//        fxmlMoveForwardOrBack = getFxmlMoveBackOrForward(choose);
         DirectionLocation directionLocationToMove = new DirectionLocation().getLocationValueAccordingToEnteredValue(game, choose);
         fxmlMoveForwardOrBack.move(directionLocationToMove);
         checkStatus();

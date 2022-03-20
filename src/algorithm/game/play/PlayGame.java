@@ -76,10 +76,10 @@ public class PlayGame {
 //        }
             printGamelastStuation(game);
             if(game.getModel().getGameSquares()[0][0]!=1){
-                ShowPanel.show(getClass()," ilk kare degisti");
+                ShowPanel.show(/*getClass(),*/getClass().getName()+" ilk kare degisti");
             }
         if (player.getGameRule().isGameOver(game)) {
-            ShowPanel.show(getClass(), "Game Over");
+            ShowPanel.show(/*getClass(),*/ getClass().getName()+" Game Over");
             System.out.println("Total Number Solved " + getEasyReadyNumber(player.getScore().getTotalGameFinishedScore()));
             saveGameResultToScore();
         }

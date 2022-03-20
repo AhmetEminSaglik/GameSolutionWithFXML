@@ -90,7 +90,7 @@ public class PlayGameMenuController extends BaseSceneController /*implements ISe
 
     @FXML
     void playBothPersonAndRobot(ActionEvent event) {
-        ShowPanel.show(getClass(), "DAHA BIR SEY EKLENMEDI");
+        ShowPanel.show(/*getClass(), */getClass().getName()+ "--> DAHA BIR SEY EKLENMEDI");
     }
 
     @FXML

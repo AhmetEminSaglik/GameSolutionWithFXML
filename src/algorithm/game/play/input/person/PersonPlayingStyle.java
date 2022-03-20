@@ -9,6 +9,7 @@ import algorithm.game.move.ChangeLocationByAdding;
 import algorithm.game.move.ChangeLocationByExactlyLocation;
 import algorithm.game.play.input.PlayerPlayingStyle;
 import fxmlmove.FxmlMove;
+import javafx.application.Platform;
 import scene.game.SquareButton;
 
 
@@ -42,7 +43,7 @@ public class PersonPlayingStyle extends PlayerPlayingStyle {
             directionLocation.setY(button.getY());
             fxmlMoveForwardOrBack.move(directionLocation);
 
-            updateChangePlayerLocationFunctionOfFxmlMove(fxmlMoveForward,new ChangeLocationByAdding(player));
+            updateChangePlayerLocationFunctionOfFxmlMove(fxmlMoveForward, new ChangeLocationByAdding(player));
         } else {
             ButtonClickInputForFXML buttonClickInputForFXML = new ButtonClickInputForFXML((Person) player);
             buttonClickInputForFXML.setLocationToGetCompassDirectionLocation(button.getX(), button.getY());
@@ -60,32 +61,51 @@ public class PersonPlayingStyle extends PlayerPlayingStyle {
                             new DirectionLocation().getLocationValueAccordingToEnteredValue
                                     (player.getGame(), choose));
 //                    System.out.println(player.getTimeKeeper().getTotalPassedTimeDuringPlayingGame());
+                    if (player.getStep() == 6) {
+                        System.out.println("step value 6");
+                    }
+                    checkStatus();
                 }
             }
-            checkStatus();
+
         }
 
 
     }
+
     public void checkStatus() {
-        Runnable runnable = new Runnable() {
+//        Runnable runnable = new Runnable() {
+//            @Override
+//            public void run() {
+        Thread checkStatusThread = new Thread(new Runnable() {
             @Override
             public void run() {
                 if (prepareGameBySelectingMenu.getPlayer().getGameRule().isGameOver(prepareGameBySelectingMenu.getPlayer().getGame())) {  // todo bu person kismina atanacak
                     if (prepareGameBySelectingMenu.getPlayer().getStep() == prepareGameBySelectingMenu.getEdgeValue() * prepareGameBySelectingMenu.getEdgeValue()) {
-                        ShowPanel.show(getClass(), "Tebrikler butun bosluklari doldurdunuz.");
+                        ShowPanel.show(/*getClass(), getClass().getName() */"Congratulations You succeed");
 
                         gameController.lblScoreValue.setText(prepareGameBySelectingMenu.getPlayer().getScore().getTotalGameFinishedScore() + "");
                     } else {
-                        ShowPanel.show(getClass(), " Game Over Step deger i : " + prepareGameBySelectingMenu.getPlayer().getStep());
-                        gameController.resetGame();
+                        gameController.stopTiming();
+                        ShowPanel.show(/*getClass(),*/ "Game Over" +
+                                "\n" + gameController.getElapsedTime().getTimeInStringFormat() +
+                                "\nYour Step value is  " + prepareGameBySelectingMenu.getPlayer().getStep() +
+                                "\nYour Score is  " + prepareGameBySelectingMenu.getPlayer().getScore().getTotalGameFinishedScore());
+                        Platform.runLater(() -> {
+                            gameController.resetGame();
+                        });
                     }
                 }
             }
+        });
+        checkStatusThread.start();
 
-        };
 
-        gameController.runFunctionInPlatformThread(runnable);
+//            }
+//
+//        };
+//
+//        gameController.runFunctionInPlatformThread(runnable);
     }
 
     @Override
@@ -95,7 +115,7 @@ public class PersonPlayingStyle extends PlayerPlayingStyle {
             fxmlMoveBack.move(new DirectionLocation().getLocationValueAccordingToEnteredValue(player.getGame(),
                     new LocationsList().getLastLocation(player.getCompass()).getId()));
         }
-       }
+    }
 
 /*    FxmlMove getMoveBackOrForward(int index) {
         if (index == player.getCompass().getLastLocation()) {

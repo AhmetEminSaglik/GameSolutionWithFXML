@@ -46,6 +46,8 @@ public class GameController extends BaseSceneController {
     @FXML
     public Label lblCurrentStepValue;
     Runnable runnable;
+    ElapsedTimePrinter elapsedTime;
+    Timer timer;
     @FXML
     public Label lblScoreValue;
     private EasylyReadNumber easylyReadNumber = new EasylyReadNumber();
@@ -116,6 +118,7 @@ public class GameController extends BaseSceneController {
 
     @FXML
     void goMainMenu(ActionEvent event) {
+        stopTiming();
         new SwitchNewScene().switchScene(anchorPaneForButtons, new MainMenuSceneUIDesigner().getCreatedScene());
 
     }
@@ -180,6 +183,8 @@ public class GameController extends BaseSceneController {
         updateLabelCurrentValue();
         updateLabelTotalStepValue();
         updateTotalFinishedScore();
+        stopTiming();
+        startTiming();
     }
 
     public void printModel() {
@@ -285,11 +290,17 @@ public class GameController extends BaseSceneController {
 
     public void startTiming() {
         if (timerStarted == false) {
-            Timer timer = new Timer();
-            TimerTask printElapsedTime = new ElapsedTimePrinter(lblTimeField);
-            timer.schedule(printElapsedTime, 0, 1);
+            timer = new Timer();
+            elapsedTime = new ElapsedTimePrinter(lblTimeField);
+            timer.schedule(elapsedTime, 0, 1);
             timerStarted = true;
         }
+    }
+
+    public void stopTiming() {
+        timerStarted = false;
+//        elapsedTime = null;
+        timer.cancel();
     }
 
     public void paintNormalBtn() {
@@ -485,5 +496,8 @@ public class GameController extends BaseSceneController {
         return easylyReadNumber.getReadableNumberInStringFormat(number);
     }
 
+    public ElapsedTimePrinter getElapsedTime() {
+        return elapsedTime;
+    }
 }
 

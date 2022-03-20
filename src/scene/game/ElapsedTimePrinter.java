@@ -18,7 +18,11 @@ public class ElapsedTimePrinter extends TimerTask {
     @Override
     public void run() {
         Platform.runLater(() -> {
-            lblTimeField.setText("Elapsed Time : "+timeKeeper.getTotalPassedTimeDuringPlayingGame());
+            lblTimeField.setText("Elapsed Time : " + timeKeeper.getTotalPassedTimeDuringPlayingGame());
         });
+    }
+
+    public String getTimeInStringFormat() {
+        return "Elapsed Time : " + timeKeeper.getTotalPassedTimeDuringPlayingGame();
     }
 }

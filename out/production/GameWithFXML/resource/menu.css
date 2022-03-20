@@ -95,9 +95,11 @@
 
 #SquareBtn:hover {
     -fx-border-color: rgb(35, 42, 48);
+    /*-fx-border-width: 1;*/
     -fx-background-color: orange;
-    -fx-background-radius: 25px;
-    -fx-border-radius: 5px;
+    -fx-background-insets: 1px;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 7px;
 
 
     /*-fx-font-weight: bold;*/

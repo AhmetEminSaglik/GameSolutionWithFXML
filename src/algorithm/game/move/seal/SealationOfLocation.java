@@ -20,7 +20,7 @@ public class SealationOfLocation implements UpdateableLocation {
             area[game.getPlayer().getLocation().getX()][game.getPlayer().getLocation().getY()] = signature.isSealed();
 
         } catch (ArrayIndexOutOfBoundsException ex) {
-            ShowPanel.show(getClass(), ex.getMessage()+"\n game.getPlayer().getLocation().getX(): "+game.getPlayer().getLocation().getX()+"\n" +
+            ShowPanel.show(/*getClass(),*/ ex.getMessage()+" --> "+getClass().getName()+"\n game.getPlayer().getLocation().getX(): "+game.getPlayer().getLocation().getX()+"\n" +
                     "game.getPlayer().getLocation().getY()"+game.getPlayer().getLocation().getY()+" step :"+game.getPlayer().getStep());
             ex.printStackTrace();
         }

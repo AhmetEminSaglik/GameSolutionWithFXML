@@ -67,7 +67,7 @@ public class MoveBack extends Move {
 
     @Override
     public void changeStartLocation(DirectionLocation directionLocation) {
-        ShowPanel.show(getClass()," Start Location Degisecek KOD YAZILMADI BOSSSSSSSSSSSSSSSSSSSSS");
+        ShowPanel.show(/*getClass(),*/getClass().getName()+" Start Location Degisecek KOD YAZILMADI BOSSSSSSSSSSSSSSSSSSSSS");
 
 /*
 
