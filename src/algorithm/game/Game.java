@@ -54,9 +54,9 @@ public class Game {
     public void setPlayer(Player player) {
         this.player = player;
     }
-    public void printGameAdress(){
-        System.out.println(" ---> "+toString());
-    }
+//    public void printGameAdress(){
+//        System.out.println(" ---> "+toString());
+//    }
 
 /*    @Override
     public String toString() {

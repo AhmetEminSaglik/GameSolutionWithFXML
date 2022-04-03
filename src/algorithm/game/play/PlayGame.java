@@ -26,7 +26,7 @@ public class PlayGame {
     public PlayGame(Game game) {
         this.game = game;
         player = game.getPlayer();
-        System.out.println("gelen game : " + game.toString());
+//        System.out.println("gelen game : " + game.toString());
 //        printable = new FileWriteProcess(game.getPlayer().getName());
     }
 
@@ -52,7 +52,7 @@ public class PlayGame {
 //        game.getPlayer().getLocation().setX(1);
 //        game.getPlayer().getLocation().setY(1);
         printGamelastStuation(game);
-        System.out.println(player.toString());
+//        System.out.println(player.toString());
 
 
         while (!player.getGameRule().isGameOver(game)) {
@@ -116,10 +116,10 @@ public class PlayGame {
 
     Move getMoveBackOrForward(int index) {
         if (index == player.getCompass().getLastLocation()) {
-            System.out.println("DOnecek deger : "+player.getPlayerMove().getMoveBack());
+//            System.out.println("DOnecek deger : "+player.getPlayerMove().getMoveBack());
             return player.getPlayerMove().getMoveBack();
         }
-        System.out.println("DOnecek deger : "+player.getPlayerMove().getMoveForward());
+//        System.out.println("DOnecek deger : "+player.getPlayerMove().getMoveForward());
         return player.getPlayerMove().getMoveForward();
     }
 
@@ -192,7 +192,7 @@ public class PlayGame {
 
 
         textWillAppendToFile += stringFormat.getStringFormatArray(game.getModel().getGameSquares());//  print game squares
-        System.out.println(textWillAppendToFile);
+//        System.out.println(textWillAppendToFile);
         System.out.println();
 //        printToFile(textWillAppendToFile);
     }

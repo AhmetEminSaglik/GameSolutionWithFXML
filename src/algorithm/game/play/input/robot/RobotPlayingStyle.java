@@ -133,6 +133,9 @@ public class RobotPlayingStyle extends PlayerPlayingStyle {
 
     void playRobot() {
 //        setMovementLocked(true);
+        if (game.getPlayer().getStep() == 100 && game.getPlayer().getScore().getTotalGameFinishedScore() <= 3) {
+            ShowPanel.show("Completed : " + game.getPlayer().getScore().getTotalGameFinishedScore());
+        }
         movementLocked = PlayerPlayingStyle.LOCK;
 //        System.out.println(" -----  >>>  (  playRobot Function girdi   ---- >>>  " + counter);
 //        System.out.println(" -----  >>>  {  playRobot task ici basi ---- >>> " + counter);
@@ -191,9 +194,10 @@ public class RobotPlayingStyle extends PlayerPlayingStyle {
                 gameController.updateTotalFinishedScore();
 //                });
 
+
             }
             movementLocked = PlayerPlayingStyle.UNLOCK;
-            sleep.sleep(1);
+            sleep.sleep(5);
         };
 
         gameController.runFunctionInPlatformThread(runnable);

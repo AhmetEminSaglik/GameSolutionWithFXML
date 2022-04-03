@@ -49,10 +49,10 @@ public class PrepareGameBySelectingMenu {
     static int counter = 0;
 
     public void createGame() {
-        counter++;
+//        counter++;
         game = buildGameModel.createGame();
-        System.out.print(counter+"-) ilk olusturulan  game  :");
-        game.printGameAdress();
+//        System.out.print(counter+"-) ilk olusturulan  game  :");
+//        game.printGameAdress();
 
     }
 

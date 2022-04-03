@@ -21,7 +21,7 @@ public class CopyModel {
 
     void addToList(int[][] value) {
         modelList.add(value);
-        System.out.println("Listeye eklendi boyutu : " + modelList.size());
+//        System.out.println("Listeye eklendi boyutu : " + modelList.size());
 
     }
 

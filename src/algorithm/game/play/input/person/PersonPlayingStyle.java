@@ -61,9 +61,9 @@ public class PersonPlayingStyle extends PlayerPlayingStyle {
                             new DirectionLocation().getLocationValueAccordingToEnteredValue
                                     (player.getGame(), choose));
 //                    System.out.println(player.getTimeKeeper().getTotalPassedTimeDuringPlayingGame());
-                    if (player.getStep() == 6) {
-                        System.out.println("step value 6");
-                    }
+//                    if (player.getStep() == 6) {
+//                        System.out.println("step value 6");
+//                    }
                     checkStatus();
                 }
             }

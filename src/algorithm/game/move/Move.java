@@ -164,7 +164,7 @@ public abstract class Move implements IMove { // ICalculateMove
     @Override
     public void updatePlayerLocation() {
 //        System.out.println(" 4 getDirection : " + getDirectionLocation());
-        System.out.println("gelen direction : "+getDirectionLocation());
+//        System.out.println("gelen direction : "+getDirectionLocation());
         updateValuesInGameModel.changePlayerLocation(getDirectionLocation());
     }
 
