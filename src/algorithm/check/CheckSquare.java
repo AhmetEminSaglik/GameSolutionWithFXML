@@ -1,6 +1,5 @@
 package algorithm.check;
 
-import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.Game;
 import algorithm.game.location.DirectionLocation;
 import algorithm.game.location.Location;
@@ -26,10 +25,7 @@ public class CheckSquare extends BaseCheck {
     public boolean isSquareFreeFromVisitedDirection(Game game, Location currentProcessLocation, int directionIndex) {
 
         if (isIndexsSuitableForArray(game, currentProcessLocation, directionIndex)) {
-            System.out.println(" -?-?-?>>>  gelen step : "+game.getPlayer().getStep()+" direction : "+directionIndex);
             if (game.getPlayer().getVisitedDirections()[game.getPlayer().getStep()][directionIndex] == false) {
-                System.out.println("Visited Direction adress  : " + game.getPlayer().getVisitedDirections());
-//                ShowPanel.show(getClass()," visited direction clear mi kontrolu : "+game.getPlayer().getVisitedDirections());
                 return true;
             }
         }
@@ -51,7 +47,6 @@ public class CheckSquare extends BaseCheck {
             if (isSquareFreeFromVisitedDirection(game, currentProcessLocation, locationList.get(i).getId()) == true) {
                 return true;
             }
-
         }
         return false;
     }

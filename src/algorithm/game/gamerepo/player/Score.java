@@ -7,7 +7,6 @@ public class Score {
     Game game;
     Player player;
     String playedTime;
-    /* Geri adim atilmasi beklenmeyen yerden geri adim atilinca tekrardan geri adim kapatilacan kadar acik olur bu haliyle hesaplaniliyor*/
     public boolean lockedCounterOfMovingBackLose = true;
     long counterOfMovingBackLose = 0;
     long totalGameFinishedScore = 0;

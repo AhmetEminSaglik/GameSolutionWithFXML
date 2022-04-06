@@ -1,7 +1,6 @@
 package algorithm.game.gamerepo.player.person;
 
 import algorithm.game.gamerepo.player.PlayerSpecialStuffToPrepareBeforeStartGame;
-import algorithm.game.gamerepo.player.robot.Robot;
 import algorithm.game.move.fundamental.MoveBack;
 import algorithm.game.move.fundamental.MoveForward;
 import algorithm.game.play.PlayerMove;

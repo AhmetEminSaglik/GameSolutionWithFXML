@@ -7,15 +7,6 @@ import algorithm.game.location.DirectionLocation;
 import algorithm.game.location.direction.LastLocation;
 
 public class NavigationService {
-   /* Game game;
-    Robot robot;
-    public Navigation navigation;
-
-    public NavigationService(Game game, Navigation navigation) {
-        this.game = game;
-        this.navigation = navigation;
-        robot = getRobot(game);
-    }*/
 
     public void setCompulsoryLocationToNavigation(Game game, Navigation navigation, DirectionLocation lastLocation) {
         Robot robot = getRobot(game);
@@ -30,19 +21,13 @@ public class NavigationService {
     }
 
     public DirectionLocation getCompulsoryLocation(Navigation navigation) {
-//        if (navigation.getCompulsoryLocation() != null) {
-//            selectedDirection = navigation.getCompulsoryLocation();
-//            ShowPanel.show(getClass(),"Navigation compulsory LOCATION "+navigation.getCompulsoryLocation());
 
-//            ShowPanel.show(getClass(), "navigation.getCompulsoryLocation  >>>>>>>>>>>>>>>>>>>>>>>>>>>> " + navigation.getCompulsoryLocation());
         DirectionLocation selectedDirection = navigation.getCompulsoryLocation();
         if (selectedDirection == null)
             throw new NullPointerException("Compulsory Location Is Null");
 
         return navigation.getCompulsoryLocation();
 
-//        }
-//        throw new NullPointerException("Navigation Compulsory Location is  NULL ");
     }
 
     public Navigation buildNavigation(Game game, int oneWayNumbersValue, DirectionLocation compulsoryLocation) {

@@ -28,17 +28,11 @@ import scene.menu.selectedgeevalue.EdgeValueSceneUIDesigner;
 public class PlayGameMenuController extends BaseSceneController /*implements ISelectPlayer*//*, ISelectPlayer */ {
 
     private PrepareGameBySelectingMenu prepareGameBySelectingMenu;
-//    private Player player;
-
 
     public PlayGameMenuController(PrepareGameBySelectingMenu prepareGameBySelectingMenu) {
         super(prepareGameBySelectingMenu);
         this.prepareGameBySelectingMenu = prepareGameBySelectingMenu;
     }
-
-
-//    @FXML
-//    private AnchorPane anchorPane;
 
     @FXML
     private VBox menuVBox;
@@ -61,10 +55,8 @@ public class PlayGameMenuController extends BaseSceneController /*implements ISe
         Person person = new Person();
 
         prepareGameBySelectingMenu.setPlayer(person);
-//        prepareGameBySelectingMenu.selectPlayer(prepareGameBySelectingMenu.getPlayer());
         prepareGameBySelectingMenu.setPlayerPlayingStyle(new PersonPlayingStyle(prepareGameBySelectingMenu.getPlayer()));
-        prepareGameBySelectingMenu.setPlayerSpecialStuffToPrepareBeforeStartGame(new PersonSpecialStuffToPrepareBeforeStartGame(prepareGameBySelectingMenu));
-//        prepareGameBySelectingMenu.setPersonPlayingStyle(new PersonPlayingStyle(player));
+       prepareGameBySelectingMenu.setPlayerSpecialStuffToPrepareBeforeStartGame(new PersonSpecialStuffToPrepareBeforeStartGame(prepareGameBySelectingMenu));
 
         prepareGameBySelectingMenu.getPlayer().setIPlayerInput(new PersonInput(new ButtonClickInputForFXML((Person) prepareGameBySelectingMenu.getPlayer())));
 
@@ -77,15 +69,10 @@ public class PlayGameMenuController extends BaseSceneController /*implements ISe
 
         prepareGameBySelectingMenu.setPlayer(robot);
 
-//        prepareGameBySelectingMenu.selectPlayer(prepareGameBySelectingMenu.getPlayer());
         prepareGameBySelectingMenu.setPlayerPlayingStyle(new RobotPlayingStyle(prepareGameBySelectingMenu.getPlayer()));
         prepareGameBySelectingMenu.setPlayerSpecialStuffToPrepareBeforeStartGame(new RobotSpecialStuffToPrepareBeforeStartGame(prepareGameBySelectingMenu));
 
         new SwitchNewScene().switchScene(anchorPane, new SolutionChoiceSceneUIDesigner(new SolutionChoiceController(prepareGameBySelectingMenu)).getCreatedScene());
-//        prepareGameBySelectingMenu.setPlayerPlayingStyle(new RobotPlayingStyle(player));
-//        player.setIPlayerInput(new PersonInput(new ButtonClickInputForFXML((Person) player)));
-
-//        new SwitchNewScene().switchScene(anchorPane, new EdgeValueSceneUIDesigner(new EdgeValueController(prepareGameBySelectingMenu)).getCreatedScene());
     }
 
     @FXML
@@ -97,19 +84,4 @@ public class PlayGameMenuController extends BaseSceneController /*implements ISe
     void goBackMenu(ActionEvent event) {
         new SwitchNewScene().switchScene(anchorPane, new MainMenuSceneUIDesigner().getCreatedScene());
     }
-
-//    @Override
-//    public Player selectPlayer(Game game) {
-//        return player;
-//    }
-
- /*   @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
-    }*/
-
-    /*@Override
-    public Player selectPlayer(Game game) {
-        return null;
-    }*/
 }

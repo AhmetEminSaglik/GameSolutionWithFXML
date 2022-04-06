@@ -16,11 +16,6 @@ public class PersonChangeLocationMove implements ChangeableStartLocationSpecialM
 
     @Override
     public void changeStartLocation() {
-//        ButtonClickInputForFXML buttonClickInputForFXML = new ButtonClickInputForFXML((Person) player);
-//        buttonClickInputForFXML.setLocationToGetCompassDirectionLocation(selectSquareBtnAsStartLocation.getX(),selectSquareBtnAsStartLocation.getY());
-//        PersonInput personInput = new PersonInput(buttonClickInputForFXML);
-//        player.setIPlayerInput(personInput);
-//        ShowPanel.show(getClass()," gelen square btn : "+selectSquareBtnAsStartLocation.toString());
         locatePlayerFirstLocation(selectSquareBtnAsStartLocation.getX(),selectSquareBtnAsStartLocation.getY());
 
     }
@@ -36,6 +31,5 @@ public class PersonChangeLocationMove implements ChangeableStartLocationSpecialM
         SelectFirstSqaureToStart selectFirstSqaureToStart = new SelectFirstSqaureToStart(player.getGame());
         selectFirstSqaureToStart.selectSquareStart(x, y);
         selectFirstSqaureToStart.locateThePlayer();
-        System.out.println("Baslangic yeri : secildi" + player.getLocation().toString());
     }
 }

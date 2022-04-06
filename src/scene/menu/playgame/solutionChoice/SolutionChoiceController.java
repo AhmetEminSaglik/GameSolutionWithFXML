@@ -67,12 +67,6 @@ public class SolutionChoiceController extends BaseSceneController {
 
 
             robot.setIPlayerInput(prepareGameBySelectingMenu.getPlayer().getIPlayerInput());
-//            System.out.println(robot);
-
-//            ShowPanel.show(getClass()," DURR BUNU DA INCELE");
-//            robot.setIPlayerInput(new RobotInput(robot.getSolution()));
-//            robot.setPlayerMove(new PlayerMove(robot.getSolution().getMoveForward(), robot.getSolution().getMoveBack()));
-//ShowPanel.show(getClass()," player : "+prepareGameBySelectingMenu.getPlayer().getPlayerMove().toString());
             new SwitchNewScene().switchScene(anchorPane, new EdgeValueSceneUIDesigner(new EdgeValueController(prepareGameBySelectingMenu)).getCreatedScene());
 
         } else {

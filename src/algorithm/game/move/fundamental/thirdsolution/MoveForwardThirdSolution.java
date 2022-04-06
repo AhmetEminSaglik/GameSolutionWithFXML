@@ -1,3 +1,4 @@
+/*
 package algorithm.game.move.fundamental.thirdsolution;
 
 
@@ -76,7 +77,8 @@ public class MoveForwardThirdSolution extends MoveForward {
 //        printGamelastStuation(game);
 //        ShowPanel.show(getClass(), "LOCATED OLDUUU");
     }
-  /*  String getEasyReadyNumber(long number) {
+  */
+/*  String getEasyReadyNumber(long number) {
         return new EasylyReadNumber().getReadableNumberInStringFormat(number);
     }
     void printGamelastStuation(Game game) {
@@ -90,7 +92,8 @@ public class MoveForwardThirdSolution extends MoveForward {
         System.out.println(textWillAppendToFile);
         System.out.println();
 //        printToFile(textWillAppendToFile);
-    }*/
+    }*//*
+
 
     boolean isNavigationNull() {
         if (navigation == null)
@@ -98,3 +101,4 @@ public class MoveForwardThirdSolution extends MoveForward {
         return false;
     }
 }
+*/

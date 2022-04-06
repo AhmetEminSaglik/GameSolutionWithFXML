@@ -9,9 +9,7 @@ public class TimeKeeper extends TimerTask {
     long start;
     long totalTimePassed;
 
-
     public void startTime(){
-
         start = System.nanoTime();
     }
 
@@ -33,6 +31,5 @@ public class TimeKeeper extends TimerTask {
 
     @Override
     public void run() {
-
     }
 }

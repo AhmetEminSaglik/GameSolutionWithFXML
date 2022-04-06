@@ -19,15 +19,11 @@ public abstract class BaseSceneLoader extends AnchorPane {
 
     }
 
-
     public Scene loadFxmlFile(String fxmlPath) {
-//        ShowPanel.show(getClass(),"Gelen controller : "+baseSceneController.getClass());
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));
 
         fxmlLoader.setController(baseSceneController);
-//        fxmlLoader.setRoot(this);
-
 
         try {
             Parent root = fxmlLoader.load();

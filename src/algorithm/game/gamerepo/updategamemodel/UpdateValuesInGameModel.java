@@ -16,17 +16,13 @@ public abstract class UpdateValuesInGameModel {
 
     public UpdateValuesInGameModel(Game game) {
         this.game = game;
-
         player = game.getPlayer();
-//        movePlayer = new ChangePlayerLocation(player);
     }
 
     public abstract void updatePlayerStepValue();
 
     public final void changePlayerLocation(Location location) {
-//        System.out.println(" 5 BITTI getDirection : " + location );
         changePlayerLocation.change(location);
-//        movePlayer.changePlayerLocationByAdding(location);
     }
 
 
@@ -34,7 +30,6 @@ public abstract class UpdateValuesInGameModel {
 
     public final void updateValueVisitedArea() {
         new SealationOfLocation(game).updateLocationCondition(game.getModel().getVisitedAreas(), ifMovedForwardThenSealTheLocation());
-
     }
 
     public abstract void updateValueVisitedDirection(DirectionLocation directionLocation);

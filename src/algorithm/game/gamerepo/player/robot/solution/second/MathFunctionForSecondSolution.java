@@ -20,7 +20,7 @@ public class MathFunctionForSecondSolution {
     Game game;
     Location playerLocation;
     ArrayList<DirectionLocation> locationsList;
-    final DirectionLocation lastLocation;// locationsList.get(locationsList.size() - 1);
+    final DirectionLocation lastLocation;
     DirectionLocation selectedDirection;
     SquareProcess squareProcess = new SquareProcess();
     WeightOfAvailableWay weightOfAvailableWay = new WeightOfAvailableWay();
@@ -40,7 +40,6 @@ public class MathFunctionForSecondSolution {
         robot = (Robot) game.getPlayer();
         edgeValue = game.getModel().getGameSquares().length;
         locationsList = new LocationsList().getListOfLocationsAccordingToPlayerCompass(game.getPlayer().getCompass());
-//        calculationDeadlyPoint = new CalculationDeadlyPoint(game);
         lastLocation = new LocationsList().getLastLocation(game.getPlayer().getCompass());
         selectedDirection = lastLocation;
     }
@@ -52,7 +51,6 @@ public class MathFunctionForSecondSolution {
             navigationService.setCompulsoryLocationToNavigation(game, navigation, lastLocation);
             try {
                 selectedDirection = navigationService.getCompulsoryLocation(navigation);
-//                ShowPanel.show(getClass()," Zorunlu  yonlendirme secilen bolge  : "+selectedDirection.toString() );
                 return selectedDirection.getId();
             } catch (Exception e) {
             }
@@ -66,9 +64,6 @@ public class MathFunctionForSecondSolution {
             navigation = buildNavigation();
             addNavigationToRoadMemoryList();
         }
-//        if(game.getPlayer().getStep()==0 || selectedDirection==lastLocation){
-//            ShowPanel.show(getClass(),"Adim sayisi 0 veya ilerlenecek yon en son lokasyon geri adim istegi donuyor");
-//        }
         return selectedDirection.getId();
 
 
@@ -93,20 +88,7 @@ public class MathFunctionForSecondSolution {
 
     Navigation buildNavigation() {
         return navigationService.buildNavigation(game, oneWayNumbersValue, compulsoryLocation);
-//        Navigation navigation = new Navigation();
-//
-//        navigation.setStep(robot.getStep());
-//
-//        navigation.setOneWayNumbersValue(oneWayNumbersValue);
-//
-//        if (compulsoryLocation != null) {
-//            System.out.println("AAAAAAAAAAAAAAAAAAA step : " + robot.getStep());
-//            navigation.setCompulsoryLocation(compulsoryLocation);
-//        }
-//
-//
-//        return navigation;
-    }
+}
 
 
     void calculateForwardAvailableDirectionsOfCurrentDirection() {
@@ -122,7 +104,6 @@ public class MathFunctionForSecondSolution {
                 int availableWayNumber = availableLocationList.size();
 
                 if (isAvailableWayEqualsToZero(availableWayNumber) && !isNextStepWillBeEqualsToTotalSquareValue()) {
-//                    ShowPanel.show(getClass()," isAvailableWayEqualsToZero(availableWayNumber  &&   !isNextStepWillBeEqualsToTotalSquareValue  last location oldu");
                     selectedDirection = lastLocation;
                     return;
                 }
@@ -198,25 +179,13 @@ public class MathFunctionForSecondSolution {
     }
 
     int calculateDeadlyPoint() {
-//        CalculationDeadlyPoint calculationDeadlyPoint = new CalculationDeadlyPoint(game);
         return new CalculationDeadlyPoint(game).calculateDeadlyPoint(oneWayNumbersValue);
-//        return calculationDeadlyPoint.calculateDeadlyPoint(oneWayNumbersValue);
-        /*ExitSituation exitSituation = robot.getRobotMemory().getRoadMemory().getExitSituation();
-        double calculation = 1 - (double) (exitSituation.getSituation() + oneWayNumbersValue) / 2;
-        return decideDeadlyPointCalculation(calculation);*/
     }
 
-    /*int decideDeadlyPointCalculation(double calculation) {
-        if (calculation >= 0) {
-            return IS_FREE_SO_MOVE_FORWARD;
-        }
-        return IS_DEAD_SO_MOVE_BACK;
-    }*/
 
     void addNavigationToRoadMemoryList() {
 
         if (oneWayNumbersValue >= 1) {
-//            robot.getRobotMemory().getRoadMemory().getOneWayNumbersList().add(navigation);
             navigationService.addNavigationToRoadMemoryList(navigation, (Robot) game.getPlayer());
         }
     }

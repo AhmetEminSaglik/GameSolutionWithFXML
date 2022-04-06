@@ -23,41 +23,19 @@ public class FxmlMoveForward extends FxmlMove {
 
     @Override
     public void updateVisitedDirection() {
-//        ShowPanel.show(getClass(), " MOVE FORWARD  updateBeforeStep");
         moveForward.updateVisitedDirection();
     }
 
     @Override
     public void updateBeforeStep() {
-//        ShowPanel.show(getClass()," BBB 1 ");
-//        ShowPanel.show(getClass(), " MOVE FORWARD  updateBeforeStep");
-
-//        super.updateBeforeStep();
-//        t.updateBeforeStep();
-//        super.updateBeforeStep();
-//        moveForward.setDirectionLocation(getDirectionLocation());
-//        if(game.getPlayer().getStep()>0)
-//        moveForward.setDirectionLocation(getDirectionLocation());
-
-//        if (game.getPlayer().getStep() > 0) {
-
             moveForward.updateBeforeStep();
             gameController.clearOldHintButtons();
             currentBtn = getCurrentBtn();
             gameController.paintSquareBtnTo_VisitedBeforeBtn(currentBtn);
-//        }
     }
 
-    //
     @Override
     public void updateAfterStep() {
-//        ShowPanel.show(getClass(), " MOVE FORWARD  updateAfterStep");
-//        t.updateAfterStep();
-//        super.updateAfterStep();
-//        super.updateAfterStep();
-//        System.out.println(" 2 getDirection : " + getDirectionLocation());
-
-
         moveForward.updateAfterStep();
 
         SquareButton currentBtn = getCurrentBtn();
@@ -66,39 +44,17 @@ public class FxmlMoveForward extends FxmlMove {
         gameController.paintHintButtonsOfCurrentBtn();
         gameController.updateLabelTotalStepValue();
         gameController.updateLabelCurrentValue();
-//        if (game.getPlayer().getStep() == game.getModel().getGameSquares().length * game.getModel().getGameSquares().length) {
-//            ShowPanel.show(getClass()," Max sayiya ulasildi");
-//        }
-
-
     }
 
     @Override
     public void changeStartLocation(DirectionLocation directionLocation) {
-//        ShowPanel.show(getClass()," changeStartLocation Fxml Move Forward");
         moveForward.changeStartLocation(directionLocation);
     }
 
     @Override
     public void updatePlayerLocation() {
-//        ShowPanel.show(getClass(), " MOVE FORWARD  updatePlayerLocation");
         moveForward.updatePlayerLocation();
     }
-    //
-//    @Override
-//    public void updatePlayerLocation() {
-////        updateValuesInGameModel.setMovePlayer(new ChangeLocationByAdding(game.getPlayer()));
-////        super.updatePlayerLocation();
-//
-////        t.updatePlayerLocation();
-//    }
-//
-//
-//    @Override
-//    public void updateVisitedArea() {
-////        super.updateVisitedArea();
-////        t.updateVisitedArea();
-//    }
 
 
     @Override

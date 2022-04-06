@@ -13,7 +13,6 @@ public class SquareProcess {
 
         if (isAreaAvailableToVisit(game, currentProcessLocation, directionLocation)
                 && isDirectionAvailableToVisit(game, currentProcessLocation, directionLocation)) {
-//            ShowPanel.show(getClass()," Eger buraya girdiyse o zaman  \n bolge ziyaret edilebilir \n ve yon ziyaret edilebilir demektir");
             return true;
         }
         return false;
@@ -21,7 +20,6 @@ public class SquareProcess {
 
     public boolean isAreaAvailableToVisit(Game game, Location playerLocation, DirectionLocation location) {
         location.setCompass(game.getPlayer().getCompass());
-//        System.out.println("locatino getCompass : "+location.getCompass());
 
         return checkSquare.isSquareFreeFromVisitedArea(game, playerLocation, location.getId());
     }

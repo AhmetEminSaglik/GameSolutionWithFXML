@@ -30,14 +30,6 @@ public class GameMain implements ISelectPlayer {
 
     public static void main(String[] args) throws InterruptedException {
         GameMain main = new GameMain();
-/*
-        try {
-            openWebpage(new URL("https://www.linkedin.com/in/ahmeteminsaglik"));
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }*/
-
-//        int squareEdge = 5;
         IDetermineEdgeValue determineValueWithScanner = new IDetermineEdgeValue() {
             @Override
             public int determineEdgeValue() {
@@ -63,16 +55,6 @@ public class GameMain implements ISelectPlayer {
             System.out.println(main.baseSolution.getClass().getSimpleName());
         System.out.println("Game Dimension : " + game.getModel().getGameSquares().length + "-" + game.getModel().getGameSquares().length);
 
-      /*  BaseSolution baseSolution2 = new SecondSolution_CalculateForwardAvailableWays(game);
-        Player robot2 = new Robot(game, baseSolution2);
-        buildGameModel.createVisitedArea();
-
-        PlayGame playGame2 = new PlayGame(game);
-        playGame2.playGame();
-
-
-         comparisonOfSolutions = new ComparisonOfSolutions(game);
-        comparisonOfSolutions.deleteBothIfTheyAreSame(playGame.comparisonOfSolutions.copyModel, playGame2.comparisonOfSolutions.copyModel);*/
         System.out.println("----------------");
 
 
@@ -124,26 +106,5 @@ public class GameMain implements ISelectPlayer {
 
 
 
-  /*  public static boolean openWebpage(URI uri) {
-        Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
-        if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
-            try {
-                desktop.browse(uri);
-                return true;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return false;
-    }
-
-    public static boolean openWebpage(URL url) {
-        try {
-            return openWebpage(url.toURI());
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }*/
 }
 

@@ -26,29 +26,7 @@ public abstract class Player implements UpdateableVistedDirection, PrintableEver
     TimeKeeper timeKeeper = new TimeKeeper();
     Score score;
 
-//    public Player() {
-//        name = "Unknow " + getClass().getSimpleName() + " name ";
-//    }
 
-    /* public Player(Game game) {
-            this.game = game;
-            game.setPlayer(this);
-
-            clearVisitedDirections();
-            timeKeeper = new TimeKeeper();
-            score = new Score(game, this);
-
-            name = "Unknow " + getClass().getSimpleName() + " name ";
-            int squareEdge = game.getModel().getGameSquares().length;
-
-            printableFileScore = new FileWriteProcess((squareEdge * squareEdge) + "_EverySingleSquareTotalValue");
-        }
-    */
-  /*  public Player(Game game, String name) {
-        super();
-        this.name = name;
-    }
-*/
     public void clearVisitedDirections() {
         visitedDirections = new boolean[(int) Math.pow(game.getModel().getGameSquares().length, 2)]
                 [new LocationsList().getListOfLocationsAccordingToPlayerCompass(game.getPlayer().getCompass()).size()];
@@ -70,10 +48,8 @@ public abstract class Player implements UpdateableVistedDirection, PrintableEver
 
     }
 
-    //    public abstract void setPlayerMove(MoveForward moveForward, MoveBack moveBack);
     public abstract void setPlayerMove(PlayerMove playerMove/*MoveForward moveForward, MoveBack moveBack*/);
 
-//    public abstract void buildMove();
 
     public BaseGameRule gameRule;
     Location location = new Location();
@@ -112,30 +88,7 @@ public abstract class Player implements UpdateableVistedDirection, PrintableEver
         step--;
     }
 
-/*
-    @Override
-    public String toString() {
-        return "Player{" +
-                "iPlayerInput=" + iPlayerInput +
-                ", playerMove=" + playerMove +
-                ", name='" + name + '\'' +
-                ", printableFileScore=" + printableFileScore +
-                ", printAbleEveryStep=" + printAbleEveryStep +
-                ", squareTotalSolvedValue=" + squareTotalSolvedValue +
-                ", game=" + game +
-                ", visitedDirections=" + Arrays.toString(visitedDirections) +
-                ", timeKeeper=" + timeKeeper +
-                ", score=" + score +
-                ", gameRule=" + gameRule +
-                ", location=" + location +
-                ", step=" + step +
-                ", compass=" + compass +
-                '}';
-    }
-*/
-
     public final int getInput(Game game) {
-//        System.out.println("Input Alindi");
         return iPlayerInput.getInput(game);
     }
 
@@ -151,8 +104,6 @@ public abstract class Player implements UpdateableVistedDirection, PrintableEver
     }
 
     public boolean[][] getVisitedDirections() {
-//        System.out.println("Visited Direction adress  : " + visitedDirections);
-//        ShowPanel.show(getClass(), "Visited Direction adress  : " + visitedDirections);
         return visitedDirections;
     }
 

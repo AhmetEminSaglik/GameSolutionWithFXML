@@ -17,17 +17,7 @@ public  abstract class ChangePlayerLocation implements ChangeLocation {
     void yChangeLocationByAdding(int y) {
         player.getLocation().setY(player.getLocation().getY() + y);
     }
-
- /*   public void changePlayerLocationByAdding(Location location) {
-        xChangeLocationByAdding(location.getX());
-        yChangeLocationByAdding(location.getY());
-    }
-
-    public void changePlayerLocationByExcatlyLocation(Location location) {
-        xChangeLocationByExcatly(location.getX());
-        yChangeLocationByExcatly(location.getY());
-    }*/
-
+    
     void xChangeLocationByExcatly(int x) {
         player.getLocation().setX(x);
     }

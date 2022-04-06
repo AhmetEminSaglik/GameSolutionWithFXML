@@ -33,7 +33,6 @@ public class GameController extends BaseSceneController {
     private int edgeValue;
     @FXML
     private VBox vBoxToCenterButtons;
-    //    public SquareButton squareButtonArray[][];
     public FxmlSquareBtnCommunity squareBtnCommunity = new FxmlSquareBtnCommunity();
     private PrepareGameBySelectingMenu prepareGameBySelectingMenu;
 
@@ -51,12 +50,6 @@ public class GameController extends BaseSceneController {
     @FXML
     public Label lblScoreValue;
     private EasylyReadNumber easylyReadNumber = new EasylyReadNumber();
-    //TODO buraya person'un buldugu degerleri ayni olmayacak sekilde ayirt etmek icin liste eklenip icine skorlar eklenip karsilastirilabilir
-    /*public ExecutorService executorService = Executors.newFixedThreadPool(1, r -> {
-        Thread thread = new Thread(r);
-        thread.setDaemon(true);
-        return thread;
-    });*/
 
     public GameController(PrepareGameBySelectingMenu prepareGameBySelectingMenu) {
         super(prepareGameBySelectingMenu);
@@ -70,50 +63,14 @@ public class GameController extends BaseSceneController {
 
         lblPlayerName.setText(getPrepareGameBySelectingMenu().getPlayer().getName());
 
-//        getPrepareGameBySelectingMenu().getPlayer().getTimeKeeper().startTime();
-//        Platform.runLater(() -> {
         addSquaresToAnchorPane();
-//            new Thread(new Runnable() {
-//                @Override
-//                public void run() {
-//            System.out.println(" player : "+prepareGameBySelectingMenu.getPlayer().getClass().getName());
-
         prepareGameBySelectingMenu.getPlayerPlayingStyle().setGameController(this);
         prepareGameBySelectingMenu.prepareGame();
 
-        /*ExecutorService executorService = Executors.newFixedThreadPool(1, r -> {
-            Thread thread = new Thread(r);
-            thread.setDaemon(true);
-//            while ((!player.getGameRule().isGameOver(game))) {
-//                thread.start();
-//            }
-            try {
-                thread.join();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            return thread;
-        });*/
+
 
         new Thread(() -> prepareGameBySelectingMenu.getPlayerPlayingStyle().startGame()).start();
-        /*Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
-                prepareGameBySelectingMenu.getPlayerPlayingStyle().startGame();
-            }
-        };
-        executorService.execute(runnable);*/
 
-//executorService.ad
-//        prepareGameBySelectingMenu.getPlayerPlayingStyle().startGame();
-
-        //            ShowPanel.show(getClass()," 1-) Robot geri adim atamiyor,\n" +
-//                    "2-) max sayiya ulasinda  visited area'ya  max degeri koyup true yapmaya calisiyor. ");
-
-//                }
-//            }).start();
-
-//        });
     }
 
     @FXML
@@ -154,17 +111,11 @@ public class GameController extends BaseSceneController {
 
 
     EventHandler getValueOfButton(SquareButton button) {
-//        prepareGameBySelectingMenu.getPlayerPlayingStyle().setGameController(this);
         return new EventHandler<>() {
             @Override
             public void handle(Event event) {
 
                 prepareGameBySelectingMenu.getPlayerPlayingStyle().play(button);
-//                System.out.println("TIklanilan deger;" + button.getX() + "-" + button.getY());
-//                paintHintButtonsOfCurrentBtn();
-//                printModel();
-//                ShowPanel.show(getClass(),"GUNCELLENDIM I ");
-
             }
         };
 
@@ -195,18 +146,10 @@ public class GameController extends BaseSceneController {
 
 
     public void updateLabelCurrentValue() {
-//        runnable = () -> lblCurrentStepValue.setText(prepareGameBySelectingMenu.getPlayer().getStep() + "");
 
         runnable = () -> {
-
-//            Platform.runLater(() -> {
             lblCurrentStepValue.setText(getEasyReadyNumber(prepareGameBySelectingMenu.getPlayer().getStep()));
-//            prepareGameBySelectingMenu.getPlayerPlayingStyle().movementLocked = false;
-//            unLocked1 = true;
-//            });
         };
-//        Callable callable =new Callable() {
-//        }
         runFunctionInPlatformThread(runnable);
     }
 
@@ -215,75 +158,23 @@ public class GameController extends BaseSceneController {
         runnable = () -> {
 
             lblTotalStepValue.setText(getEasyReadyNumber(prepareGameBySelectingMenu.getGame().getRoundCounter()));
-//            unLocked2 = true;
         };
-//        runnable = () -> {
-//            Platform.runLater(() -> lblTotalStepValue.setText(prepareGameBySelectingMenu.getGame().getRoundCounter() + ""));
-//        };
         runFunctionInPlatformThread(runnable);
     }
 
     public void updateTotalFinishedScore() {
         runnable = () -> {
             lblScoreValue.setText(getEasyReadyNumber(prepareGameBySelectingMenu.getPlayer().getScore().getTotalGameFinishedScore()));
-//            unLocked2cked3 = true;
         };
-//        Callable callable = new Callable() {
-//            @Override
-//            public Object call() throws Exception {
-//                lblScoreValue.setText(prepareGameBySelectingMenu.getPlayer().getScore().getTotalGameFinishedScore() + "")
-//                return "updateTotalFinishedScore calisti";
-//            }
-//        };
-//        runnable = () -> {
-//            Platform.runLater(() -> lblScoreValue.setText(prepareGameBySelectingMenu.getPlayer().getScore().getTotalGameFinishedScore() + ""));
-//        };
         runFunctionInPlatformThread(runnable);
     }
 
-//    private boolean unLocked1 = false, unLocked2 = false, unLocked3 = false, unLocked4 = false, unLocked5 = false, unLocked6 = false;
 
-    /*void decidePlayerMovementLockResult() {
-        if (unLocked1 && unLocked2 && unLocked3 && unLocked4 && unLocked5 && unLocked6 ) {
-            getPrepareGameBySelectingMenu().getPlayerPlayingStyle().movementLocked = false;
-        } else {
-            System.out.println("unLocked6 : " + unLocked6);
-            System.out.println("unLocked5 : " + unLocked5);
-            System.out.println("unLocked4 : " + unLocked4);
-            System.out.println("unLocked3 : " + unLocked3);
-            System.out.println("unLocked2 : " + unLocked2);
-            System.out.println("unLocked1 : " + unLocked1);
-        }
-
-        System.out.println("Sonuc : " + getPrepareGameBySelectingMenu().getPlayerPlayingStyle().movementLocked);
-
-    }
-*/
-//    static int counter = 0;
 
     public void runFunctionInPlatformThread(Runnable runnable) {
-//        try {
-//            callable.call();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//Runnable        Platform.setImplicitExit(false);
-//        Runnable runnableForExecuteService = new Runnable() {
-//            @Override
-//            public void run() {
         Platform.runLater(() -> {
             runnable.run();
-//            if (counter % 3 == 0)
-//                getPrepareGameBySelectingMenu().getPlayerPlayingStyle().movementLocked = false;
-//            System.out.println("geldi : " + counter++);
-//            System.out.println( "GELDII");
-//            decidePlayerMovementLockResult();
         });
-
-//            }
-//        };
-
-//        executorService.execute(runnable);
     }
 
     boolean timerStarted = false;
@@ -299,7 +190,6 @@ public class GameController extends BaseSceneController {
 
     public void stopTiming() {
         timerStarted = false;
-//        elapsedTime = null;
         timer.cancel();
     }
 
@@ -330,37 +220,15 @@ public class GameController extends BaseSceneController {
     public void paintSquareBtn(SquareButton squareButton, String btnId) {
         try {
             squareButton.setId(btnId);
-//            unLocked4 = true;
         } catch (ConcurrentModificationException e) {
             System.err.println(e.getMessage());
-
-
-            /*runnable = new Runnable() {
-                @Override
-                public void run() {
-
-                }
-            };*/
-        /*Callable callable = new Callable() {
-            @Override
-            public Object call() throws Exception {
-                squareButton.setId(btnId);
-                return "paintSquareBtn calisti";
-            }
-        };*/
             runnable = new Runnable() {
                 @Override
                 public void run() {
                     squareButton.setId(btnId);
-//                    unLocked4 = true;
-
                 }
             };
-//            runnable = () -> {
-//                Platform.runLater(() -> squareButton.setId(btnId));
-//            };
             runFunctionInPlatformThread(runnable);
-//            runFunctionInPlatformThread(runnable);
         }
 
     }
@@ -368,58 +236,18 @@ public class GameController extends BaseSceneController {
     public void setStepValueToSquareBtnAsAText(SquareButton squareButton) {
         runnable = () -> {
             squareButton.setText(prepareGameBySelectingMenu.getPlayer().getStep() + "");
-//            unLocked5 = true;
         };
-//        runnable = () -> {
-//            Platform.runLater(() -> squareButton.setText(prepareGameBySelectingMenu.getPlayer().getStep() + ""));
-//            ShowPanel.show(getClass()," btn text degismeli");
-//
-//        };
-
-//        Callable callable=new Callable() {
-//            @Override
-//            public Object call() throws Exception {
-//                squareButton.setText(prepareGameBySelectingMenu.getPlayer().getStep() + "");
-//                return  "setStepValueToSquareBtnAsAText calisti";
-//            }
-//        };
         runFunctionInPlatformThread(runnable);
     }
 
     public void clearStepValueOfSquareBtnAsAText(SquareButton squareButton) {
         runnable = () -> {
             squareButton.setText("");
-//            unLocked6 = true;
-//            System.out.println("6. lock acildiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
         };
-//        runnable = () -> {
-//            Platform.runLater(() -> squareButton.setText(""));
-//        };
-//        Callable callable = new Callable() {
-//            @Override
-//            public Object call() throws Exception {
-//                squareButton.setText("");
-//                return "clearStepValueOfSquareBtnAsAText calisti";
-//            }
-//        };
         runFunctionInPlatformThread(runnable);
     }
 
     public void paintHintButtonsOfCurrentBtn() {
-//        vBoxToCenterButtons.getChildren();
-/*
-        for (int i = vBoxToCenterButtons.getChildren().size() - 1; i >= 0; i--) {
-            HBox hBox = (HBox) vBoxToCenterButtons.getChildren().get(i);
-            for (int j = 0; j < hBox.getChildren().size(); j++) {
-                SquareButton squareButton = (SquareButton) hBox.getChildren().get(j);
-
-                if (isOneOfTheHintButton(squareButton)) {
-                    squareButton.setId(PlayerPlayingStyle.HINT_BTN_ID);
-                    System.out.println(" hint btn : " + squareButton.getX() + "-" + squareButton.getY());
-
-                }
-            }
-        }*/
         List<DirectionLocation> list = new LocationsList().getListOfLocationsAccordingToPlayerCompass(prepareGameBySelectingMenu.getPlayer().getCompass());
         list.remove(list.size() - 1);
         for (int i = 0; i < list.size(); i++) {
@@ -427,46 +255,22 @@ public class GameController extends BaseSceneController {
             int y = prepareGameBySelectingMenu.getPlayer().getLocation().getY() + list.get(i).getY();
             if (x >= 0 && x < edgeValue && y >= 0 && y < edgeValue) {
                 determineHintBtn(x, y);
-//                ShowPanel.show(getClass(),"Buraya geldi");
             }
         }
     }
 
     public void paintCurrentButton() {
-//        paintButton(PlayerPlayingStyle.CURRENT_BTN_ID);
         squareBtnCommunity.squareButtonArray
                 [prepareGameBySelectingMenu.getPlayer().getLocation().getX()]
                 [prepareGameBySelectingMenu.getPlayer().getLocation().getY()]
                 .setId(PlayerPlayingStyle.CURRENT_BTN_ID);
     }
-  /*  public void paintButton(String btnId) {
-        squareButtonArray
-                [prepareGameBySelectingMenu.getPlayer().getLocation().getX()]
-                [prepareGameBySelectingMenu.getPlayer().getLocation().getY()]
-                .setId(btnId);
-    }
-*/
 
     void determineHintBtn(int x, int y) {
         if (!squareBtnCommunity.squareButtonArray[x][y].getId().equals(PlayerPlayingStyle.VISITED_BEFORE_BTN_ID))
             paintSquareBtnTo_HintBtn(squareBtnCommunity.squareButtonArray[x][y]);
-//            squareBtnCommunity.squareButtonArray[x][y].setId(PlayerPlayingStyle.HINT_BTN_ID);
 
     }
-
-   /* boolean isOneOfTheHintButton(SquareButton squareButton) {
-        List<DirectionLocation> list = new LocationsList().getListOfLocationsAccordingToPlayerCompass(prepareGameBySelectingMenu.getPlayer().getCompass());
-        list.remove(list.size() - 1);// remove last location
-        for (int i = 0; i < list.size(); i++) {
-            if (prepareGameBySelectingMenu.getPlayer().getLocation().getX() + list.get(i).getX() == squareButton.getX() &&
-                    prepareGameBySelectingMenu.getPlayer().getLocation().getY() + list.get(i).getY() == squareButton.getY()
-                    && !squareButton.getId().equals(PlayerPlayingStyle.VISITED_BEFORE_BTN_ID)) {
-
-                return true;
-            }
-        }
-        return false;
-    }*/
 
     public void clearOldHintButtons() {
         vBoxToCenterButtons.getChildren();

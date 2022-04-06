@@ -14,14 +14,6 @@ public class SquareButton extends Button {
         setId(NORMAL_SQUARE_BTN_ID);
         setPrefSize(40, 40);
         setCursor(Cursor.HAND);
-//        setText(x+"-"+y);
-//        setStyle();
-  /*      setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                System.out.println(" Tiklanilan button  kordinatlari : "+getX()+"-"+getY());
-            }
-        });*/
     }
 
     public int getX() {

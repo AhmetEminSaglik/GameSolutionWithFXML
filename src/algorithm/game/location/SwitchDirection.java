@@ -14,7 +14,6 @@ public class SwitchDirection {
     }
 
     public DirectionLocation choseDirection(int value) {
-//        ShowPanel.show(getClass(),"compass.getNorth() "+compass.getNorth()+" value : "+value);
 
         if (compass.getNorth() == value) {
             North north = new North();

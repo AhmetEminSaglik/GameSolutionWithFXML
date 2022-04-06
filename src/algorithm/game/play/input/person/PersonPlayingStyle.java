@@ -30,13 +30,11 @@ public class PersonPlayingStyle extends PlayerPlayingStyle {
 
     @Override
     public void play(SquareButton button) {
-//        gameController.printModel();
         if (player.getStep() == 0) {
 //  TODO : Bu lazim olabilir            player.getPlayerMove().setChangeableStartLocationSpecialMovement(new PersonChangeLocationMove(player, button));
             fxmlMoveForwardOrBack = fxmlMoveForward;
             fxmlMoveForwardOrBack.setUpdateValuesInGameModel(player.getPlayerMove().getMoveForward().getUpdateValuesInGameModel());
             fxmlMoveForwardOrBack.setChangePlayerLocation(new ChangeLocationByExactlyLocation(player));
-//            System.out.println(fxmlMoveForwardOrBack.getChangePlayerLocation());
 
             DirectionLocation directionLocation = new DirectionLocation();
             directionLocation.setX(button.getX());
@@ -56,14 +54,9 @@ public class PersonPlayingStyle extends PlayerPlayingStyle {
                 FxmlMove moveForwardOrBack = getFxmlMoveBackOrForward(choose);
 
                 if (moveForwardOrBack != null) {
-//                    System.out.println("direction  3 -) :"+new DirectionLocation().getLocationValueAccordingToEnteredValue(game, choose).toString());
                     moveForwardOrBack.move(
                             new DirectionLocation().getLocationValueAccordingToEnteredValue
                                     (player.getGame(), choose));
-//                    System.out.println(player.getTimeKeeper().getTotalPassedTimeDuringPlayingGame());
-//                    if (player.getStep() == 6) {
-//                        System.out.println("step value 6");
-//                    }
                     checkStatus();
                 }
             }
@@ -74,20 +67,17 @@ public class PersonPlayingStyle extends PlayerPlayingStyle {
     }
 
     public void checkStatus() {
-//        Runnable runnable = new Runnable() {
-//            @Override
-//            public void run() {
         Thread checkStatusThread = new Thread(new Runnable() {
             @Override
             public void run() {
                 if (prepareGameBySelectingMenu.getPlayer().getGameRule().isGameOver(prepareGameBySelectingMenu.getPlayer().getGame())) {  // todo bu person kismina atanacak
                     if (prepareGameBySelectingMenu.getPlayer().getStep() == prepareGameBySelectingMenu.getEdgeValue() * prepareGameBySelectingMenu.getEdgeValue()) {
-                        ShowPanel.show(/*getClass(), getClass().getName() */"Congratulations You succeed");
+                        ShowPanel.show("Congratulations You succeed");
 
                         gameController.lblScoreValue.setText(prepareGameBySelectingMenu.getPlayer().getScore().getTotalGameFinishedScore() + "");
                     } else {
                         gameController.stopTiming();
-                        ShowPanel.show(/*getClass(),*/ "Game Over" +
+                        ShowPanel.show("Game Over" +
                                 "\n" + gameController.getElapsedTime().getTimeInStringFormat() +
                                 "\nYour Step value is  " + prepareGameBySelectingMenu.getPlayer().getStep() +
                                 "\nYour Score is  " + prepareGameBySelectingMenu.getPlayer().getScore().getTotalGameFinishedScore());
@@ -101,11 +91,6 @@ public class PersonPlayingStyle extends PlayerPlayingStyle {
         checkStatusThread.start();
 
 
-//            }
-//
-//        };
-//
-//        gameController.runFunctionInPlatformThread(runnable);
     }
 
     @Override
@@ -117,10 +102,4 @@ public class PersonPlayingStyle extends PlayerPlayingStyle {
         }
     }
 
-/*    FxmlMove getMoveBackOrForward(int index) {
-        if (index == player.getCompass().getLastLocation()) {
-            return  fxmlMoveBack;
-        }
-        return fxmlMoveForward;
-    }*/
 }

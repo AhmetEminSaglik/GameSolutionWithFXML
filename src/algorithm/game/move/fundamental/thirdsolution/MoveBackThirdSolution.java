@@ -1,3 +1,4 @@
+/*
 package algorithm.game.move.fundamental.thirdsolution;
 
 import algorithm.game.Game;
@@ -70,3 +71,4 @@ public class MoveBackThirdSolution extends MoveBack {
     }
 
 }
+*/

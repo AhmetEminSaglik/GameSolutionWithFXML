@@ -13,8 +13,6 @@ public class ChangeLocationByAdding extends ChangePlayerLocation {
         yChangeLocationByAdding(location.getY());
     }
 
-
-
     @Override
     public void change(Location location) {
         changePlayerLocationByAdding(location);

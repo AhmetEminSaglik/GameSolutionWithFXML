@@ -1,6 +1,5 @@
 package algorithm.game.gamerepo.player.robot.solution.second;
 
-import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.Game;
 import algorithm.game.gamerepo.player.robot.solution.BaseSolution;
 import algorithm.game.move.fundamental.secondsolutionforrobot.MoveBackSecondSolution;
@@ -10,9 +9,6 @@ public class SecondSolution_CalculateForwardAvailableWays extends BaseSolution {
     public SecondSolution_CalculateForwardAvailableWays() {
         super("Second Solution");
     }
-/*    public SecondSolution_CalculateForwardAvailableWays(Game game) {
-        super(game);
-    }*/
 
     @Override
     public int getLocationInput(Game game) {
@@ -25,10 +21,8 @@ public class SecondSolution_CalculateForwardAvailableWays extends BaseSolution {
 
     @Override
     public void buildRobotMove() {
-//        ShowPanel.show(getClass()," "+getClass().getName()+" movelar setleniyor");
         setMoveForward(new MoveForwardSecondSolution(getGame()));
         setMoveBack(new MoveBackSecondSolution(getGame()));
-//        ShowPanel.show(getClass()," "+getClass().getName()+" setlenen movelar : "+getMoveForward()+" "+getMoveBack());
     }
 
     @Override

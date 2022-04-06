@@ -15,10 +15,6 @@ public abstract class BaseSolution {
     public BaseSolution(String name) {
         this.name = name;
     }
-/*  public BaseSolution(Game game) {
-        this.game = game;
-
-    }*/
 
     private MoveForward moveForward;
     private MoveBack moveBack;
@@ -29,7 +25,7 @@ public abstract class BaseSolution {
         playerLocation = checkSquare.getPlayerLocation(getGame());
     }
 
-    public abstract int getLocationInput(Game game);//, RobotMemory robotMemory
+    public abstract int getLocationInput(Game game);
 
     public MoveForward getMoveForward() {
         return moveForward;

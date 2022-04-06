@@ -29,9 +29,6 @@ public class EdgeValueController extends BaseSceneController implements IDetermi
         this.prepareGameBySelectingMenu = prepareGameBySelectingMenu;
     }
 
-//    @FXML
-//    private AnchorPane anchorPane;
-
     @FXML
     private VBox menuFirstDeepVBox;
 
@@ -62,9 +59,6 @@ public class EdgeValueController extends BaseSceneController implements IDetermi
 
     @FXML
     void getSelectedRadioBtnItem(ActionEvent event) {
-//        System.out.println("Secilen toggle " + edgeValueGroup.getSelectedToggle());
-//        System.out.println(edgeValueGroup.getSelectedToggle() == radioBtnSquareEdge5x5);
-//        System.out.println(edgeValueGroup.getSelectedToggle());
 
         if (radioBtnSquareEdge5x5.equals(edgeValueGroup.getSelectedToggle())) {
             squareEdgeValue = 5;
@@ -79,7 +73,6 @@ public class EdgeValueController extends BaseSceneController implements IDetermi
         } else if (radioBtnSquareEdge10x10.equals(edgeValueGroup.getSelectedToggle())) {
             squareEdgeValue = 10;
         }
-//        prepareGameBySelectingMenu.setEdgeValue(squareEdgeValue);
 
     }
 

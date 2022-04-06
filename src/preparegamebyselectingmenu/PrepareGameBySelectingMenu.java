@@ -15,62 +15,39 @@ public class PrepareGameBySelectingMenu {
     private Player player;
     private Game game;
     private int edgeValue;
-    //    PlayGameWithGameController playGameFXML;
     private PlayerPlayingStyle playerPlayingStyle;
     private PlayerSpecialStuffToPrepareBeforeStartGame playerSpecialStuffToPrepareBeforeStartGame;
 
     public void prepareGame() {
-//        buildGameModel();
         prepareAllStuffs();
-//        playGameFXML = new PlayGameWithGameController(this);
-//        getPlayerPlayingStyle().prepareGame();
     }
 
     void prepareAllStuffs() {
-//        ShowPanel.show(getClass(),"  prepare geldi");
 
         createGame();
         createVisitedArea();
         player.setStep(0);
         game.setPlayer(player);
         player.setGame(game);
-//        playerSpecialStuffToPrepareBeforeStartGame.prepare();
-//        player.getIPlayerInput()
 
     }
 
     public void buildGameModel(IDetermineEdgeValue iDetermineEdgeValue) {
-//        System.out.println("gelen deger : "+iDetermineEdgeValue.determineEdgeValue());
         edgeValue = iDetermineEdgeValue.determineEdgeValue();
         buildGameModel = new BuildGame(iDetermineEdgeValue);
 
     }
 
-    static int counter = 0;
 
     public void createGame() {
-//        counter++;
         game = buildGameModel.createGame();
-//        System.out.print(counter+"-) ilk olusturulan  game  :");
-//        game.printGameAdress();
 
     }
 
-//    public void selectPlayer(Player player/*ISelectPlayer iSelectPlayer*/) {
-////        player = iSelectPlayer.selectPlayer(game);
-//        this.player = player;
-//
-//    }
 
     public void createVisitedArea() {
         buildGameModel.createVisitedArea();
     }
-
-/*    public void playGame() {
-        PlayGame playGame = new PlayGame(game);
-        playGame.playGame();
-
-    }*/
 
     public BuildGame getBuildGameModel() {
         return buildGameModel;
@@ -89,8 +66,6 @@ public class PrepareGameBySelectingMenu {
     }
 
     public Game getGame() {
-//        ShowPanel.show(getClass(),"Donecek olan game : "+game);
-
         return game;
     }
 
@@ -110,17 +85,6 @@ public class PrepareGameBySelectingMenu {
     public void setPlayerPlayingStyle(PlayerPlayingStyle playerPlayingStyle) {
         this.playerPlayingStyle = playerPlayingStyle;
     }
-
-/*    @Override
-    public String toString() {
-        return "fxmlmove.preparegamebyselectingmenu.PrepareGameBySelectingMenu{" +
-                "buildGameModel=" + buildGameModel +
-                ", player=" + player +
-                ", game=" + game +
-                ", edgeValue=" + edgeValue +
-                '}';
-    }*/
-
     public PlayerSpecialStuffToPrepareBeforeStartGame getPlayerSpecialStuffToPrepareBeforeStartGame() {
         return playerSpecialStuffToPrepareBeforeStartGame;
     }

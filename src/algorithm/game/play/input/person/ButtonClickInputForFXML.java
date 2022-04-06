@@ -8,10 +8,8 @@ import java.util.ArrayList;
 
 public class ButtonClickInputForFXML implements InputWayOfPersonInput {
 
-    //    public static final int NO_MATCH_FOR_
     private int inputValue;
     Person person;
-//    Location x, y;
 
     public ButtonClickInputForFXML(Person person) {
         this.person = person;

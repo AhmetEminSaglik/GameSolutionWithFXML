@@ -58,16 +58,9 @@ public class Validation {
         Player player = game.getPlayer();
         compass = game.getPlayer().getCompass();
         location = new DirectionLocation().getLocationFromCompass(compass, input);
-//        System.out.println("AACACA");
-        /* kuzeyden baslayip saat yonun`de kontrol edecegi icin  yon pusulasini gonderiyoruz
-        Kullanici pusulasi  kullanici girisli pusulada kullanildigi icin burada dizi indexinde kullanamiyoruz
-        O yuzden bu sekilde gonderdik
-            
-         */
+
         try {
 
-            // ??? HATA CIKARSA BUNU AKTIFLESTIR  switchDirection = new SwitchDirection(compass);
-            // switchDirection.choseDirection(input);
             if (calculateValidOrNot(game.getModel().getGameSquares().length, currentProcessLocation.getX(), location.getX())
                     && calculateValidOrNot(game.getModel().getGameSquares().length, currentProcessLocation.getY(), location.getY())) {
 

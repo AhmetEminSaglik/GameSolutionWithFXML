@@ -1,3 +1,4 @@
+/*
 package algorithm.game.gamerepo.player.robot.solution.third;
 
 import algorithm.game.location.Location;
@@ -33,9 +34,11 @@ public class Vertex {
         return location;
     }
 
-    /*public void setLocation(Location location) {
+    */
+/*public void setLocation(Location location) {
         this.location = location;
-    }*/
+    }*//*
+
 
     public int getAvailableWayNumber() {
         return availableWayNumber;
@@ -79,3 +82,4 @@ public class Vertex {
         return text;
     }
 }
+*/

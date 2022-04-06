@@ -19,5 +19,4 @@ public class DirectionCompass extends Compass {
         setLastLocation(8);
     }
 
-   
 }

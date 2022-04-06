@@ -18,13 +18,10 @@ public class InpectingForwardLocation {
         ArrayList<Location> availableLocationList = new ArrayList<>();
         Drone drone = buildDrone(game, locationNeededToInspect);
         locationsList = new LocationsList().getListOfLocationsAccordingToPlayerCompass(game.getPlayer().getCompass());
-        int availableLocationNumberToMove = 0;
         for (int i = 0; i < locationsList.size() - 1; i++) {
             if (squareProcess.isAreaAvailableToVisit(game, drone.getLocation(), locationsList.get(i)))
                 availableLocationList.add(locationsList.get(i));
-//            availableLocationNumberToMove++;
         }
-//        return availableLocationNumberToMove;
         return availableLocationList;
     }
 

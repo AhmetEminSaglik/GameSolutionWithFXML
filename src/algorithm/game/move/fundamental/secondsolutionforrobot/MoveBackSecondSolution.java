@@ -1,7 +1,6 @@
 package algorithm.game.move.fundamental.secondsolutionforrobot;
 
 
-import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.Game;
 import algorithm.game.gamerepo.player.robot.Robot;
 import algorithm.game.gamerepo.player.robot.solution.second.exitsituation.ExitSituation;
@@ -30,7 +29,6 @@ public class MoveBackSecondSolution extends MoveBack {
 
     @Override
     public void updateBeforeStep() {
-//        ShowPanel.show(getClass(), "MOVE FORWARD second solution updateBeforeStep");
         super.updateBeforeStep();
     }
 
@@ -45,12 +43,7 @@ public class MoveBackSecondSolution extends MoveBack {
 
         if (robot.getRobotMemory().getRoadMemory().getOneWayListLastItem() != null)
             if (robot.getStep() < robot.getRobotMemory().getRoadMemory().getOneWayListLastItem().getStep()) {
-//                System.out.println("Temizlik oncesi" + robot.getRobotMemory().getRoadMemory().getOneWayNumbersList().size());
-//                System.out.println("Temizlik oncesi son item : "+robot.getRobotMemory().getRoadMemory().getOneWayListLastItem().toString());
                 robot.getRobotMemory().getRoadMemory().removeOneWayListLastItem();
-//                System.out.println("Temizlik Sonrasi " + robot.getRobotMemory().getRoadMemory().getOneWayNumbersList().size());
-//                System.out.println("Temizlik Sonrasi son item : "+robot.getRobotMemory().getRoadMemory().getOneWayListLastItem().toString());
-//                ShowPanel.show(getClass(), " NAVIGATION temizlendi  ");
                 if (navigation.isExitSituationWasLocatedInThisStep())
                     robot.getRobotMemory().getRoadMemory().updateExistSituation(ExitSituation.EXIT_FREE);
             }
@@ -81,10 +74,7 @@ public class MoveBackSecondSolution extends MoveBack {
     @Override
     public String toString() {
         return "MoveBackSecondSolution\n{" +
-//                "game=" + game +
                 ", updateValuesInGameModel=" + updateValuesInGameModel +
-//                ", robot=" + robot +
-//                ", navigation=" + navigation +
                 '}';
     }
 }

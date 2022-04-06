@@ -1,22 +1,17 @@
 package algorithm.game.move;
 
-import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.gamerepo.FillGameSquare;
 import algorithm.game.gamerepo.updategamemodel.UpdateValuesInGameModel;
 import algorithm.compass.Compass;
 import algorithm.game.Game;
 import algorithm.game.location.DirectionLocation;
-import algorithm.game.move.fundamental.MoveBack;
 import algorithm.print.EasylyReadNumber;
-import algorithm.printarray.StringFormat;
-import algorithm.validation.Validation;
 
 
 public abstract class Move implements IMove { // ICalculateMove
     ChangePlayerLocation changePlayerLocation;
     public Game game;
     Compass compass;
-    //    Validation validation = new Validation();
     protected UpdateValuesInGameModel updateValuesInGameModel;
     private FillGameSquare fillGameSquare;
 
@@ -28,7 +23,6 @@ public abstract class Move implements IMove { // ICalculateMove
         compass = game.getPlayer().getCompass();
         fillGameSquare = new FillGameSquare(game);
         squareEdge = game.getModel().getGameSquares().length;
-//        changePlayerLocation = updateValuesInGameModel.getChangePlayerLocation();
     }
 
     @Override
@@ -44,27 +38,11 @@ public abstract class Move implements IMove { // ICalculateMove
 
     public final void move(DirectionLocation directionLocation) {
 
-//        ShowPanel.show(getClass(), "  \ngelen degeri sapta :\n " + toString());
         setDirectionLocation(directionLocation);
-//        System.out.println("gelen degeri sapta : " + toString());
         game.increaseRoundCounter();
         prepareAllStuff();
-//        System.out.println("+++++++++++++++++++++++++++++++++++++");
-//        System.out.println("gelen direciton : " + directionLocation);
-//        System.out.println(" getDirection : " + getDirectionLocation());
-//        System.out.println("----------------------------------------------");
-//        System.out.println(" 1 getDirection : " + getDirectionLocation());
-//        System.out.println("||||||||||||||||||||||||||||||||||");
-//        System.out.println("gelen direciton : " + directionLocation);
-//        System.out.println(" getDirection : " + getDirectionLocation());
-//        System.out.println("----------------------------------------------");
-
-//        System.out.println(getDirectionLocation().toString());
-//        setDirectionLocation(directionLocation);
 
         if (isRequiredToChangeStartLocation()) {
-//            System.out.println(" 11111111111111111 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> "+getClass());
-//            ShowPanel.show(getClass(),"GELDII");
             changeStartLocation(directionLocation);
         }
         if (game.getPlayer().getStep() > 0) {
@@ -73,17 +51,6 @@ public abstract class Move implements IMove { // ICalculateMove
         updatePlayerStepValue();
         updateAfterStep();
         fillGameSquare.printStepInGameSquare();
-
-//        ShowPanel.show(getClass(), "Butun class dizini yazdir  (Move)" + getClass());
-
-
-        /*if (game.getPlayer().getGameRule().isGameOver(game)) {
-            appendFileSquareTotalSolvedValue();
-        }*/
-//        StringFormat stringFormat = new StringFormat();
-//        System.out.println("move clasisnda move fonksiyonu visited direction adresi");
-//        String text = stringFormat.getStringFormatArray(game.getPlayer().getVisitedDirections());
-//        System.out.println(text);
     }
 
     @Override
@@ -157,14 +124,11 @@ public abstract class Move implements IMove { // ICalculateMove
 
     @Override
     public void updateVisitedArea() {
-//        ShowPanel.show(getClass(),"GELDIIII"+game.getPlayer().getPlayerMove().getMove().getClass().getName());
         updateValuesInGameModel.updateValueVisitedArea();
     }
 
     @Override
     public void updatePlayerLocation() {
-//        System.out.println(" 4 getDirection : " + getDirectionLocation());
-//        System.out.println("gelen direction : "+getDirectionLocation());
         updateValuesInGameModel.changePlayerLocation(getDirectionLocation());
     }
 

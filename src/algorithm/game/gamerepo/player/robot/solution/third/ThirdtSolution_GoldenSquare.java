@@ -1,3 +1,4 @@
+/*
 package algorithm.game.gamerepo.player.robot.solution.third;
 
 import algorithm.game.Game;
@@ -23,10 +24,12 @@ public class ThirdtSolution_GoldenSquare extends BaseSolution {
         MathFunctionWithSpecialFeaturesForThirdSolution mathFunctionWithSpecialFeaturesForThirdSolution
                 = new MathFunctionWithSpecialFeaturesForThirdSolution(game, playerLocation);
 
+*/
 /*
         GraphMemory graphMemory=((Robot)game.getPlayer()).getRobotMemory().getGraphMemory();
         graphMemory.createGraphAccordingToGame();
-*/
+*//*
+
 
 
 //        ShowPanel.show(getClass(),"DURRRR");
@@ -39,3 +42,4 @@ public class ThirdtSolution_GoldenSquare extends BaseSolution {
         setMoveBack(new MoveBackThirdSolution(getGame()));
     }
 }
+*/

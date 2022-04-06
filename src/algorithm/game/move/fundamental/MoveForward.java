@@ -1,13 +1,9 @@
 package algorithm.game.move.fundamental;
 
-import algorithm.errormessage.ErrorMessage;
-import algorithm.errormessage.joptionpanel.ShowPanel;
 import algorithm.game.Game;
 import algorithm.game.gamerepo.updategamemodel.UpdateForMovedForward;
 import algorithm.game.location.DirectionLocation;
 import algorithm.game.move.Move;
-import algorithm.game.move.ResetAllDataForGameAndPlayer;
-import algorithm.game.play.SelectFirstSqaureToStart;
 
 public class MoveForward extends Move {
 
@@ -20,7 +16,6 @@ public class MoveForward extends Move {
     @Override
     public void updateVisitedDirection() {
         game.getPlayer().getScore().lockCounterOfMovingBackLose();
-//        System.out.println("geri adim atma kilidi kapatildi");
         updateValuesInGameModel.updateValueVisitedDirection(getDirectionLocation());
     }
 
@@ -31,8 +26,6 @@ public class MoveForward extends Move {
 
     @Override
     public void updateAfterStep() {
-//        System.out.println(" 3 getDirection : " + getDirectionLocation());
-//        ShowPanel.show(getClass()," "+getClass().getName()+" updateAfterStep \n (super ici)");
         updatePlayerLocation();
         updateVisitedArea();
         updateVisitedDirection();
@@ -41,7 +34,6 @@ public class MoveForward extends Move {
 
     @Override
     public void changeStartLocation(DirectionLocation directionLocation) {
-//        ShowPanel.show(getClass(), " ???????????????????????????? adim sayisi 0 iken buraya geldi");
 
     }
 

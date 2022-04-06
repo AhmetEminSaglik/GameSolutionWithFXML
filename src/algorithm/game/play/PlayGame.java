@@ -21,13 +21,10 @@ public class PlayGame {
     public ComparisonOfSolutions comparisonOfSolutions;
     StringFormat stringFormat = new StringFormat();
     TimeCalcuation timeCalcuation;
-//    int startLocationX, startLocationY;
 
     public PlayGame(Game game) {
         this.game = game;
         player = game.getPlayer();
-//        System.out.println("gelen game : " + game.toString());
-//        printable = new FileWriteProcess(game.getPlayer().getName());
     }
 
 
@@ -35,8 +32,6 @@ public class PlayGame {
         comparisonOfSolutions.compareSolution();
     }
 
-//    public void movePlayer(int x, int y) {
-//    }
 
     public void playGame() {
 
@@ -44,19 +39,9 @@ public class PlayGame {
         prepareGame.prepareToPlay(0,0);
         Move moveForwardOrBack;
 
-//        appendFileSolutionName();
-//        startLocationX = game.getPlayer().getLocation().getX();
-//        startLocationY = game.getPlayer().getLocation().getY();
-//        game.getPlayer().getLocation().setX(new Scanner(System.in).nextInt());
-//        game.getPlayer().getLocation().setY(new Scanner(System.in).nextInt());
-//        game.getPlayer().getLocation().setX(1);
-//        game.getPlayer().getLocation().setY(1);
         printGamelastStuation(game);
-//        System.out.println(player.toString());
-
 
         while (!player.getGameRule().isGameOver(game)) {
-//            new Sleep().sleep(1000);
         game.increaseRoundCounter();
         int choose = player.getInput(game);
         moveForwardOrBack = getMoveBackOrForward(choose);
@@ -65,15 +50,6 @@ public class PlayGame {
                         getLocationValueAccordingToEnteredValue(game, choose));
 
         calculatePlayerTotalWinScore();
-
-//            System.out.println(game.getPlayer().getLocation().getX());
-//            System.out.println(game.getPlayer().getLocation().getY());
-
-//            if (game.getModel().getGameSquares()[0][0] != 1)
-//                break;
-//        if (player.isPrintableStepSituation() == true) {
-//            printGamelastStuation(game);
-//        }
             printGamelastStuation(game);
             if(game.getModel().getGameSquares()[0][0]!=1){
                 ShowPanel.show(/*getClass(),*/getClass().getName()+" ilk kare degisti");
@@ -84,10 +60,6 @@ public class PlayGame {
             saveGameResultToScore();
         }
 
-     /*   if(player.getStep()==25){
-            ShowPanel.show(getClass()," 25 oldu");
-
-        }*/
         player.getPlayerMove().getMoveForward().setChangePlayerLocation(new ChangeLocationByAdding(player));
         }
 

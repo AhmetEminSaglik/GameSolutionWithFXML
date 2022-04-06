@@ -7,36 +7,24 @@ import java.util.Scanner;
 
 public class BuildGame /*implements IDetermineEdgeValue*/ {
 
-    // horizontalSquare and verticalSquare are unnecessary. But later I may need them if I want to play as a rectangle instead of square
     private int edgeValue;
-    //    private int verticalSquare;
     private Game game;
     IDetermineEdgeValue IDetermineEdgeValue;
 
     public BuildGame(IDetermineEdgeValue IDetermineEdgeValue) {
         this.IDetermineEdgeValue = IDetermineEdgeValue;
         edgeValue = determineEdgeValue();
-//        System.out.println("buradaki deger : "+edgeValue);
         buildGame(edgeValue);
-//        IDetermineEdgeValue.determineEdgeValue();
-
     }
-
-//    public BuildGame(int edgeValue) {
-//        buildGame(edgeValue);
-//    }
 
     private void buildGame(int edgeValue) {
         try {
             this.edgeValue = edgeValue;
             new SquareValidationGame(edgeValue, edgeValue);
-//            this.edgeValue = edgeValue;
-//            System.out.println("simdiki edge value : "+edgeValue);
             game = new Game();
         } catch (Exception e) {
             System.out.println(e.getMessage());
             buildGame(determineEdgeValue());
-
         }
     }
 
@@ -82,8 +70,6 @@ public class BuildGame /*implements IDetermineEdgeValue*/ {
 
 
     public int determineEdgeValue() {
-//        System.out.print("Determine Edge value of Square :  ");
-//        return new Scanner(System.in).nextInt();
         return IDetermineEdgeValue.determineEdgeValue();
     }
 }

@@ -9,18 +9,13 @@ import scene.game.SquareButton;
 public abstract class FxmlMove extends Move {
     FxmlSquareBtnCommunity squareBtnCommunity;
     GameController gameController;
-    int playerLocationX, playerLocationY;// = game.getPlayer().getLocation().getX();// = game.getPlayer().getLocation().getY();
+    int playerLocationX, playerLocationY;
     SquareButton currentBtn;
 
     public FxmlMove(Game game) {
         super(game);
     }
 
-
- /*   @Override
-    public void updateVisitedDirection() {
-
-    }*/
 
     SquareButton getCurrentBtn() {
         updatePlayerLocationToGetCurrentBtn();

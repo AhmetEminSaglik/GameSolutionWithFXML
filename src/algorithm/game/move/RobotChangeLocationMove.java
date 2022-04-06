@@ -14,7 +14,6 @@ public class RobotChangeLocationMove implements ChangeableStartLocationSpecialMo
 
     @Override
     public void changeStartLocation() {
-//        ShowPanel.show(getClass(), "GELDIIIIIIIIIIIIIIIIII  DOLUUU");
         int locationX = game.getPlayer().getLocation().getX();
         int locationY = game.getPlayer().getLocation().getY();
         locationX++;
@@ -38,7 +37,6 @@ public class RobotChangeLocationMove implements ChangeableStartLocationSpecialMo
 
             }
         } else {
-//            ShowPanel.show(getClass(), " Y siniri asti ");
         }
 
 

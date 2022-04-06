@@ -11,8 +11,6 @@ import algorithm.validation.Validation;
 
 public class PersonInput /*extends BaseControlInput*/ implements IPlayerInput {
 
-    //    CheckSquare checkSquare = new CheckSquare();
-//    Compass compass = new KeyboardCompass();
     CheckSquare checkSquare = new CheckSquare();
     private InputWayOfPersonInput inputWayOfPersonInput;
 
@@ -20,15 +18,9 @@ public class PersonInput /*extends BaseControlInput*/ implements IPlayerInput {
         this.inputWayOfPersonInput = inputWayOfPersonInput;
     }
 
-    //    public PersonInput(Game game) {
-////        super(game);
-//    }
-
 
     @Override
     public int getInput(Game game) {
-//        while (true) { // sonsuz donguye girme riskinden dolayi kaldirdim
-//            System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
         int choose = inputWayOfPersonInput.getInput();
         if (isMoveableDirectionInput(game, choose)) {
             return choose;
@@ -38,11 +30,9 @@ public class PersonInput /*extends BaseControlInput*/ implements IPlayerInput {
                     "chose : " + choose + "\n" +
                     "checkSquare.getCompass().getNorth() " + checkSquare.getCompass().getNorth());
         }
-//        }
         return -1;
     }
 
-    //    @Override
     public boolean isInputSuitableToMoveForward(Game game, int choose) {
         return checkInputForForward(game, choose);
     }
@@ -66,7 +56,6 @@ public class PersonInput /*extends BaseControlInput*/ implements IPlayerInput {
         return checkSquare.getPlayerLocation(game);
     }
 
-    //    @Override
     public boolean isInputSuitableToMoveBack(Game game, int choose) {
         return checkInputForBack(game, choose);
     }

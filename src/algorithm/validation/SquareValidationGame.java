@@ -7,7 +7,6 @@ public class SquareValidationGame {
 
     int horizontalSquares;
     int verticalSquares;
-//    Game game;
 
     public SquareValidationGame(int verticalSquares, int horizontalSquares) throws Exception {
 

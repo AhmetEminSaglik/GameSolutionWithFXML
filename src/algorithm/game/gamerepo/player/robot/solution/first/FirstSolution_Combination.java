@@ -10,12 +10,8 @@ import algorithm.game.move.fundamental.MoveForward;
 
 import java.util.ArrayList;
 
+
 public class FirstSolution_Combination extends BaseSolution {
-
-//    public FirstSolution_Combination(Game game) {
-//        super(game);
-//    }
-
 
     public FirstSolution_Combination() {
         super("First Solution");
@@ -28,15 +24,14 @@ public class FirstSolution_Combination extends BaseSolution {
                 new LocationsList().getListOfLocationsAccordingToPlayerCompass
                         (game.getPlayer().getCompass());
 
-
         for (int i = 0; i < locationsList.size() - 1; i++) {
 
             if (squareProcess.isSquareAvailableToMoveOnIt(game, playerLocation, locationsList.get(i))) {
                 return locationsList.get(i).getId();
             }
         }
-//        }
-        return locationsList.get(locationsList.size() - 1).getId(); //LastLocation
+        int lastLocation=  locationsList.get(locationsList.size() - 1).getId();
+        return lastLocation;
 
     }
 
@@ -44,9 +39,6 @@ public class FirstSolution_Combination extends BaseSolution {
     public void buildRobotMove() {
         setMoveForward(new MoveForward(getGame()));
         setMoveBack(new MoveBack(getGame()));
-//        System.out.println("buraya girip move forward ve move back dolduruldu");
-//        System.out.println("move forward : "+getMoveForward());
-//        System.out.println("move back : "+getMoveBack());
     }
 
     @Override

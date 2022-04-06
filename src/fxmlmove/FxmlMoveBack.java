@@ -23,32 +23,22 @@ public class FxmlMoveBack extends FxmlMove {
 
     @Override
     public void updateVisitedDirection() {
-//        ShowPanel.show(getClass(), " MOVE BACKk  updateBeforeStep");
         moveBack.updateVisitedDirection();
     }
 
 
     @Override
     public void updateBeforeStep() {
-//        ShowPanel.show(getClass()," MOVE BACKk  geldiiiiiiiiiiiiiiiiiiii"  );
-//        super.updateBeforeStep();
-//        ShowPanel.show(getClass()," FXML MOVE BACK ");
         moveBack.setDirectionLocation(getDirectionLocation());
         moveBack.updateBeforeStep();
         gameController.clearOldHintButtons();
         currentBtn = getCurrentBtn();
         gameController.clearStepValueOfSquareBtnAsAText(currentBtn);
-//        currentBtn.setText("");
         gameController.paintSquareBtnTo_NormalSquareBtn(currentBtn);
-//        ShowPanel.show(getClass(),"FXML Update BEFORE step : "+game.getPlayer().getStep());
     }
 
     @Override
     public void updateAfterStep() {
-//        super.updateAfterStep();
-//        ShowPanel.show(getClass(), " MOVE BACKk  updateAfterStep");
-//        ShowPanel.show(getClass(),"FXML  Update AFTER step : "+game.getPlayer().getStep());
-
         moveBack.updateAfterStep();
 
         SquareButton currentBtn = getCurrentBtn();
@@ -69,10 +59,7 @@ public class FxmlMoveBack extends FxmlMove {
 
     @Override
     public void updatePlayerLocation() {
-//        updateValuesInGameModel.setMovePlayer(new ChangeLocationByAdding(game.getPlayer()));
-//        ShowPanel.show(getClass(), " MOVE BACKk  updatePlayerLocation");
         moveBack.updatePlayerLocation();
-//        super.updatePlayerLocation();
     }
 
 

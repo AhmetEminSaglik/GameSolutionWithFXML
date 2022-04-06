@@ -21,7 +21,6 @@ public class CopyModel {
 
     void addToList(int[][] value) {
         modelList.add(value);
-//        System.out.println("Listeye eklendi boyutu : " + modelList.size());
 
     }
 
@@ -39,19 +38,12 @@ public class CopyModel {
                         System.out.println("Same solution is in this  index : " + i);
                         new PrintArray().printMultipleArray(modelList.get(i));
                     }
-/*                    new PrintArray().printMultipleArray(values);
-                    System.out.println("============================================================ AYNI GELDI GALIBA");
-                    System.out.println("INDEX : " + index);
-                    System.out.println("size : " + modelList.size());*/
                     return;
                 }
             }
             addToList(values);
             System.out.println("Solution values are DIFFERENT so this solution WILL BE ADDED to list " + modelList.size());
-
         }
-
-
     }
 
     public boolean comparedItemsAreSame(int[][] v1, int[][] v2) {

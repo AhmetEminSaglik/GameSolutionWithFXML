@@ -17,25 +17,6 @@ public class MainMenuController extends BaseSceneController  /*implements Initia
         super(prepareGameBySelectingMenu);
         this.prepareGameBySelectingMenu = prepareGameBySelectingMenu;
     }
-
-//    @FXML
-//    private AnchorPane anchorPane;
-
-    //    @FXML
-//    private VBox menuVBox;
-//    @FXML
-//    private Button btnPlayGame;
-//
-//    @FXML
-//    private Button btnSettings;
-//
-//    @FXML
-//    private Button btnExit;
-
-
-    /*@Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-    }*/
     @FXML
     void openPlayGameMenu(ActionEvent event) {
 
