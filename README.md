@@ -1,11 +1,9 @@
-How to run Project? ( For Intelij idea. )
-
-Video of the Project: 
-<br>
+## Video Links: 
 Youtube Link : https://www.youtube.com/watch?v=CuqyXDdQcRA&list=PLkpzlWtSe0YKpE9jLdEJUy0__5WA8HskE&index=3
 <br>
 Linkedin Link : https://www.linkedin.com/posts/ahmeteminsaglik_java-javafx-algorithm-activity-7086650246633521154-jvPQ?utm_source=share&utm_medium=member_desktop
 
+## How to run Project? ( For Intelij idea. )
 
 1. Clone the project onto your laptop.
 2. Open the project.
@@ -15,8 +13,9 @@ Linkedin Link : https://www.linkedin.com/posts/ahmeteminsaglik_java-javafx-algor
 <br> <br> Notes :
 <br> JDK Version : 11
 
-<hr>
+<!--<hr>
 
-You may click following link to watch a short video about what does this project do : 
+  You may click following link to watch a short video about what does this project do : 
 <br>
 https://www.linkedin.com/posts/ahmeteminsaglik_coding-developer-programing-activity-6916717936959193088-ilSz?utm_source=share&utm_medium=member_desktop
+-->
